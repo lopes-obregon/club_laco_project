@@ -1,0 +1,171 @@
+{
+  "Equipes": [
+    {
+      "numeroDaEquipe": 1,
+      "nomeFazenda": "alcatraz",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "alcapone",
+        "categoriaEquipePrimeiro": "Captão",
+        "nomeDoSegundoLacador": "fernanda",
+        "categoriaEquipeSegundo": "Trio-1",
+        "nomeDoTerceiroLacador": "carlos",
+        "categoriaEquipeTerceiro": "Trio-2",
+        "nomeDoQuartoLacador": "carlitos",
+        "categoriaEquipeQuarto": "Trio-3",
+        "nomeDoQuintoLacador": "fredinho",
+        "categoriaEquipeQuinto": "Fecha Rosca"
+      },
+      "telefone": "99999999999999999",
+      "categoriaDaFazenda": [
+        "Individual",
+        "Pai e Filho",
+        "Casal Laçador"
+      ]
+    },
+    {
+      "numeroDaEquipe": 2,
+      "nomeFazenda": "alpha",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "marcos",
+        "categoriaEquipePrimeiro": "Captão",
+        "nomeDoSegundoLacador": "joão",
+        "categoriaEquipeSegundo": "Trio-1",
+        "nomeDoTerceiroLacador": "fernanda",
+        "categoriaEquipeTerceiro": "Trio-2",
+        "nomeDoQuartoLacador": "marcos lopes",
+        "categoriaEquipeQuarto": "Trio-3",
+        "nomeDoQuintoLacador": "francisco",
+        "categoriaEquipeQuinto": "Fecha Rosca"
+      },
+      "telefone": "8888888888888888",
+      "categoriaDaFazenda": [
+        "Individual",
+        "Pai e Filho"
+      ]
+    },
+    {
+      "numeroDaEquipe": 3,
+      "nomeFazenda": "papatino",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "alface",
+        "categoriaEquipePrimeiro": "Captão",
+        "nomeDoSegundoLacador": "tomate",
+        "categoriaEquipeSegundo": "Trio-1",
+        "nomeDoTerceiroLacador": "batata",
+        "categoriaEquipeTerceiro": "Trio-2",
+        "nomeDoQuartoLacador": "feijão",
+        "categoriaEquipeQuarto": "Trio-3",
+        "nomeDoQuintoLacador": "pedro",
+        "categoriaEquipeQuinto": "Fecha Rosca"
+      },
+      "telefone": "7777777777777",
+      "categoriaDaFazenda": [
+        "Individual"
+      ]
+    },
+    {
+      "numeroDaEquipe": 4,
+      "nomeFazenda": "linda",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "ggg",
+        "categoriaEquipePrimeiro": "Captão",
+        "nomeDoSegundoLacador": "kkk",
+        "categoriaEquipeSegundo": "Trio-1",
+        "nomeDoTerceiroLacador": "vvv",
+        "categoriaEquipeTerceiro": "Trio-2",
+        "nomeDoQuartoLacador": "llll",
+        "categoriaEquipeQuarto": "Trio-3",
+        "nomeDoQuintoLacador": "ooo",
+        "categoriaEquipeQuinto": "Fecha Rosca"
+      },
+      "telefone": "999999888",
+      "categoriaDaFazenda": [
+        "Individual"
+      ]
+    },
+    {
+      "numeroDaEquipe": 5,
+      "nomeFazenda": "beramar",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "alfredo bernande",
+        "categoriaEquipePrimeiro": "captao",
+        "nomeDoSegundoLacador": "carlos",
+        "categoriaEquipeSegundo": "trio1",
+        "nomeDoTerceiroLacador": "alfredino",
+        "categoriaEquipeTerceiro": "trio2",
+        "nomeDoQuartoLacador": "vardelino",
+        "categoriaEquipeQuarto": "trio3",
+        "nomeDoQuintoLacador": "capacete",
+        "categoriaEquipeQuinto": "fechaRoca"
+      },
+      "telefone": "999999999999999",
+      "categoriaDaFazenda": [
+        "Individual",
+        "Pai e Filho"
+      ]
+    },
+    {
+      "numeroDaEquipe": 6,
+      "nomeFazenda": "banana",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "cu",
+        "categoriaEquipePrimeiro": "captao",
+        "nomeDoSegundoLacador": "pipiu",
+        "categoriaEquipeSegundo": "trio1",
+        "nomeDoTerceiroLacador": "bubu",
+        "categoriaEquipeTerceiro": "trio2",
+        "nomeDoQuartoLacador": "caca",
+        "categoriaEquipeQuarto": "trio3",
+        "nomeDoQuintoLacador": "chato",
+        "categoriaEquipeQuinto": "fechaRoca"
+      },
+      "telefone": "0000000",
+      "categoriaDaFazenda": [
+        "Individual"
+      ]
+    },
+    {
+      "numeroDaEquipe": 7,
+      "nomeFazenda": "flor",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "kk",
+        "categoriaEquipePrimeiro": "captao",
+        "nomeDoSegundoLacador": "ooo",
+        "categoriaEquipeSegundo": "trio1",
+        "nomeDoTerceiroLacador": "ll",
+        "categoriaEquipeTerceiro": "trio2",
+        "nomeDoQuartoLacador": "eee",
+        "categoriaEquipeQuarto": "trio3",
+        "nomeDoQuintoLacador": "ww",
+        "categoriaEquipeQuinto": "fechaRoca"
+      },
+      "categoriaDaFazenda": [
+        "Individual"
+      ]
+    }
+  ],
+  "NumeroDeLargadas": [
+    {
+      "numeroDeLargada": 1
+    },
+    {
+      "numeroDeLargada": 2
+    },
+    {
+      "numeroDeLargada": 3
+    },
+    {
+      "numeroDeLargada": 4
+    },
+    {
+      "numeroDeLargada": 5
+    },
+    {
+      "numeroDeLargada": 6
+    },
+    {
+      "numeroDeLargada": 7
+    }
+  ],
+  "valorAtual": 3
+}
