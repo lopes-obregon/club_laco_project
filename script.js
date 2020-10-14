@@ -1,5 +1,6 @@
 //para fazer um novo cadastro devemos apagar todos os dados ou recarregar a pagina
 window.$ = window.jQuery = require('./node_modules/jquery')
+const { futimes } = require('fs')
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
@@ -41,8 +42,30 @@ $(function(){
 	$('#cadastrar').click(function(){
 		cadastrar_lacador()	
 	})
-})
+	for(let i = 0; i < 5; i++){
+		$(`input[type=text][name=irmao${i+1}]`).hide();
 
+	}
+	//$('input[type=text][name=irmao1]').hide();
+	$('.irmao').change(function(){
+		for(let i = 0; i < 5; i++){
+			if($(`input[type=radio][name=irmaogp${i+1}]:checked`).val() == 'true'){
+				$(`input[type=text][name=irmao${i+1}]`).show();
+			}
+		}
+		
+			
+	});
+	
+	/*$('#busca').click(function(){
+		if($('input[type=radio][name=op1]:checked').val() == "sim"){
+			printNames();
+
+		}
+
+
+	})*/
+})
 
 //funções da janela de inscrição
 //funções adicionais
@@ -59,18 +82,24 @@ function cadastrar_lacador(){
 	let names = {
 		nomeDoPrimeiroLacador : $('input[type=text][name=name1]').val(),
 		categoriaEquipePrimeiro:$('input[type=radio][name=radiogroup1]:checked').val(),
-		
+		nomeIrmaosPri: $('input[type=text][name=irmao1]').val(),
+
 		nomeDoSegundoLacador:$('input[type=text][name=name2').val(),
 		categoriaEquipeSegundo:$('input[type=radio][name=radiogroup2]:checked').val(),
-		
+		nomeIrmaosSeg: $('input[type=text][name=irmao2]').val(),
+
 		nomeDoTerceiroLacador:	$('input[type=text][name=name3').val(),
 		categoriaEquipeTerceiro: $('input[type=radio][name=radiogroup3]:checked').val(),
-		
+		nomeIrmaosTer: $('input[type=text][name=irmao3]').val(),
+
 		nomeDoQuartoLacador:$('input[type=text][name=name4').val(),
 		categoriaEquipeQuarto:$('input[type=radio][name=radiogroup4]:checked').val(),
-		
+		nomeIrmaosQuar: $('input[type=text][name=irmao4]').val(),
+
 		nomeDoQuintoLacador:$('input[type=text][name=name5').val(),
-		categoriaEquipeQuinto:$('input[type=radio][name=radiogroup5]:checked').val()
+		categoriaEquipeQuinto:$('input[type=radio][name=radiogroup5]:checked').val(),
+		nomeIrmaosQuin: $('input[type=text][name=irmao5]').val()
+
 	}
 	if(($('[class="categoriaadd').val() == null)){
 		alert('Nem uma categoria foi selecionada. Por favor insirir, depois  cadastrar.')
