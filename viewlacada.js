@@ -134,7 +134,35 @@ $(function(){
 			//botão que salva no banco
 			$('#save').click(function(){
 				getTable(listNameClass)
-				console.log(matPoint)
+				let responseDb = db.get(`Equipes[${valorAtual-1}].nomeFazenda`).value();
+				console.log(listNameClass);
+				console.log(matPoint);
+				let obj = {name1:listNameClass[0], armadas1:[], name2:listNameClass[1], armadas2:[], name3:listNameClass[2],armadas3:[]
+				, name4:listNameClass[3], armadas4:[], name5:listNameClass[4], armadas5:[]};
+				for(let i in listNameClass){
+						if(i == 0){
+							obj.armadas1.push(matPoint[i]);
+						}else{
+							if(i == 1){
+								obj.armadas2.push(matPoint[i]);
+							}else{
+								if(i == 2){
+									obj.armadas3.push(matPoint[i]);
+								}else{
+									if(i == 3){
+										obj.armadas4.push(matPoint[i]);
+									}else{
+										if(i == 4){
+											obj.armadas5.push(matPoint[i]);
+										}
+									}
+								}
+							}
+						}
+				
+				}
+				db.get('pontos').push({nomeFazenda: responseDb, lacadores:obj}).write();
+				
 			});
 			
 		}
