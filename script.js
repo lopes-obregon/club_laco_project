@@ -10,7 +10,8 @@ db.defaults({
 	Equipes: [],
 	NumeroDeLargadas: [
 	],
-	valorAtual:1
+	valorAtual:1,
+	pontos:[]
 })
   .write()
 //variaveis global

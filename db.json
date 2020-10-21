@@ -9,16 +9,16 @@
         "nomeIrmaosPri": "",
         "nomeDoSegundoLacador": "b",
         "categoriaEquipeSegundo": "trio1",
-        "nomeIrmaosSeg": "ab, bb",
+        "nomeIrmaosSeg": "",
         "nomeDoTerceiroLacador": "c",
         "categoriaEquipeTerceiro": "trio2",
         "nomeIrmaosTer": "",
         "nomeDoQuartoLacador": "d",
         "categoriaEquipeQuarto": "trio3",
-        "nomeIrmaosQuar": "ad, bd, cd",
+        "nomeIrmaosQuar": "",
         "nomeDoQuintoLacador": "e",
         "categoriaEquipeQuinto": "fechaRoca",
-        "nomeIrmaosQuin": "ae"
+        "nomeIrmaosQuin": ""
       },
       "categoriaDaFazenda": [
         "Individual"
@@ -30,5 +30,6 @@
       "numeroDeLargada": 1
     }
   ],
-  "valorAtual": 2
+  "valorAtual": 1,
+  "pontos": []
 }
