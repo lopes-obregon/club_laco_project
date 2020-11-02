@@ -190,10 +190,12 @@ function setPointTable(listNameClass, lacadoresPoint){
 				//se armada igual 1 então é armada positiva
 				console.log(id);
 				$(`#${id}`).prop("checked", true);
+				$(`#${id}`).prop("disabled", true);
 			}else{
 				if(lacadoresPoint[i][0][j] == -1){
 					//se armada igual a -1 então a armada é negativa
 					$(`#${id}`).prop("indeterminate", true);
+					$(`#${id}`).prop("disabled", true);
 
 				}
 
