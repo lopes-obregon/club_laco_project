@@ -14,26 +14,6 @@ $(function(){
 	//objeto
 	//variavel global
 	//variavel local
-	let count = 0;
-	//document.getElementById("test").indeterminate = true;
-	/*$('#test').click(function(){
-		
-		if($('input[type=checkbox]:checked').val() == undefined){
-			//document.getElementById('test').indeterminate = true;
-			$(this).prop("indeterminate", true);
-			
-
-		}
-		
-		if(count > 2){
-			$(this).prop("indeterminate", false);
-			$(this).prop("checked", false);
-			count = 0;
-
-		}
-		count++;
-		console.log(count)
-	})*/
 	let tamBd = db.get('Equipes').size().value()
 	let listaOrdemLacador = ['nomeDoPrimeiroLacador', 'nomeDoSegundoLacador', 'nomeDoTerceiroLacador', 'nomeDoQuartoLacador', 'nomeDoQuintoLacador']
 	$('#buttonCenter').append('<button id="novaLargada">Novo numéro de largada</button>');
@@ -45,31 +25,33 @@ $(function(){
 			//alert("Não a mais equipes cadastradas todas ja foram chamadas!")
 			let op = dialog.showMessageBoxSync(dialogOptions)
 			if (op == 0) {
-				location.reload()
+				if(db.get('pontos').size().value() > 0  ){
+					op = dialog.showMessageBoxSync({type: 'info', buttons: buttons, message:'Talvez haja armadas para repor deseja verificar ?'});
+					//deseja verificar a reposição de armadas
+					if(op == 0){
+						//rechamada
+						reChamada(valorAtual, listaOrdemLacador);
+					}
+				}else{
+					location.reload();
+				}
+				
 			}
 		}else{
-			$('#center').append(`<p>Numero Da Largada: ${valorAtual}</p>`)
-			$('#center').add('table').addClass("tabela")
-			$('[class="tabela').append("<tr><th>Nome Do Laçador</th><th>1º</th><th>2º</th><th>3º</th><th>4º</th><th>5º</th><th>6º</th></tr>")	
-			let name 
-			let listNameClass = []
-			for(let j in listaOrdemLacador){
-				name = db.get(`Equipes[${valorAtual-1}].nomes.${listaOrdemLacador[j]}`).value()
-				$('[class="tabela').append("<tr>")
-				$('[class="tabela').append(`<td>${name}</td>`)
-				add_view_classificao(name);
-				listNameClass.push(name)
-				matPoint.push([]);
-				for(let i = 0; i < 6; i++){
-					matPoint[j].push(0);
+			if(db.get('pontos').size().value() > 0  ){
+				op = dialog.showMessageBoxSync({type: 'info', buttons: buttons, message:'Talvez haja armadas para repor deseja verificar ?'});
+				//deseja verificar a reposição de armadas
+				if(op == 0){
+					//rechamada
+					reChamada(valorAtual, listaOrdemLacador);
 				}
-				$('[class="tabela').append("</tr>")
-			}
+			}else{
+				printfTabela(valorAtual);
+				elementosTabela(listaOrdemLacador, valorAtual);
 			db.update('valorAtual', valorAtual => valorAtual + 1)
 				.write()
-			$('#center').append(`<button id="calcResRodada"> Calcular Resultado Da Rodada</button>`)
-			$('#center').append('<button id="save">Salvar Resultado Da Tabela </button>');
-			$('#center').append('<button id="corrigi">Corrigir Armada </button>');
+			//função que adiciona os botões
+			addButton();
 			//funções dos botoes
 			$('#corrigi').click(function(){
 				prompt({
@@ -140,6 +122,7 @@ $(function(){
 				let obj = {name1:listNameClass[0], armadas1:[], name2:listNameClass[1], armadas2:[], name3:listNameClass[2],armadas3:[]
 				, name4:listNameClass[3], armadas4:[], name5:listNameClass[4], armadas5:[]};
 				for(let i in listNameClass){
+					//salva os dados da tabela no banco de dados.
 						if(i == 0){
 							obj.armadas1.push(matPoint[i]);
 						}else{
@@ -161,15 +144,106 @@ $(function(){
 						}
 				
 				}
-				db.get('pontos').push({nomeFazenda: responseDb, lacadores:obj}).write();
+				let t = db.get('pontos').push({nomeFazenda: responseDb, lacadores:obj}).write();
+				dialog.showMessageBoxSync({type:'info', buttons:buttons, message:"Pontos Salvo com sucesso!"})
 				
 			});
+			}
+			
 			
 		}
 		
 	})
 	
 })
+//função que chama a criação dos elementos da tabela
+function elementosTabela(listaOrdemLacador, valorAtual){
+	let name 
+	let listNameClass = []
+	for(let j in listaOrdemLacador){
+		if(valorAtual - 1 < 0){
+			valorAtual = 0;
+			name = db.get(`Equipes[${valorAtual}].nomes.${listaOrdemLacador[j]}`).value()
+		}else{
+			name = db.get(`Equipes[${valorAtual-1}].nomes.${listaOrdemLacador[j]}`).value()
+		}
+		$('[class="tabela').append("<tr>")
+		$('[class="tabela').append(`<td>${name}</td>`)
+		add_view_classificao(name);
+		listNameClass.push(name)
+		matPoint.push([]);
+		for(let i = 0; i < 6; i++){
+			matPoint[j].push(0);
+		}
+		$('[class="tabela').append("</tr>")
+	}
+	return listNameClass;
+}
+//função que seta os pontos na tabela
+function setPointTable(listNameClass, lacadoresPoint){
+	let id ="";
+	for(let i in listNameClass){
+		id = listNameClass[i]
+		for(let j = 0; j < 6; j++){
+			id = String(id + j);
+			if(lacadoresPoint[i][0][j] == 1){
+				//se armada igual 1 então é armada positiva
+				console.log(id);
+				$(`#${id}`).prop("checked", true);
+			}else{
+				if(lacadoresPoint[i][0][j] == -1){
+					//se armada igual a -1 então a armada é negativa
+					$(`#${id}`).prop("indeterminate", true);
+
+				}
+
+			}
+		}
+	}
+
+}
+//função que adiciona os botoes
+function addButton(){
+	$('#center').append(`<button id="calcResRodada"> Calcular Resultado Da Rodada</button>`)
+	$('#center').append('<button id="save">Salvar Resultado Da Tabela </button>');
+	$('#center').append('<button id="corrigi">Corrigir Armada </button>');
+}
+//função que imprime a tabela
+function printfTabela(numLargada){
+	$('#center').append(`<p>Numero Da Largada: ${numLargada}</p>`);
+	$('#center').add('table').addClass("tabela")
+	$('[class="tabela').append("<tr><th>Nome Do Laçador</th><th>1º</th><th>2º</th><th>3º</th><th>4º</th><th>5º</th><th>6º</th></tr>")
+}
+//função que faz uma rechamada
+function reChamada(valorAtual, listaOrdemLacador){
+	//variavel que obtem o tamanho do banco
+	let tamPontos = db.get('pontos').size().value()
+	//para dar o primeiro indicie do banco
+	tamPontos = (valorAtual - tamPontos) -1;
+	let pontos = db.get(`pontos[${tamPontos}].lacadores`).value();
+	//array
+	let pontosArmada = [];
+	encheMatriz(pontosArmada, 0, pontos.armadas1);
+	encheMatriz(pontosArmada, 1, pontos.armadas2);
+	encheMatriz(pontosArmada, 2, pontos.armadas3);
+	encheMatriz(pontosArmada, 3, pontos.armadas4);
+	encheMatriz(pontosArmada, 4, pontos.armadas5);
+	function encheMatriz(matriz, index, armada){
+		matriz.push([])
+		for(let i = 0; i < 6; i++){
+			matriz[index].push(armada[i]);
+		}
+	}
+	for(let i = 0; i < 6; i++){
+		if((pontos.armadas1[i] | pontos.armadas2[i]  | pontos.armadas3[i] | pontos.armadas4[i] | pontos.armadas5[i]) == 0){
+			//imprime na tabela
+			printfTabela(tamPontos+1);
+			let listNameClass = elementosTabela(listaOrdemLacador, tamPontos);
+			setPointTable(listNameClass, pontosArmada);
+			break;
+		}
+	}
+}
 //obtem o resultado da tabela
 function getTable(listName){
 	let auxName;

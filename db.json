@@ -31,5 +31,66 @@
     }
   ],
   "valorAtual": 2,
-  "pontos": []
+  "pontos": [
+    {
+      "nomeFazenda": "abcde",
+      "lacadores": {
+        "name1": "a",
+        "armadas1": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "name2": "b",
+        "armadas2": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "name3": "c",
+        "armadas3": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "name4": "d",
+        "armadas4": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "name5": "e",
+        "armadas5": [
+          [
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  ]
 }
