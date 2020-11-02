@@ -340,13 +340,16 @@ function setArmada(listName, name, armada){
 		for(let j = 0; j < 6; j++){
 			auxName = String(aux +j);
 			if((listName[i] == name)  & (armada == j) ){
-				//achei onde corrigir
-				if($(`#${auxName}`).prop('indeterminate') == true){
-					$(`#${auxName}`).prop('indeterminate', false);
-				}else{
-					if($(`#${auxName}`).prop('checked') == true){
-						$(`#${auxName}`).prop('checked', false);
-					}
+				//se onde corrir for diferente de disable então corrigi
+				if($(`#${auxName}`).prop('disabled') == !true){
+					//achei onde corrigir
+					if($(`#${auxName}`).prop('indeterminate') == true){
+						$(`#${auxName}`).prop('indeterminate', false);
+					}else{
+						if($(`#${auxName}`).prop('checked') == true){
+							$(`#${auxName}`).prop('checked', false);
+						}
+				}
 				}
 			}
 
