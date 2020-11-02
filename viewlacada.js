@@ -30,7 +30,11 @@ $(function(){
 					//deseja verificar a reposição de armadas
 					if(op == 0){
 						//rechamada
-						reChamada(valorAtual, listaOrdemLacador);
+						let listNameClass = reChamada(valorAtual, listaOrdemLacador);
+						//adiciona botões
+						addButton();
+						//funções dos botoes
+						acoesButton(listNameClass, valorAtual, tamBd);
 					}
 				}else{
 					location.reload();
@@ -43,112 +47,24 @@ $(function(){
 				//deseja verificar a reposição de armadas
 				if(op == 0){
 					//rechamada
-					reChamada(valorAtual, listaOrdemLacador);
+					let listNameClass = reChamada(valorAtual, listaOrdemLacador);
+					//adiciona botões
+					addButton();
+					//funções dos botoes
+					acoesButton(listNameClass, valorAtual, tamBd);
 				}
 			}else{
 				printfTabela(valorAtual);
-				elementosTabela(listaOrdemLacador, valorAtual);
+				let listNameClass = elementosTabela(listaOrdemLacador, valorAtual);
 			db.update('valorAtual', valorAtual => valorAtual + 1)
 				.write()
 			//função que adiciona os botões
 			addButton();
 			//funções dos botoes
-			$('#corrigi').click(function(){
-				prompt({
-					title: 'Corrigir',
-					label: 'Qual laçador deseja corrir?',
-					value: 'Nome laçador',
-					type: 'input'
-				})
-				.then((name) => {
-					if(name === null) {
-						console.log('user cancelled');
-					} else {
-						prompt({
-							title:'Corrigir',
-							label:'Qual armada deseja corrir?',
-							value:'1',
-							type: 'input'
-						})
-						.then(armada =>{
-							if(name === null){
-								console.log('cancelado');
-							}else{
-								//função que corrigi a armada
-								setArmada(listNameClass, name, armada);
-							}
-						});
-					}
-				})
-				.catch(console.error);
-				
-			});
-			$('.armadas').change(function(){
-				for(let i in listNameClass){
-					for(let j = 0; j < 6; j++){
-						let aux="";
-						aux = String(listNameClass[i] + j);
-						$(`#${aux}`).click(function(){
-								if(($(this).prop("indeterminate") == true)){
-										$(this).prop("indeterminate", false);
-										$(this).prop("checked", false);
-								}
-								//console.log($(`input[type=checkbox][name=${aux}][id=${aux}]:checked`).val())
-								if($(`input[type=checkbox][name=${aux}][id=${aux}]:checked`).val()== undefined){
-									$(this).prop("indeterminate", true);
-									//$(`input[type=checkbox][name=${aux}]:checked`).val()
-								}
-						});
-					}
-				}
-			});
-			$('#calcResRodada').click(function(){
-				let listValorTotal = []
-				let aux 
-				for(let i = 0; i < 6; i++){
-					aux = calc_result(i,listNameClass)
-					listValorTotal.push(aux) 
-				}
-				print_total_rodada(listValorTotal)
-				get_lacada_dos_lacador(listNameClass)
-				print_individual_lacada()
-			})
-			//botão que salva no banco
-			$('#save').click(function(){
-				getTable(listNameClass)
-				let responseDb = db.get(`Equipes[${valorAtual-1}].nomeFazenda`).value();
-				console.log(listNameClass);
-				console.log(matPoint);
-				let obj = {name1:listNameClass[0], armadas1:[], name2:listNameClass[1], armadas2:[], name3:listNameClass[2],armadas3:[]
-				, name4:listNameClass[3], armadas4:[], name5:listNameClass[4], armadas5:[]};
-				for(let i in listNameClass){
-					//salva os dados da tabela no banco de dados.
-						if(i == 0){
-							obj.armadas1.push(matPoint[i]);
-						}else{
-							if(i == 1){
-								obj.armadas2.push(matPoint[i]);
-							}else{
-								if(i == 2){
-									obj.armadas3.push(matPoint[i]);
-								}else{
-									if(i == 3){
-										obj.armadas4.push(matPoint[i]);
-									}else{
-										if(i == 4){
-											obj.armadas5.push(matPoint[i]);
-										}
-									}
-								}
-							}
-						}
-				
-				}
-				let t = db.get('pontos').push({nomeFazenda: responseDb, lacadores:obj}).write();
-				dialog.showMessageBoxSync({type:'info', buttons:buttons, message:"Pontos Salvo com sucesso!"})
-				
-			});
+			acoesButton(listNameClass, valorAtual, tamBd);
+			
 			}
+			
 			
 			
 		}
@@ -156,10 +72,129 @@ $(function(){
 	})
 	
 })
+//procedimento com as ações dos botões
+function acoesButton(listNameClass, valorAtual, tamBd){
+	$('#corrigi').click(function(){
+		prompt({
+			title: 'Corrigir',
+			label: 'Qual laçador deseja corrir?',
+			value: 'Nome laçador',
+			type: 'input'
+		})
+		.then((name) => {
+			if(name === null) {
+				console.log('user cancelled');
+			} else {
+				prompt({
+					title:'Corrigir',
+					label:'Qual armada deseja corrir?',
+					value:'1',
+					type: 'input'
+				})
+				.then(armada =>{
+					if(name === null){
+						console.log('cancelado');
+					}else{
+						//função que corrigi a armada
+						setArmada(listNameClass, name, armada);
+					}
+				});
+			}
+		})
+		.catch(console.error);
+		
+	});
+	$('.armadas').change(function(){
+		for(let i in listNameClass){
+			for(let j = 0; j < 6; j++){
+				let aux="";
+				aux = String(listNameClass[i] + j);
+				$(`#${aux}`).click(function(){
+						
+					if(($(this).prop("indeterminate") == true)){
+								$(this).prop("indeterminate", false);
+								$(this).prop("checked", false);
+						}
+						//console.log($(`input[type=checkbox][name=${aux}][id=${aux}]:checked`).val())
+						if($(`input[type=checkbox][name=${aux}][id=${aux}]:checked`).val()== undefined){
+							$(this).prop("indeterminate", true);
+							//$(`input[type=checkbox][name=${aux}]:checked`).val()
+						}
+				});
+			}
+		}
+	});
+	$('#calcResRodada').click(function(){
+		let listValorTotal = []
+		let aux 
+		for(let i = 0; i < 6; i++){
+			aux = calc_result(i,listNameClass)
+			listValorTotal.push(aux) 
+		}
+		print_total_rodada(listValorTotal)
+		get_lacada_dos_lacador(listNameClass)
+		print_individual_lacada()
+	})
+	//botão que salva no banco
+	$('#save').click(function(){
+		let responseDb;
+		getTable(listNameClass)
+		console.log(valorAtual);
+		if(valorAtual -1 < 0){
+			responseDb = db.get(`Equipes[${valorAtual}].nomeFazenda`).value();
+		}else{
+			if(valorAtual > tamBd){
+				valorAtual -= 1;
+			}
+			responseDb = db.get(`Equipes[${valorAtual-1}].nomeFazenda`).value();
+		} 
+		let obj = {name1:listNameClass[0], armadas1:[], name2:listNameClass[1], armadas2:[], name3:listNameClass[2],armadas3:[]
+		, name4:listNameClass[3], armadas4:[], name5:listNameClass[4], armadas5:[]};
+		console.log(matPoint);
+
+		for(let i in listNameClass){
+			//salva os dados da tabela no banco de dados.
+				
+				if(i == 0){
+					obj.armadas1.push(matPoint[i]);
+				}else{
+					if(i == 1){
+						obj.armadas2.push(matPoint[i]);
+					}else{
+						if(i == 2){
+							obj.armadas3.push(matPoint[i]);
+						}else{
+							if(i == 3){
+								obj.armadas4.push(matPoint[i]);
+							}else{
+								if(i == 4){
+									obj.armadas5.push(matPoint[i]);
+								}
+							}
+						}
+					}
+				}
+				
+		}
+		if(db.get("pontos").find({nomeFazenda: responseDb}).value() == undefined){
+			//não existe então insere na tabela
+			db.get('pontos').push({nomeFazenda: responseDb, lacadores:obj}).write();
+		}else{
+			//atualiza a tabela do banco de dados
+			console.log("atualizando banco");
+			db.get("pontos").find({nomeFazenda: responseDb}).assign({lacadores:obj}).write();			
+
+		}
+		
+		dialog.showMessageBoxSync({type:'info', buttons:buttons, message:"Pontos Salvo com sucesso!"})
+		
+	});
+}
 //função que chama a criação dos elementos da tabela
 function elementosTabela(listaOrdemLacador, valorAtual){
 	let name 
 	let listNameClass = []
+	matPoint = [];
 	for(let j in listaOrdemLacador){
 		if(valorAtual - 1 < 0){
 			valorAtual = 0;
@@ -170,10 +205,32 @@ function elementosTabela(listaOrdemLacador, valorAtual){
 		$('[class="tabela').append("<tr>")
 		$('[class="tabela').append(`<td>${name}</td>`)
 		add_view_classificao(name);
-		listNameClass.push(name)
-		matPoint.push([]);
-		for(let i = 0; i < 6; i++){
-			matPoint[j].push(0);
+		listNameClass.push(name);
+		checkArmada(matPoint, listNameClass);
+		//função que verifica se tem armada ou não e adiciona na matriz
+		function  checkArmada(mat, listNameClass){
+			console.log(mat);
+			let aux = "";
+			if(mat.length <= 5){
+				mat.push([]);
+			}
+			for(let i in listNameClass){
+				aux = listNameClass[i].replace( /\s/g, '' );
+				
+				for(let j = 0; j < 6; j++){
+					aux = String(aux + j);
+					if($(`#${aux}`).prop('checked') == true){
+						mat[i].push(1);
+					}else{
+						if($(`#${aux}`).prop('indeterminate') == true){
+							mat[i].push(-1);
+						}else{
+							matPoint[i].push(0);
+						}
+					}
+					aux = listNameClass[i].replace( /\s/g, '' );
+				}
+			}
 		}
 		$('[class="tabela').append("</tr>")
 	}
@@ -182,24 +239,29 @@ function elementosTabela(listaOrdemLacador, valorAtual){
 //função que seta os pontos na tabela
 function setPointTable(listNameClass, lacadoresPoint){
 	let id ="";
+	matPoint = [];
 	for(let i in listNameClass){
 		id = listNameClass[i]
+		matPoint.push([]);
 		for(let j = 0; j < 6; j++){
 			id = String(id + j);
 			if(lacadoresPoint[i][0][j] == 1){
 				//se armada igual 1 então é armada positiva
-				console.log(id);
 				$(`#${id}`).prop("checked", true);
 				$(`#${id}`).prop("disabled", true);
+				matPoint[i].push(1);
 			}else{
 				if(lacadoresPoint[i][0][j] == -1){
 					//se armada igual a -1 então a armada é negativa
 					$(`#${id}`).prop("indeterminate", true);
 					$(`#${id}`).prop("disabled", true);
-
+					matPoint[i].push(-1);
+				}else{
+					matPoint[i].push(0);
 				}
 
 			}
+			id = listNameClass[i];
 		}
 	}
 
@@ -225,6 +287,7 @@ function reChamada(valorAtual, listaOrdemLacador){
 	let pontos = db.get(`pontos[${tamPontos}].lacadores`).value();
 	//array
 	let pontosArmada = [];
+	let listNameClass;
 	encheMatriz(pontosArmada, 0, pontos.armadas1);
 	encheMatriz(pontosArmada, 1, pontos.armadas2);
 	encheMatriz(pontosArmada, 2, pontos.armadas3);
@@ -236,15 +299,16 @@ function reChamada(valorAtual, listaOrdemLacador){
 			matriz[index].push(armada[i]);
 		}
 	}
+	//imprime na tabela
+	printfTabela(tamPontos+1);
+	listNameClass = elementosTabela(listaOrdemLacador, tamPontos);
 	for(let i = 0; i < 6; i++){
 		if((pontos.armadas1[i] | pontos.armadas2[i]  | pontos.armadas3[i] | pontos.armadas4[i] | pontos.armadas5[i]) == 0){
-			//imprime na tabela
-			printfTabela(tamPontos+1);
-			let listNameClass = elementosTabela(listaOrdemLacador, tamPontos);
+			
 			setPointTable(listNameClass, pontosArmada);
-			break;
 		}
 	}
+	return listNameClass;
 }
 //obtem o resultado da tabela
 function getTable(listName){
