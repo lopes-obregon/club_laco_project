@@ -23,14 +23,41 @@
       "categoriaDaFazenda": [
         "Individual"
       ]
+    },
+    {
+      "numeroDaEquipe": 2,
+      "nomeFazenda": "Estrelinha",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "Pipoca",
+        "categoriaEquipePrimeiro": "captao",
+        "nomeIrmaosPri": "",
+        "nomeDoSegundoLacador": "João",
+        "categoriaEquipeSegundo": "trio1",
+        "nomeIrmaosSeg": "",
+        "nomeDoTerceiroLacador": "igor",
+        "categoriaEquipeTerceiro": "trio2",
+        "nomeIrmaosTer": "",
+        "nomeDoQuartoLacador": "chuchu",
+        "categoriaEquipeQuarto": "trio3",
+        "nomeIrmaosQuar": "",
+        "nomeDoQuintoLacador": "joaquim",
+        "categoriaEquipeQuinto": "fechaRoca",
+        "nomeIrmaosQuin": ""
+      },
+      "categoriaDaFazenda": [
+        "Individual"
+      ]
     }
   ],
   "NumeroDeLargadas": [
     {
       "numeroDeLargada": 1
+    },
+    {
+      "numeroDeLargada": 2
     }
   ],
-  "valorAtual": 2,
+  "valorAtual": 3,
   "pontos": [
     {
       "nomeFazenda": "abcde",
@@ -41,9 +68,9 @@
             1,
             1,
             1,
-            -1,
-            0,
-            0
+            1,
+            1,
+            1
           ]
         ],
         "name2": "b",
@@ -51,21 +78,21 @@
           [
             1,
             1,
-            -1,
             1,
-            0,
-            0
+            1,
+            1,
+            1
           ]
         ],
         "name3": "c",
         "armadas3": [
           [
-            0,
-            -1,
             1,
             1,
-            0,
-            0
+            1,
+            1,
+            1,
+            1
           ]
         ],
         "name4": "d",
@@ -75,22 +102,83 @@
             1,
             1,
             1,
-            0,
-            0
+            1,
+            1
           ]
         ],
         "name5": "e",
         "armadas5": [
           [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "nomeFazenda": "Estrelinha",
+      "lacadores": {
+        "name1": "Pipoca",
+        "armadas1": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "name2": "João",
+        "armadas2": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "name3": "igor",
+        "armadas3": [
+          [
+            1,
             -1,
             1,
             1,
             1,
-            0,
-            0
+            -1
+          ]
+        ],
+        "name4": "chuchu",
+        "armadas4": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "name5": "joaquim",
+        "armadas5": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
           ]
         ]
       }
     }
-  ]
+  ],
+  "valorCheck": 0
 }

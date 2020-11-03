@@ -25,46 +25,26 @@ $(function(){
 			//alert("Não a mais equipes cadastradas todas ja foram chamadas!")
 			let op = dialog.showMessageBoxSync(dialogOptions)
 			if (op == 0) {
-				if(db.get('pontos').size().value() > 0  ){
-					op = dialog.showMessageBoxSync({type: 'info', buttons: buttons, message:'Talvez haja armadas para repor deseja verificar ?'});
-					//deseja verificar a reposição de armadas
-					if(op == 0){
-						//rechamada
-						let listNameClass = reChamada(valorAtual, listaOrdemLacador);
-						//adiciona botões
-						addButton();
-						//funções dos botoes
-						acoesButton(listNameClass, valorAtual, tamBd);
-					}
+				if(db.get('pontos').size().value() > 0 ){
+					//cria um botão para fazer uma rechamada
+					$('#center').append("<button id='rechamada'>Rechamada</button>");
+					buttonRechamada(listaOrdemLacador, valorAtual, tamBd);
+					
 				}else{
 					location.reload();
 				}
 				
 			}
 		}else{
-			if(db.get('pontos').size().value() > 0  ){
-				op = dialog.showMessageBoxSync({type: 'info', buttons: buttons, message:'Talvez haja armadas para repor deseja verificar ?'});
-				//deseja verificar a reposição de armadas
-				if(op == 0){
-					//rechamada
-					let listNameClass = reChamada(valorAtual, listaOrdemLacador);
-					//adiciona botões
-					addButton();
-					//funções dos botoes
-					acoesButton(listNameClass, valorAtual, tamBd);
-				}
-			}else{
-				printfTabela(valorAtual);
-				let listNameClass = elementosTabela(listaOrdemLacador, valorAtual);
+			
+			printfTabela(valorAtual);
+			let listNameClass = elementosTabela(listaOrdemLacador, valorAtual);
 			db.update('valorAtual', valorAtual => valorAtual + 1)
 				.write()
 			//função que adiciona os botões
 			addButton();
 			//funções dos botoes
-			acoesButton(listNameClass, valorAtual, tamBd);
-			
-			}
-			
+			acoesButton(listNameClass, valorAtual, tamBd, listaOrdemLacador);
 			
 			
 		}
@@ -72,8 +52,25 @@ $(function(){
 	})
 	
 })
+//procedimento para chamar as rechamadas
+function buttonRechamada(listaOrdemLacador, valorAtual, tamBd){
+	let listNameClass = reChamada(listaOrdemLacador);
+	if(listNameClass == undefined){
+		$("#rechamada").remove();
+		let op = dialog.showMessageBoxSync({type:'info', buttons: buttons, message: 'Todos as fazendas já foram rechamadas!'});
+		if(op == 1){
+			location.reload();
+		}
+	}else{
+		//função que adiciona os botões
+		addButton();
+		//funções dos botoes
+		acoesButton(listNameClass, valorAtual, tamBd, listaOrdemLacador);
+	}
+	
+}
 //procedimento com as ações dos botões
-function acoesButton(listNameClass, valorAtual, tamBd){
+function acoesButton(listNameClass, valorAtual, tamBd, listaOrdemLacador){
 	$('#corrigi').click(function(){
 		prompt({
 			title: 'Corrigir',
@@ -138,8 +135,7 @@ function acoesButton(listNameClass, valorAtual, tamBd){
 	//botão que salva no banco
 	$('#save').click(function(){
 		let responseDb;
-		getTable(listNameClass)
-		console.log(valorAtual);
+		getTable(listNameClass);
 		if(valorAtual -1 < 0){
 			responseDb = db.get(`Equipes[${valorAtual}].nomeFazenda`).value();
 		}else{
@@ -151,7 +147,6 @@ function acoesButton(listNameClass, valorAtual, tamBd){
 		let obj = {name1:listNameClass[0], armadas1:[], name2:listNameClass[1], armadas2:[], name3:listNameClass[2],armadas3:[]
 		, name4:listNameClass[3], armadas4:[], name5:listNameClass[4], armadas5:[]};
 		console.log(matPoint);
-
 		for(let i in listNameClass){
 			//salva os dados da tabela no banco de dados.
 				
@@ -189,6 +184,20 @@ function acoesButton(listNameClass, valorAtual, tamBd){
 		dialog.showMessageBoxSync({type:'info', buttons:buttons, message:"Pontos Salvo com sucesso!"})
 		
 	});
+	$('#rechamada').click(function(){
+		//como já  de inicio aparace o primeiro então devo atualizar para fazer nova chamada
+		//atualiza para o pŕoximo
+		db.update("valorCheck", reChamada => reChamada + 1).write();
+		//faz a chamada
+		buttonRechamada(listaOrdemLacador, valorAtual, tamBd);
+		
+		/*//rechamada
+			let listNameClass = reChamada(valorAtual, listaOrdemLacador);
+			//adiciona botões
+			addButton();
+			//funções dos botoes
+			acoesButton(listNameClass, valorAtual, tamBd);*/
+	})
 }
 //função que chama a criação dos elementos da tabela
 function elementosTabela(listaOrdemLacador, valorAtual){
@@ -196,25 +205,38 @@ function elementosTabela(listaOrdemLacador, valorAtual){
 	let listNameClass = []
 	matPoint = [];
 	for(let j in listaOrdemLacador){
-		if(valorAtual - 1 < 0){
-			valorAtual = 0;
+		if(valorAtual - 1 <= 0){
+			valorAtual = valorAtual <= 0 ? 0 :1;
+			console.log("valor atual depois da condição ternaria:", valorAtual);
 			name = db.get(`Equipes[${valorAtual}].nomes.${listaOrdemLacador[j]}`).value()
+			if(name == undefined){
+				$("#rechamada").remove();
+				break;
+			}
 		}else{
 			name = db.get(`Equipes[${valorAtual-1}].nomes.${listaOrdemLacador[j]}`).value()
+			if(name == undefined){
+				$("#rechamada").remove();
+				break;
+				
+			}
+			
 		}
 		$('[class="tabela').append("<tr>")
 		$('[class="tabela').append(`<td>${name}</td>`)
 		add_view_classificao(name);
 		listNameClass.push(name);
-		checkArmada(matPoint, listNameClass);
+		$('[class="tabela').append("</tr>")
+	}
+	checkArmada(matPoint, listNameClass);
 		//função que verifica se tem armada ou não e adiciona na matriz
 		function  checkArmada(mat, listNameClass){
-			console.log(mat);
 			let aux = "";
-			if(mat.length <= 5){
-				mat.push([]);
-			}
+			
 			for(let i in listNameClass){
+				if(mat.length <= 5){
+					mat.push([]);
+				}
 				aux = listNameClass[i].replace( /\s/g, '' );
 				
 				for(let j = 0; j < 6; j++){
@@ -225,15 +247,13 @@ function elementosTabela(listaOrdemLacador, valorAtual){
 						if($(`#${aux}`).prop('indeterminate') == true){
 							mat[i].push(-1);
 						}else{
-							matPoint[i].push(0);
+							mat[i].push(0);
 						}
 					}
 					aux = listNameClass[i].replace( /\s/g, '' );
 				}
 			}
 		}
-		$('[class="tabela').append("</tr>")
-	}
 	return listNameClass;
 }
 //função que seta os pontos na tabela
@@ -279,36 +299,41 @@ function printfTabela(numLargada){
 	$('[class="tabela').append("<tr><th>Nome Do Laçador</th><th>1º</th><th>2º</th><th>3º</th><th>4º</th><th>5º</th><th>6º</th></tr>")
 }
 //função que faz uma rechamada
-function reChamada(valorAtual, listaOrdemLacador){
+function reChamada(listaOrdemLacador){
 	//variavel que obtem o tamanho do banco
-	let tamPontos = db.get('pontos').size().value()
-	//para dar o primeiro indicie do banco
-	tamPontos = (valorAtual - tamPontos) -1;
+	let tamPontos = db.get("valorCheck").value();
+	
 	let pontos = db.get(`pontos[${tamPontos}].lacadores`).value();
 	//array
 	let pontosArmada = [];
 	let listNameClass;
-	encheMatriz(pontosArmada, 0, pontos.armadas1);
-	encheMatriz(pontosArmada, 1, pontos.armadas2);
-	encheMatriz(pontosArmada, 2, pontos.armadas3);
-	encheMatriz(pontosArmada, 3, pontos.armadas4);
-	encheMatriz(pontosArmada, 4, pontos.armadas5);
-	function encheMatriz(matriz, index, armada){
-		matriz.push([])
+	if(pontos == undefined){
+		$("#rechamada").remove();
+	}else{
+		encheMatriz(pontosArmada, 0, pontos.armadas1);
+		encheMatriz(pontosArmada, 1, pontos.armadas2);
+		encheMatriz(pontosArmada, 2, pontos.armadas3);
+		encheMatriz(pontosArmada, 3, pontos.armadas4);
+		encheMatriz(pontosArmada, 4, pontos.armadas5);
+		function encheMatriz(matriz, index, armada){
+			matriz.push([])
+			for(let i = 0; i < 6; i++){
+				matriz[index].push(armada[i]);
+			}
+		}
+		//imprime na tabela
+		printfTabela(tamPontos+1);
+		console.log("valor de tamPontos:", tamPontos);
+		listNameClass = elementosTabela(listaOrdemLacador, tamPontos);
 		for(let i = 0; i < 6; i++){
-			matriz[index].push(armada[i]);
+			if((pontos.armadas1[i] | pontos.armadas2[i]  | pontos.armadas3[i] | pontos.armadas4[i] | pontos.armadas5[i]) == 0){
+				
+				setPointTable(listNameClass, pontosArmada);
+			}
 		}
+		return listNameClass;
 	}
-	//imprime na tabela
-	printfTabela(tamPontos+1);
-	listNameClass = elementosTabela(listaOrdemLacador, tamPontos);
-	for(let i = 0; i < 6; i++){
-		if((pontos.armadas1[i] | pontos.armadas2[i]  | pontos.armadas3[i] | pontos.armadas4[i] | pontos.armadas5[i]) == 0){
-			
-			setPointTable(listNameClass, pontosArmada);
-		}
-	}
-	return listNameClass;
+	
 }
 //obtem o resultado da tabela
 function getTable(listName){
