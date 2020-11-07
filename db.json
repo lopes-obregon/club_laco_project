@@ -47,6 +47,30 @@
       "categoriaDaFazenda": [
         "Individual"
       ]
+    },
+    {
+      "numeroDaEquipe": 3,
+      "nomeFazenda": "fazenda sol",
+      "nomes": {
+        "nomeDoPrimeiroLacador": "piriquito",
+        "categoriaEquipePrimeiro": "captao",
+        "nomeIrmaosPri": "joaquim",
+        "nomeDoSegundoLacador": "alface",
+        "categoriaEquipeSegundo": "trio1",
+        "nomeIrmaosSeg": "kaio",
+        "nomeDoTerceiroLacador": "rapadura",
+        "categoriaEquipeTerceiro": "trio2",
+        "nomeIrmaosTer": "",
+        "nomeDoQuartoLacador": "pietro",
+        "categoriaEquipeQuarto": "trio3",
+        "nomeIrmaosQuar": "",
+        "nomeDoQuintoLacador": "rodrigo",
+        "categoriaEquipeQuinto": "fechaRoca",
+        "nomeIrmaosQuin": ""
+      },
+      "categoriaDaFazenda": [
+        "Individual"
+      ]
     }
   ],
   "NumeroDeLargadas": [
@@ -55,9 +79,12 @@
     },
     {
       "numeroDeLargada": 2
+    },
+    {
+      "numeroDeLargada": 3
     }
   ],
-  "valorAtual": 3,
+  "valorAtual": 4,
   "pontos": [
     {
       "nomeFazenda": "abcde",
@@ -66,55 +93,55 @@
         "armadas1": [
           [
             1,
-            1,
-            1,
-            1,
-            1,
-            1
+            0,
+            0,
+            0,
+            0,
+            0
           ]
         ],
         "name2": "b",
         "armadas2": [
           [
             1,
-            1,
-            1,
-            1,
-            1,
-            1
+            0,
+            0,
+            0,
+            0,
+            0
           ]
         ],
         "name3": "c",
         "armadas3": [
           [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ]
         ],
         "name4": "d",
         "armadas4": [
           [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ]
         ],
         "name5": "e",
         "armadas5": [
           [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ]
         ]
       }
@@ -129,8 +156,8 @@
             1,
             1,
             1,
-            1,
-            1
+            -1,
+            -1
           ]
         ],
         "name2": "João",
@@ -140,18 +167,18 @@
             1,
             1,
             1,
-            1,
-            1
+            -1,
+            -1
           ]
         ],
         "name3": "igor",
         "armadas3": [
           [
             1,
+            1,
+            1,
             -1,
-            1,
-            1,
-            1,
+            -1,
             -1
           ]
         ],
@@ -161,9 +188,9 @@
             1,
             1,
             1,
-            1,
-            1,
-            1
+            -1,
+            -1,
+            -1
           ]
         ],
         "name5": "joaquim",
@@ -171,6 +198,66 @@
           [
             1,
             1,
+            -1,
+            1,
+            -1,
+            -1
+          ]
+        ]
+      }
+    },
+    {
+      "nomeFazenda": "fazenda sol",
+      "lacadores": {
+        "name1": "piriquito",
+        "armadas1": [
+          [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            1
+          ]
+        ],
+        "name2": "alface",
+        "armadas2": [
+          [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            1
+          ]
+        ],
+        "name3": "rapadura",
+        "armadas3": [
+          [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            1
+          ]
+        ],
+        "name4": "pietro",
+        "armadas4": [
+          [
+            1,
+            -1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "name5": "rodrigo",
+        "armadas5": [
+          [
+            1,
+            -1,
             1,
             1,
             1,
@@ -180,5 +267,5 @@
       }
     }
   ],
-  "valorCheck": 0
+  "valorCheck": 4
 }
