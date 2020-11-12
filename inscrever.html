@@ -5,20 +5,47 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-	<script src="script.js"></script>
+	<script src="./scripts/script.js"></script>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"><!--link para o boostrap-->
 </head>
 <body>
 	<h1>Equipe</h1>
-	<label>
+	<form>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Nome do Laçador">
+		</div>
+		<div class="form-check">
+		<input class="form-check-input" type="radio" name="radiogroup1" value="captao" id="exampleRadios1"  required checked>
+		<label class="form-check-label" for="exampleRadios1">
+			Captão
+		</label>
+	  </div>
+	  <div class="form-check">
+		<input class="form-check-input" type="radio"  name="radiogroup1" value="trio1" id="exampleRadios2">
+		<label class="form-check-label" for="exampleRadios2">
+			Trio-1
+		</label>
+	  </div>
+	  <div class="form-check">
+		<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios3">
+		<label class="form-check-label" for="exampleRadios3">
+			Trio-2
+		</label>
+	  </div>
+	  <div class="form-check">
+		<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios4">
+		<label class="form-check-label" for="exampleRadios4">
+			Trio-3
+		</label>
+	  </div>  
+	</form>
+	
+	<!--<label>
 		Nome Do Primeiro Laçador: <input type="text" name="name1" placeholder="Nome do Primeiro Laçador" size="30">
 	 </label>
 	 <br>
 	 <label id="catego1">
 	 	Categoria Fazenda:
-	 	<input type="radio" name="radiogroup1" value="captao" required checked> Captão
-	 	<input type="radio" name="radiogroup1" value="trio1">Trio-1
-	 	<input type="radio" name="radiogroup1" value="trio2" > Trio-2
 	 	<input type="radio" name="radiogroup1" value="trio3" > Trio-3
 		<input type="radio" name="radiogroup1" value="fechaRoca" > Fecha Rosca
 		<br>
@@ -127,6 +154,6 @@
 	 	<select size="10" id="addcategoria">
 	 		
 	 	</select>
-	 </p>
+	 </p>-->
 </body>
 </html>

@@ -20,6 +20,7 @@ $(function(){
 		pesquisa = String(pesquisa)
 		for(let i = 0; i < tamBD; i++){
 			nameFazenda = db.get(`Equipes[${i}].nomeFazenda`).value()
+			console.log(nameFazenda);
 			if(nameFazenda === pesquisa){
 				print_pesquisa(i)
 			}

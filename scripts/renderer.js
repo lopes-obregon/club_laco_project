@@ -12,6 +12,7 @@ window.readConfig = function () {
   return data
 }
 $(function(){
+	//chama a pagina
 	$('#inscreve').click(function(){
 		new_window('inscrever.html')
 	})

@@ -1,0 +1,52 @@
+/*id centrer*/
+.center{
+   width: 360px;
+   padding: 8% 0 0;
+   margin: auto;/*"centraliza a margin"*/
+   margin-top: 100px;
+   box-shadow: 5px 9px 3px darkolivegreen;
+    background-color:white;/*cor de fundo do meu container*/
+   
+}
+/*
+#teste{
+    width: 250px;
+   margin-bottom: 5px;
+   border: 3px solid #999999;
+    background-color: red;
+}
+#teste2{
+    height: 50px;
+}*/
+/*id container*/
+/*tag do corpo*/
+body{
+    background-color:peru;
+}
+/*tag do cabeçalho*/
+footer div {
+    width: auto;/*largura setado par auto*/
+    max-width: 450px;/*maximo da largura setado para 500px*/
+    margin: auto;/*margin setado para auto*/
+    margin-top: 35%;/*margin de cima setada para 55 porcento*/
+} 
+footer{
+    background-color: greenyellow;
+}
+
+
+/* width: auto;/*largura do container*/
+/*max-width: 500px;/*maxímo da largura do container*/
+/*width: auto;/*altura*/
+/*height: auto;
+
+/*margin: auto;/*margin setada para auto*/
+/*margin-top: 30px;/*seta a margin para 30px*/
+/*max-height: 500px;
+/**alinha verticalmente */
+/*align-items: center;
+/*alinha horizontamente*/
+/*justify-content: center;
+/*sombra nas bordas*/
+/*box-shadow: 5px 9px 3px darkolivegreen;
+/*background-color: darkolivegreen;/*cor de fundo do meu container*/
