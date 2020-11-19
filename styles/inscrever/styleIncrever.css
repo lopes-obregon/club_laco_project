@@ -1,0 +1,39 @@
+/*tag*/
+form{
+    /*borda da form*/
+    border-style: double;
+   /**/
+   background-color: white;
+   opacity: 0.9;
+  /*cor de  fundo do form*/
+}
+/*class*/
+.flexBox{
+    display: inline-block;
+}
+
+.flexBoxDiv{
+    margin: auto;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+.outherFlex{
+    margin: auto;
+    margin-top: 30px;
+}
+body{
+    background-image: url('../../assets/fundoIncrever.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+/*
+form
+ width: auto;
+ max-width: 500px;
+ outherFlex
+ margin: auto;
+    margin-top: 30px;
+
+*/

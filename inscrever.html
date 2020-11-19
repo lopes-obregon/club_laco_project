@@ -6,154 +6,253 @@
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
 	<script src="./scripts/script.js"></script>
+	<link rel="stylesheet"  type="text/css" href="./styles/inscrever/styleIncrever.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"><!--link para o boostrap-->
 </head>
 <body>
 	<h1>Equipe</h1>
 	<form>
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Nome do Laçador">
+		<!--primeiro laçador-->
+		<div class="flexBox" >
+			<div class="flexBoxDiv">
+				<div class="form-group">
+					<input type="text" class="form-control"  name="name1" placeholder="Nome do Laçador">
+				</div>
+				<div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="captao" id="exampleRadios1"  required checked>
+				<label class="form-check-label" for="exampleRadios1">
+					Captão
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio"  name="radiogroup1" value="trio1" id="exampleRadios2">
+				<label class="form-check-label" for="exampleRadios2">
+					Trio-1
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios3">
+				<label class="form-check-label" for="exampleRadios3">
+					Trio-2
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios4">
+				<label class="form-check-label" for="exampleRadios4">
+					Trio-3
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios5">
+				<label class="form-check-label" for="exampleRadios5">
+					Fecha Rosca
+				</label> 
+			  </div>
+				<div>
+					Tem Irmão:
+					<input type="radio" name="irmaogp1" value="true" class="irmao" >Sim
+					<input type="radio" name="irmaogp1" value="false" required checked > Não
+					<input type="text" name="irmao1" placeholder="Digite o nome dos irmão desse laçador" class="form-control">
+					
+				</div>
+			</div>
 		</div>
-		<div class="form-check">
-		<input class="form-check-input" type="radio" name="radiogroup1" value="captao" id="exampleRadios1"  required checked>
-		<label class="form-check-label" for="exampleRadios1">
-			Captão
-		</label>
-	  </div>
-	  <div class="form-check">
-		<input class="form-check-input" type="radio"  name="radiogroup1" value="trio1" id="exampleRadios2">
-		<label class="form-check-label" for="exampleRadios2">
-			Trio-1
-		</label>
-	  </div>
-	  <div class="form-check">
-		<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios3">
-		<label class="form-check-label" for="exampleRadios3">
-			Trio-2
-		</label>
-	  </div>
-	  <div class="form-check">
-		<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios4">
-		<label class="form-check-label" for="exampleRadios4">
-			Trio-3
-		</label>
-	  </div>  
-	</form>
+		<!--Segundo laçador-->
+		<div class="flexBox">
+			<div class="flexBoxDiv">
+				<div class="form-check">
+					<input type="text" class="form-control" name="name2" placeholder="Nome do Laçador">
+				</div>
+				<div class="form-check" >
+					<input class="form-check-input" type="radio" name="radiogroup2" value="captao" id="exampleRadios6" required checked>
+					<label for="exampleRadios6" class="form-check-label" >
+						Captão
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup2" id="exampleRadios7" value="trio1">
+					<label for="exampleRadios7" class="form-check-label">
+						Trio-1
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup2" id="exampleRadios8" value="trio2">
+					<label for="exampleRadios8" class="form-check-label">
+						Trio-2
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup2" id="exampleRadios9" value="trio3">
+					<label for="exampleRadios9" class="form-check-label" >
+						Trio-3
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup2" id="exampleRadios10" value="fechaRoca">
+					<label for="exampleRadios10" class="form-check-label">
+						Fecha Rosca
+					</label>
+				</div>
+				<div>
+					Tem Irmão:
+					<input type="radio" name="irmaogp2" value="true" class="irmao" >Sim
+					<input type="radio" name="irmaogp2" value="false" required checked > Não
+					<input type="text" name="irmao2" placeholder="Digite o nome dos irmão desse laçador" class="form-control"> 
+				</div>
+			</div>
+		</div>
+		<!--Terceiro laçador-->
+		<div class="flexBox">
+			<div class="flexBoxDiv">
+				<div class="form-check">
+					<input type="text"  class="form-control" name="name3" placeholder="Nome Laçador">
+				</div>
+				<div class="form-check" >
+					<input class="form-check-input" type="radio" name="radiogroup3" value="captao" id="exampleRadios11" required checked>
+					<label for="exampleRadios11" class="form-check-label" >
+						Captão
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup3" id="exampleRadios12" value="trio1">
+					<label for="exampleRadios12" class="form-check-label">
+						Trio-1
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup3" id="exampleRadios13" value="trio2">
+					<label for="exampleRadios13" class="form-check-label">
+						Trio-2
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup3" id="exampleRadios14" value="trio3">
+					<label for="exampleRadios14" class="form-check-label" >
+						Trio-3
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup3" id="exampleRadios15" value="fechaRoca">
+					<label for="exampleRadios15" class="form-check-label">
+						Fecha Rosca
+					</label>
+				</div>
+				<div>
+					Tem Irmão:
+					<input type="radio" name="irmaogp3" value="true" class="irmao" >Sim
+					<input type="radio" name="irmaogp3" value="false" required checked > Não
+					<input type="text" name="irmao3" placeholder="Digite o nome dos irmão desse laçador" class="form-control"> 
+				</div>
+			</div>
+		</div>
+		<!--Quarto laçador-->
+		<div class="flexBox">
+			<div class="flexBoxDiv">
+				<div class="form-check">
+					<input type="text"  class="form-control" name="name4" placeholder="Nome Laçador">
+				</div>
+				<div class="form-check" >
+					<input class="form-check-input" type="radio" name="radiogroup4" value="captao" id="exampleRadios16" required checked>
+					<label for="exampleRadios16" class="form-check-label" >
+						Captão
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup4" id="exampleRadios17" value="trio1">
+					<label for="exampleRadios17" class="form-check-label">
+						Trio-1
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup4" id="exampleRadios18" value="trio2">
+					<label for="exampleRadios18" class="form-check-label">
+						Trio-2
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup4" id="exampleRadios19" value="trio3">
+					<label for="exampleRadios19" class="form-check-label" >
+						Trio-3
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup4" id="exampleRadios20" value="fechaRoca">
+					<label for="exampleRadios20" class="form-check-label">
+						Fecha Rosca
+					</label>
+				</div>
+				<div>
+					Tem Irmão:
+					<input type="radio" name="irmaogp4" value="true" class="irmao" >Sim
+					<input type="radio" name="irmaogp4" value="false" required checked > Não
+					<input type="text" name="irmao4" placeholder="Digite o nome dos irmão desse laçador" class="form-control"> 
+				</div>
+			</div>
+		</div>
+		<!--Quinto laçador-->
+		<div class="outherFlex">
+			<div class="flexBoxDiv">
+				<div class="form-check">
+					<input type="text"  class="form-control" name="name5" placeholder="Nome Laçador">
+				</div>
+				<div class="form-check" >
+					<input class="form-check-input" type="radio" name="radiogroup5" value="captao" id="exampleRadios21" required checked>
+					<label for="exampleRadios21" class="form-check-label" >
+						Captão
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup5" id="exampleRadios22" value="trio1">
+					<label for="exampleRadios22" class="form-check-label">
+						Trio-1
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup5" id="exampleRadios23" value="trio2">
+					<label for="exampleRadios23" class="form-check-label">
+						Trio-2
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup5" id="exampleRadios24" value="trio3">
+					<label for="exampleRadios24" class="form-check-label" >
+						Trio-3
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radiogroup5" id="exampleRadios25" value="fechaRoca">
+					<label for="exampleRadios25" class="form-check-label">
+						Fecha Rosca
+					</label>
+				</div>
+				<div>
+					Tem Irmão:
+					<input type="radio" name="irmaogp5" value="true" class="irmao" >Sim
+					<input type="radio" name="irmaogp5" value="false" required checked > Não
+					<input type="text" name="irmao5" placeholder="Digite o nome dos irmão desse laçador" class="form-control"> 
+				</div>
+			</div>
+		</div>
+		<!--outra opções-->
+		<div class="outherFlex" >
+			<div class="form-check">
+				<input type="text" name="nameTeam" placeholder="Nome Da Fazenda" size="30">
+			</div>
+			<label>
+				Categoria: <select id='categorias'></select>
+			</label>
+			<br>
+			<button id="inserir"  class="btn btn-primary">Inserir</button>
+			<button id="remove_list" class="btn btn-danger">Remover</button>
+			<button id="cadastrar" class="btn btn-success">cadastrar</button>
 	
-	<!--<label>
-		Nome Do Primeiro Laçador: <input type="text" name="name1" placeholder="Nome do Primeiro Laçador" size="30">
-	 </label>
-	 <br>
-	 <label id="catego1">
-	 	Categoria Fazenda:
-	 	<input type="radio" name="radiogroup1" value="trio3" > Trio-3
-		<input type="radio" name="radiogroup1" value="fechaRoca" > Fecha Rosca
-		<br>
-		<label>Tem irmão:
-			<input type="radio" name="irmaogp1" value="true" class="irmao" >Sim
-			<input type="radio" name="irmaogp1" value="false" required checked > Não
-			<input type="text" name="irmao1" placeholder="Digite o nome dos irmão desse laçador" size="30">
-		</label>
-	</label>
-	 <br>
-	 <br>
-	 <label>
-		Nome Do Segundo Laçador: <input type="text" name="name2" placeholder="Nome Do Segundo Laçador" size="30">
-	 </label>
-	 <br>
-	 <label id="catego2">
-	 	Categoria Fazenda:
-	 	<input type="radio" name="radiogroup2" value="captao" required checked> Captão
-	 	<input type="radio" name="radiogroup2" value="trio1">Trio-1
-	 	<input type="radio" name="radiogroup2" value="trio2" > Trio-2
-	 	<input type="radio" name="radiogroup2" value="trio3" > Trio-3
-		<input type="radio" name="radiogroup2" value="fechaRoca" > Fecha Rosca
-		<br>
-		<label>Tem irmão:
-			<input type="radio" name="irmaogp2" value="true" class="irmao"  >Sim
-			<input type="radio" name="irmaogp2" value="false" required checked > Não
-			<input type="text" name="irmao2" placeholder="Digite o nome dos irmão desse laçador" size="30">
-		</label>
-		 
-	 </label>
-	 <br>
-	 <br>
-	 <label>
-		Nome Do Terceiro Laçador: <input type="text" name="name3" placeholder="Nome Do Terceiro Laçador" size="30">
-	 </label>
-	 <br>
-	 <label id="catego3">
-	 	Categoria Fazenda:
-	 	<input type="radio" name="radiogroup3" value="captao" required checked> Captão
-	 	<input type="radio" name="radiogroup3" value="trio1">Trio-1
-	 	<input type="radio" name="radiogroup3" value="trio2" > Trio-2
-	 	<input type="radio" name="radiogroup3" value="trio3" > Trio-3
-		<input type="radio" name="radiogroup3" value="fechaRoca" > Fecha Rosca
-		<br>
-		<label>Tem irmão:
-			<input type="radio" name="irmaogp3" value="true" class="irmao"  >Sim
-			<input type="radio" name="irmaogp3" value="false" required checked > Não
-			<input type="text" name="irmao3" placeholder="Digite o nome dos irmão desse laçador" size="30">
-		</label> 
-	 </label>
-	 <br>
-	 <br>
-	 <label>
-		Nome Do Quarto Laçador: <input type="text" name="name4" placeholder="Nome Do Quarto Laçador" size="30">
-	 </label>
-	 <br>
-	 <label id="catego4">
-	 	Categoria Fazenda:
-	 	<input type="radio" name="radiogroup4" value="captao" required checked> Captão
-	 	<input type="radio" name="radiogroup4" value="trio1">Trio-1
-	 	<input type="radio" name="radiogroup4" value="trio2" > Trio-2
-	 	<input type="radio" name="radiogroup4" value="trio3" > Trio-3
-		<input type="radio" name="radiogroup4" value="fechaRoca" > Fecha Rosca
-		<br>
-		<label>Tem irmão:
-			<input type="radio" name="irmaogp4" value="true" class="irmao"  >Sim
-			<input type="radio" name="irmaogp4" value="false" required checked > Não
-			<input type="text" name="irmao4" placeholder="Digite o nome dos irmão desse laçador" size="30">
-		</label> 
-	 </label>
-	 <br>
-	 <br>
-	 <label>
-		Nome Do Quinto Laçador: <input type="text" name="name5" placeholder="Nome Do Quinto Laçador" size="30">
-	 </label>
-	 <br>
-	 <label id="catego5">
-	 	Categoria Fazenda:
-	 	<input type="radio" name="radiogroup5" value="captao" required checked> Captão
-	 	<input type="radio" name="radiogroup5" value="trio1">Trio-1
-	 	<input type="radio" name="radiogroup5" value="trio2" > Trio-2
-	 	<input type="radio" name="radiogroup5" value="trio3" > Trio-3
-		<input type="radio" name="radiogroup5" value="fechaRoca" > Fecha Rosca
-		<br>
-		<label>Tem irmão:
-			<input type="radio" name="irmaogp5" value="true" class="irmao"  >Sim
-			<input type="radio" name="irmaogp5" value="false" required checked > Não
-			<input type="text" name="irmao5" placeholder="Digite o nome dos irmão desse laçador" size="30">
-		</label> 
-	 </label>
-	 <br>
-	 <label>
-	 	Nome Da Fazenda: <input type="text" name="nameTeam" placeholder="Nome Da Fazenda" size="30">
-	 </label>
-	 <br>
-	 <label>
-	 	Categoria: <select id='categorias'></select>
-	 </label>
-	 <br>
-	 <button id="inserir"  class="btn btn-primary">Inserir</button>
-	 <button id="remove_list" class="btn btn-danger">Remover</button>
-	 <button id="cadastrar" class="btn btn-success">cadastrar</button>
-
-	 <p>Categorias</p>
-	 <p>
-	 	<select size="10" id="addcategoria">
-	 		
-	 	</select>
-	 </p>-->
+			<p>Categorias</p>
+			<p>
+				<select size="10" id="addcategoria">
+					
+				</select>
+			</p>
+		</div>
+	</form>
 </body>
 </html>

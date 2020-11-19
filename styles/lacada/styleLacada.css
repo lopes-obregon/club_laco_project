@@ -1,0 +1,52 @@
+/*id*/
+#tRodada{
+    display: inline-block;
+    /*borda de um texto*/
+    border-style: double;
+    /*fundo*/
+    background-color: white;
+}
+#individual{
+    /*deixa lado a lado*/
+    display: inline-block;
+    /*distancia de esquerda ao outro texto*/
+    margin-left: 20px;
+    /*borda*/
+    border-style: double;
+    /*cor do fundo*/
+    background-color: white;
+}
+/*class*/
+.bt{
+    border: 1px solid #25692A;
+    border-radius: 4px;
+   /* display: inline-block;*/
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 6px 10px;
+    text-decoration: none;
+}
+
+.largada{
+    color: chartreuse;
+}
+
+/*tag*/
+table, th, td{
+    border: 1px solid chartreuse;
+    color: chartreuse;
+}
+body{
+    /*propriedades de plano de fundo*/
+    background-image: url('../../assets/fundoIncrever.jpg');/*endereço da imagem*/
+    background-repeat: no-repeat;/*não repete a imaguem*/
+    background-size: 100%;/*tamanho do plano de fundo*/
+    background-position: relative;
+}
+h3{
+    color: chartreuse;
+}
+p{
+    font-style: oblique;
+}

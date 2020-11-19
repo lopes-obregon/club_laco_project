@@ -18,8 +18,8 @@ $(function(){
 	let listaOrdemLacador = ['nomeDoPrimeiroLacador', 'nomeDoSegundoLacador', 'nomeDoTerceiroLacador', 'nomeDoQuartoLacador', 'nomeDoQuintoLacador']
 	let listNameClass;
 	let valorAtual;
-	$('#buttonCenter').append('<button id="novaLargada">Novo numéro de largada</button>');
-	$('#buttonCenter').append("<button id='rechamada'>Rechamada</button>");
+	$('#buttonCenter').append('<button id="novaLargada" class="bt"  >Novo numéro de largada</button>');
+	$('#buttonCenter').append('<button id="rechamada" class="bt">Rechamada</button>');
 	//acoesButton(listNameClass, valorAtual, tamBd, listaOrdemLacador);
 	//ações dos botões principais
 	$('#novaLargada').click(function(){
@@ -379,13 +379,13 @@ function setPointTable(listNameClass, lacadoresPoint){
 }
 //função que adiciona os botoes
 function addButton(){
-	$('#center').append(`<button id="calcResRodada"> Calcular Resultado Da Rodada</button>`)
-	$('#center').append('<button id="save">Salvar Resultado Da Tabela </button>');
-	$('#center').append('<button id="corrigi">Corrigir Armada </button>');
+	$('#center').append(`<button id="calcResRodada" class="bt" > Calcular Resultado Da Rodada</button>`)
+	$('#center').append('<button id="save" class="bt" >Salvar Resultado Da Tabela </button>');
+	$('#center').append('<button id="corrigi" class="bt" >Corrigir Armada </button>');
 }
 //função que imprime a tabela
 function printfTabela(numLargada){
-	$('#center').append(`<p>Numero Da Largada: ${numLargada}</p>`);
+	$('#center').append(`<p class="largada">Numero Da Largada: ${numLargada}</p>`);
 	$('#center').add('table').addClass("tabela")
 	$('[class="tabela').append("<tr><th>Nome Do Laçador</th><th>1º</th><th>2º</th><th>3º</th><th>4º</th><th>5º</th><th>6º</th></tr>")
 }
@@ -488,9 +488,11 @@ function get_lacada_dos_lacador(lista_name){
 }
 //função que impre quanto cada um laçou
 function print_individual_lacada(){
-	$('#center').append('<p> Cada Laçador Laçou</p>')
+	//$('#center').append('<p> Cada Laçador Laçou</p>')
+	$('#buttonCenter').append('<div id="individual"></div>');
+	$('#individual').append('<p>Cada Laçador Laçou</p>')
 	for(var[key, value] of lacador){
-		$('#center').append(`<p> O laçador ${key} fez ${value} armada`)
+		$('#individual').append(`<p> O laçador ${key} fez ${value} armada`)
 	}
 	lacador.clear()
 }
@@ -499,13 +501,16 @@ function print_total_rodada(listValor){
 	//$('[class="tabela2').append('<tr><th>Rodadas</th><th>Valor Da Rodada<')
 	let index  = 0
 	let totalAcumulado = 0
-	$('#center').append('<p>Total Da Rodada</p>')
+	/*
+	$('#center').append('<p>Total Da Rodada</p>');*/
+	$('#buttonCenter').append('<div id="tRodada"></div>');
+	$('#tRodada').append('<p>Total Da Rodada</p>');//adicionando na div a tag p
 	for(i in listValor){
 		index += 1
-		$('#center').append(`<p><b>${index}º</b>: ${listValor[i]} </p>`)	
+		$('#tRodada').append(`<p><b>${index}º</b>: ${listValor[i]} </p>`)	
 		totalAcumulado += listValor[i]
 	}
-	$('#center').append(`<p> Total Acumulado: ${totalAcumulado}</p>`)
+	$('#tRodada').append(`<label> Total Acumulado: ${totalAcumulado}</label>`)
 }
 //função que calcula os resultados
 function calc_result(index, nameClass){
