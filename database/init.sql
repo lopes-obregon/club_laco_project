@@ -9,7 +9,14 @@ CREATE TABLE IF NOT EXISTS Categorias (
   nome TEXT
 );
 
-CREATE TABLE IF NOT EXISTSNumeroDeLargadas (
+CREATE TABLE IF NOT EXISTS NumeroDeLargadas (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   numeroDeLargada INTEGER
 );
+CREATE TABLE IF NOT EXISTS Lacador(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome TEXT,
+  classe TEXT,
+  irmao TEXT,
+  categorias TEXT
+); 
