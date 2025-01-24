@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inscrição</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:;">
+
+	<!-- Including the main JavaScript file for the form functionality -->
+	<!-- <script src="./scripts/script.js"></script> -->
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../controllers/lacadoresController.js"></script>
+	<script src="../scripts/controllers/inscreverEventController.js"></script>
+	<!-- <link rel="stylesheet"  type="text/css" href="./styles/inscrever/styleIncrever.css"> -->
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"><!--link para o boostrap-->
+</head>
+<body>
+	<h1>Equipe</h1>
+	<form id="inscricaoForm">
+		<!--primeiro laçador-->
+		<div class="flexBox" >
+			<div class="flexBoxDiv">
+				<div class="form-group">
+					<input type="text" id="nome" class="form-control"  name="name1" placeholder="Nome do Laçador">
+				</div>
+				<div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="captao" id="exampleRadios1"  required checked>
+				<label class="form-check-label" for="exampleRadios1">
+					Captão
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio"  name="radiogroup1" value="trio1" id="exampleRadios2">
+				<label class="form-check-label" for="exampleRadios2">
+					Trio-1
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios3">
+				<label class="form-check-label" for="exampleRadios3">
+					Trio-2
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios4">
+				<label class="form-check-label" for="exampleRadios4">
+					Trio-3
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input class="form-check-input" type="radio" name="radiogroup1" value="trio2" id="exampleRadios5">
+				<label class="form-check-label" for="exampleRadios5">
+					Fecha Rosca
+				</label> 
+			  </div>
+				<div>
+					Tem Irmão:
+					<input type="radio" name="irmaogp1" value="true" class="irmao" >Sim
+					<input type="radio" name="irmaogp1" value="false"  > Não
+					<input type="text"   name="irmao1" placeholder="Digite o nome dos irmão desse laçador" class="form-control">
+					
+				</div>
+			</div>
+		</div>
+		
+		<!--outra opções-->
+		<div class="outherFlex" >
+			<div class="form-check">
+				<input type="text" name="nameTeam" id="equipe" placeholder="Nome Da Fazenda" size="30">
+			</div>
+			<label>
+				Categoria: <select id='categorias'></select>
+			</label>
+			<br>
+			<button id="inserir"  class="btn btn-primary">Inserir</button>
+			<button id="remove_list" class="btn btn-danger">Remover</button>
+			
+			<p>Categorias</p>
+			<p>
+				<select size="10" id="addcategoria">
+					
+				</select>
+			</p>
+			<!-- <button id="cadastrar" class="btn btn-success">cadastrar</button> -->
+			 <input type="submit" value="Cadastrar" class="btn btn-success">
+		</div>
+	</form>
+</body>
+</html>
