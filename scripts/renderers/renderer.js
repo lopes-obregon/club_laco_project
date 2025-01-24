@@ -33,8 +33,8 @@ $(function () {
 		window.electron.tela('open-inscrever-page');
 	});
 
-    // Chama a página de verificação de equipe
-    $('#verifica').click(function () {
-        ipcRenderer.send('open-window', 'verifica.html');
+    //chama  a pagina para inscrever a equipe
+    $('#cadastrarEquipe').on('click', ()=>{
+        window.electron.tela('open-cadastrarEquipe-page');
     });
 });

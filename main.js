@@ -3,8 +3,10 @@ const path = require('path');
 const {ipcMain} = require('electron');
 const { openLacadaPage } = require('./controllers/lacadaController');
 const inscriverController = require('./controllers/inscreverController');
+const CadastroEquipePageController = require('./controllers/CadastroEquipePageController');
 let mainWindow;
 const inscrever_html = new inscriverController();
+const cadastroEquipePageController = new CadastroEquipePageController();
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
@@ -36,6 +38,10 @@ ipcMain.on('open-lacada-page', () => {
 ipcMain.on('open-inscrever-page', () => {
   //inscriverController.openInscriverPage(__dirname);
   inscrever_html.openInscriverPage(__dirname);
+});
+//escutando o evento de open-inscreverEquipe-page
+ipcMain.on('open-cadastrarEquipe-page', ()=>{
+  cadastroEquipePageController.openCadastrarEquipePage(__dirname);
 });
 // Eventos principais do app
 app.on('ready', createWindow);
