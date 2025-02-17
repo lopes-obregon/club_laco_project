@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Equipe</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/index/styleIndex.css">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="../controllers/CadastroEquipeController.js"></script>
+    <script type="module" src="../models/databaseModel.js"></script>
+</head>
+<body>
+    <h1>Cadastro de Equipe</h1>
+    <form id="teamForm">
+        <label for="teamName">Nome da Equipe:</label>
+        <input type="text" id="teamName" name="teamName" required>
+        
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
