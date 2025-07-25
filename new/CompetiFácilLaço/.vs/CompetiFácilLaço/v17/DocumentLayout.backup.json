@@ -1,30 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\",
+  "WorkspaceRootPath": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\source\\repos\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\competif\u00E1cilla\u00E7o\\model\\la\u00E7ador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\model\\la\u00E7ador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\competif\u00E1cilla\u00E7o\\controller\\la\u00E7adorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\controller\\la\u00E7adorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\source\\repos\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\cadastrarcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\cadastrarcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\cadastrarcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\competif\u00E1cilla\u00E7o\\view\\cadastrarcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\cadastrarcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,83 +22,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Main.cs",
-              "DocumentMoniker": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
+              "Title": "Main.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
               "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "ToolTip": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs [Design]*",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T03:05:19.856Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "La\u00E7adorController.cs",
-              "DocumentMoniker": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
-              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
-              "ToolTip": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T03:12:55.483Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "La\u00E7ador.cs",
-              "DocumentMoniker": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs",
-              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs",
-              "ToolTip": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAswCgAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T03:09:36.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CadastrarCompetidorForm.cs",
-              "DocumentMoniker": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "ToolTip": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAcwEQAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T02:11:19.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CadastrarCompetidorForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "ToolTip": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs [Design]",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T02:10:36.77Z",
+              "WhenOpened": "2025-07-24T23:38:57.279Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Main.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "ToolTip": "C:\\Users\\renan\\source\\repos\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs [Design]",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs [Design]",
+              "Title": "CadastrarCompetidorForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
+              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs [Design]",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T01:41:14.904Z",
+              "WhenOpened": "2025-07-24T23:49:05.693Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
+              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs*",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T23:40:37.916Z",
+              "EditorCaption": ""
             }
           ]
         }

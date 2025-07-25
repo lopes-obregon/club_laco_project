@@ -32,7 +32,8 @@
             this.equipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.competidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.localizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,8 @@
             // equipeToolStripMenuItem
             // 
             this.equipeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarToolStripMenuItem});
+            this.cadastrarToolStripMenuItem,
+            this.localizarToolStripMenuItem});
             this.equipeToolStripMenuItem.Name = "equipeToolStripMenuItem";
             this.equipeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.equipeToolStripMenuItem.Text = "Equipe";
@@ -58,23 +60,25 @@
             // cadastrarToolStripMenuItem
             // 
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar";
             // 
             // competidorToolStripMenuItem
             // 
-            this.competidorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarToolStripMenuItem1});
             this.competidorToolStripMenuItem.Name = "competidorToolStripMenuItem";
             this.competidorToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.competidorToolStripMenuItem.Text = "Competidor";
+            this.competidorToolStripMenuItem.Click += new System.EventHandler(this.cadastrarCompetidorToolStripMenuItem_Click);
             // 
-            // cadastrarToolStripMenuItem1
+            // localizarToolStripMenuItem
             // 
-            this.cadastrarToolStripMenuItem1.Name = "cadastrarToolStripMenuItem1";
-            this.cadastrarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarToolStripMenuItem1.Text = "Cadastrar";
-            this.cadastrarToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarCompetidorToolStripMenuItem_Click);
+            this.localizarToolStripMenuItem.Name = "localizarToolStripMenuItem";
+            this.localizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.localizarToolStripMenuItem.Text = "Localizar";
+            // 
+            // sqLiteCommand1
+            // 
+            this.sqLiteCommand1.CommandText = null;
             // 
             // Main
             // 
@@ -99,7 +103,8 @@
         private System.Windows.Forms.ToolStripMenuItem equipeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem competidorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem localizarToolStripMenuItem;
+        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
 
