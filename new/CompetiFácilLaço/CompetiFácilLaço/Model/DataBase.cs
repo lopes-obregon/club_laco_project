@@ -10,9 +10,27 @@ namespace CompetiFácilLaço.Model
     {
         public void Init()
     {
-            string connectionString = "Data Source=competi_facil_laco.sqlite;Version=3;";
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString));
+            string connectionString = "Data Source=competi_facil_laco.db;Version=3;";
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string createTableQuery = @"
+                CREATE TABLE IF NOT EXISTS Laçadores (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Nome TEXT,
+                    Escala TEXT,
+                    Irmao TEXT,
+                    Categoria TEXT
+                );
+            ";
+                using (SQLiteCommand cmd = new SQLiteCommand(createTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                    Console.WriteLine("Tabela já criado ou existe");
+                }
+            }
 
-    }
+        }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompetiFácilLaço.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,8 @@ namespace CompetiFácilLaço
         public Main()
         {
             InitializeComponent();
-           
+           DataBase dataBase = new DataBase();
+            dataBase.Init();
 
         }
 

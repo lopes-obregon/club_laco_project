@@ -1,2 +1,4 @@
 #ignorando alguns arquivos
 .vs/
+.db
+/bin

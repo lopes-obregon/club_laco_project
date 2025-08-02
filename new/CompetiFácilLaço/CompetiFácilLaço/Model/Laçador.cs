@@ -17,6 +17,7 @@ namespace CompetiFácilLaço.Model
         public string Nome { get; set; }
         public string Escala { get; set; }
         public string Irmão { get; set; }
+        public int Id { get; set; }
         public List<string> Categoria { get; set; }
 
         //construtor da classe
@@ -47,7 +48,7 @@ namespace CompetiFácilLaço.Model
 
         
         }
-        public static string SaveJson(Laçador laçador)
+        public static string SaveJson(Laçador novoLaçador)
         {
             string fileName = "teste.json";
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
@@ -58,39 +59,64 @@ namespace CompetiFácilLaço.Model
                 WriteIndented = true
 
             };
-            string json = JsonSerializer.Serialize(laçador, opt);
+            List<Laçador> listaLaçadores = new List<Laçador>();
+
+            // string json = JsonSerializer.Serialize(laçador, opt);
             try
             {
-                File.WriteAllText(path, json);
+                //se arquivo já existe
+                if (File.Exists(path))
+                {
+                    string jsonExiste = File.ReadAllText(path);
+                    if (!string.IsNullOrEmpty(jsonExiste))
+                    {
+                        listaLaçadores = JsonSerializer.Deserialize<List<Laçador>>(jsonExiste);
+                    }
+                    if (listaLaçadores != null) { 
+                        int index = listaLaçadores.Count;
+                        novoLaçador.Id = index++;
+
+                    }
+                    else
+                    {
+                        novoLaçador.Id = 1;
+                    }
+                        listaLaçadores.Add(novoLaçador);
+                    string jsonAtualizado = JsonSerializer.Serialize(listaLaçadores, opt);
+                    File.WriteAllText(path, jsonAtualizado);
+
+                }
+                
+                
                 return "Competidor salvo com sucesso!";
 
             }catch (Exception ex) {return "Não foi possivel salvar o Competidor erro:" + ex;}
         }
-      
+        public static string SaveDb(Laçador novoLaçador)
+        {
+           
+
+            return null;
+        }
         public static  Laçador ConsultarLaçador(string nomeCompetidor)
         {
-            string fileName = "teste.txt";
-            string resultadoString;
+            string fileName = "teste.json";
+          
             //READ FILE
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
-            if (File.Exists(path))
+            string json = File.ReadAllText(path);
+            List<Laçador> laçadores = JsonSerializer.Deserialize<List<Laçador>>(json); 
+            //filtro pelo nome
+            Laçador laçador = laçadores.FirstOrDefault(competidor => competidor.Nome == nomeCompetidor);
+            if (laçador != null)
             {
-                StringBuilder sb = new StringBuilder();
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    string linha;
-                    while ((linha = sr.ReadLine()) != null) {
-                        if (linha.Equals(nomeCompetidor)) {  sb.Append(linha); break; }
-                    
-                    }
-                }
-               resultadoString = sb.ToString();
-                return null;
+                return laçador;
             }
             else
             {
                 return null;
             }
+           
         }
     }
 }
