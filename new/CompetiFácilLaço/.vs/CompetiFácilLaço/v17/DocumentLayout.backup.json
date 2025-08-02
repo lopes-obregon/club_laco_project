@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\model\\la\u00E7ador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\model\\la\u00E7ador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\cadastrarcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\cadastrarcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\controller\\la\u00E7adorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\controller\\la\u00E7adorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\viewcompetidorform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\viewcompetidorform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|c:\\users\\renan\\documents\\git\\renan\\club_laco_project\\new\\competif\u00E1cilla\u00E7o\\competif\u00E1cilla\u00E7o\\view\\viewcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\viewcompetidorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D45BD5C9-83BF-4DE6-9B64-44CAD2C39BC8}|CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o.csproj|solutionrelative:competif\u00E1cilla\u00E7o\\view\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,36 +38,64 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Main.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs [Design]*",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs [Design]*",
+              "DocumentIndex": 2,
+              "Title": "ViewCompetidorForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.Designer.cs",
+              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.Designer.cs",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.Designer.cs",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.Designer.cs",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAowBwBAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T23:38:57.279Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-08-02T14:19:40.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ViewCompetidorForm.cs",
+              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.cs",
+              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.cs",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.cs",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\ViewCompetidorForm.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAhwIMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T13:47:20.988Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CadastrarCompetidorForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs",
-              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs [Design]",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\CadastrarCompetidorForm.cs [Design]",
+              "Title": "La\u00E7adorController.cs",
+              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
+              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\Controller\\La\u00E7adorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T23:49:05.693Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-08-02T13:56:31.802Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "La\u00E7ador.cs",
+              "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs",
+              "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs*",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\Model\\La\u00E7ador.cs*",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAmwDsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T13:59:48.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Main.cs",
               "DocumentMoniker": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
               "RelativeDocumentMoniker": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
-              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs*",
-              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs*",
+              "ToolTip": "C:\\Users\\renan\\Documents\\git\\renan\\club_laco_project\\new\\CompetiF\u00E1cilLa\u00E7o\\CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
+              "RelativeToolTip": "CompetiF\u00E1cilLa\u00E7o\\View\\Main.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-24T23:40:37.916Z",

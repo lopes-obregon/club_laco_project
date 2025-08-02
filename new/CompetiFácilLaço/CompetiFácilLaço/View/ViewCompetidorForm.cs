@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CompetiFácilLaço
 {
-    public partial class CadastrarCompetidorForm : Form
+    public partial class ViewCompetidorForm : Form
     {
-        public CadastrarCompetidorForm()
+        public ViewCompetidorForm()
         {
             InitializeComponent();
             string[] irmãos = { "João", "Maria", "José", "Ana" };
@@ -120,6 +120,17 @@ namespace CompetiFácilLaço
             string categoria_selecionado = categoriasListBox.SelectedItem.ToString();
             categoriasListBox.Items.Remove(categoriasListBox.SelectedItem);
             MessageBox.Show($"Categoria {categoria_selecionado} removida com sucesso!");
+        }
+
+        private void escalaGroupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+        private void ConsultarCompetidorButtonClick(object sender, EventArgs e)
+        {
+            string nomeCompetidor = nomeTextBox.Text;
+            LaçadorController.ConsultarLaçador(nomeCompetidor);
+
         }
     }
 }

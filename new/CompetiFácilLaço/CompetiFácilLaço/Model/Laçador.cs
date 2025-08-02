@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace CompetiFácilLaço.Model
 {
@@ -42,6 +46,51 @@ namespace CompetiFácilLaço.Model
             }
 
         
+        }
+        public static string SaveJson(Laçador laçador)
+        {
+            string fileName = "teste.json";
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            //opção de encoder 
+            var opt = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                WriteIndented = true
+
+            };
+            string json = JsonSerializer.Serialize(laçador, opt);
+            try
+            {
+                File.WriteAllText(path, json);
+                return "Competidor salvo com sucesso!";
+
+            }catch (Exception ex) {return "Não foi possivel salvar o Competidor erro:" + ex;}
+        }
+      
+        public static  Laçador ConsultarLaçador(string nomeCompetidor)
+        {
+            string fileName = "teste.txt";
+            string resultadoString;
+            //READ FILE
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            if (File.Exists(path))
+            {
+                StringBuilder sb = new StringBuilder();
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string linha;
+                    while ((linha = sr.ReadLine()) != null) {
+                        if (linha.Equals(nomeCompetidor)) {  sb.Append(linha); break; }
+                    
+                    }
+                }
+               resultadoString = sb.ToString();
+                return null;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

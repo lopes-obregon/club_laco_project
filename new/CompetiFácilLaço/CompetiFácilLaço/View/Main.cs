@@ -31,7 +31,7 @@ namespace CompetiFácilLaço
         }
         private void cadastrarCompetidorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CadastrarCompetidorForm cadastrarCompetidorForm = new CadastrarCompetidorForm();
+            ViewCompetidorForm cadastrarCompetidorForm = new ViewCompetidorForm();
             cadastrarCompetidorForm.Show();
         }
     }

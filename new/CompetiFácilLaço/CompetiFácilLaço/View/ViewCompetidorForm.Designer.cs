@@ -1,6 +1,6 @@
 ﻿namespace CompetiFácilLaço
 {
-    partial class CadastrarCompetidorForm
+    partial class ViewCompetidorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,14 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.consultarButton = new System.Windows.Forms.Button();
             this.escalaGroupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // nomeTextBox
@@ -140,11 +141,12 @@
             this.escalaGroupBox1.Size = new System.Drawing.Size(229, 85);
             this.escalaGroupBox1.TabIndex = 8;
             this.escalaGroupBox1.TabStop = false;
-            this.escalaGroupBox1.Text = "Escala";
+            this.escalaGroupBox1.Text = "Posição";
+            this.escalaGroupBox1.Enter += new System.EventHandler(this.escalaGroupBox1_Enter);
             // 
             // cadastrarButton
             // 
-            this.cadastrarButton.Location = new System.Drawing.Point(388, 415);
+            this.cadastrarButton.Location = new System.Drawing.Point(352, 415);
             this.cadastrarButton.Name = "cadastrarButton";
             this.cadastrarButton.Size = new System.Drawing.Size(75, 23);
             this.cadastrarButton.TabIndex = 9;
@@ -227,34 +229,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(295, 397);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel2.Controls.Add(this.nomeTextBox, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(143, 27);
-            this.tableLayoutPanel2.TabIndex = 17;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.temIrmãoCheckBox, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.irmãoListBox, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 155);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(248, 104);
-            this.tableLayoutPanel3.TabIndex = 17;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -272,25 +246,64 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(289, 128);
             this.tableLayoutPanel4.TabIndex = 17;
             // 
-            // CadastrarCompetidorForm
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.temIrmãoCheckBox, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.irmãoListBox, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 155);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(248, 104);
+            this.tableLayoutPanel3.TabIndex = 17;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel2.Controls.Add(this.nomeTextBox, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(143, 27);
+            this.tableLayoutPanel2.TabIndex = 17;
+            // 
+            // consultarButton
+            // 
+            this.consultarButton.Location = new System.Drawing.Point(440, 415);
+            this.consultarButton.Name = "consultarButton";
+            this.consultarButton.Size = new System.Drawing.Size(75, 23);
+            this.consultarButton.TabIndex = 17;
+            this.consultarButton.Text = "Consultar";
+            this.consultarButton.UseVisualStyleBackColor = true;
+            this.consultarButton.Click += new System.EventHandler(this.ConsultarCompetidorButtonClick);
+            // 
+            // ViewCompetidorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.consultarButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cadastrarButton);
-            this.Name = "CadastrarCompetidorForm";
+            this.Name = "ViewCompetidorForm";
             this.Text = "CadastrarCompetidorForm";
             this.Load += new System.EventHandler(this.CadastrarCompetidorForm_Load);
             this.escalaGroupBox1.ResumeLayout(false);
             this.escalaGroupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -315,5 +328,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button consultarButton;
     }
 }
