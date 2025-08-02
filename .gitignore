@@ -1,4 +1,39 @@
 #ignorando alguns arquivos
+# 🧠 Visual Studio
 .vs/
-.db
-/bin
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# 🛠️ Build e binários
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+
+# 📦 Pacotes NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# 🗃️ Banco de dados SQLite
+*.db
+
+# 🧪 Testes
+TestResult.xml
+[Tt]est[Rr]esult*/
+
+# 💻 Sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 🔍 Ferramentas de terceiros
+_ReSharper*/
+*.DotSettings.user
