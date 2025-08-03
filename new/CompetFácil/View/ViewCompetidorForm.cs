@@ -1,13 +1,4 @@
 ﻿using CompetiFácilLaço.Controller;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CompetiFácilLaço
 {
@@ -17,8 +8,10 @@ namespace CompetiFácilLaço
         {
             InitializeComponent();
             string[] irmãos = { "João", "Maria", "José", "Ana" };
+            var irmãosLaçadores = LaçadorController.GetLaçadores();
             string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
-            irmãoListBox.Items.AddRange(irmãos);
+            //irmãoListBox.Items.AddRange(irmãos);
+            irmãoListBox.Items.AddRange(irmãosLaçadores.ToArray());
             categoriasComboBox.Items.AddRange(categorias);
         }
 
@@ -65,15 +58,15 @@ namespace CompetiFácilLaço
             bool isIrmão = temIrmãoCheckBox.Checked;
             if (isIrmão)
             {
-                string irmão = irmãoListBox.SelectedItem.ToString();
+                var irmãoSelecionado = irmãoListBox.SelectedItem;
                 //MessageBox.Show($"Competidor {nome_competidor} de escala {tipo_competidor} cadastrado com sucesso! Irmão: {irmão}");
-                string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, irmão, categorias);
+                string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, irmãoSelecionado, categorias);
                 MessageBox.Show(mensagem);
 
             }
             else
             {
-                string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, "", categorias);
+                string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, null, categorias);
                 //MessageBox.Show($"Competidor {nome_competidor} de escala {tipo_competidor} cadastrado com sucesso!");
                 MessageBox.Show(mensagem);
 

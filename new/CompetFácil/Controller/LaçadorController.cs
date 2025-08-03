@@ -6,13 +6,30 @@ namespace CompetiFácilLaço.Controller
     {
         //static List<Model.Laçador> laçadores = new List<Model.Laçador>();
         static Laçador laçador;
-        internal static string CadastrarCompetidor(string nome_competidor, string sobreNome, string tipo_competidor, string irmão, List<string> categorias)
+        internal static string CadastrarCompetidor(string nome_competidor, string sobreNome, string tipo_competidor, object? irmão, List<string> categorias)
         {
             //Laçadores.Add(new Model.Laçador(nome_competidor, tipo_competidor, irmão, ""));
-            laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, irmão, categorias);
-            //return laçador.WriteTeste();
-            //return Laçador.SaveJson(laçador);
-            return Laçador.SaveDb(laçador);
+            if (irmão == null)
+            {
+                laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, null, categorias);
+
+            }
+            else { 
+                if(irmão is Laçador irmãoLaçador)
+                {
+                    laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, irmãoLaçador, categorias);
+
+                }
+                else
+                {
+                    laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, null, categorias);
+
+                }
+                
+            }
+                //return laçador.WriteTeste();
+                //return Laçador.SaveJson(laçador);
+                return Laçador.SaveDb(laçador);
 
 
         }
@@ -31,13 +48,26 @@ namespace CompetiFácilLaço.Controller
             }
         }
 
-       /* internal static string GravarCompetidor()
+        internal static List<Laçador> GetLaçadores()
         {
-            foreach (Model.Laçador laçador in laçadores)
+            List<Laçador> laçadores = Laçador.GetLaçdores();
+            if(laçadores == null)
             {
-                return laçador.WriteTeste();
+                return null;
             }
-            return "";
-        }*/
+            else
+            {
+                return laçadores;
+            }
+        }
+
+        /* internal static string GravarCompetidor()
+         {
+             foreach (Model.Laçador laçador in laçadores)
+             {
+                 return laçador.WriteTeste();
+             }
+             return "";
+         }*/
     }
 }

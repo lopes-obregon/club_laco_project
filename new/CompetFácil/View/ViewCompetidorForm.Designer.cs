@@ -47,9 +47,9 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            consultarButton = new Button();
             label4 = new Label();
             sobreNomeTextBox = new TextBox();
+            consultarButton = new Button();
             escalaGroupBox1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -299,17 +299,6 @@
             tableLayoutPanel2.Size = new Size(267, 55);
             tableLayoutPanel2.TabIndex = 17;
             // 
-            // consultarButton
-            // 
-            consultarButton.Location = new Point(194, 480);
-            consultarButton.Margin = new Padding(4, 3, 4, 3);
-            consultarButton.Name = "consultarButton";
-            consultarButton.Size = new Size(88, 27);
-            consultarButton.TabIndex = 17;
-            consultarButton.Text = "Consultar";
-            consultarButton.UseVisualStyleBackColor = true;
-            consultarButton.Click += ConsultarCompetidorButtonClick;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -328,6 +317,17 @@
             sobreNomeTextBox.Name = "sobreNomeTextBox";
             sobreNomeTextBox.Size = new Size(107, 23);
             sobreNomeTextBox.TabIndex = 3;
+            // 
+            // consultarButton
+            // 
+            consultarButton.Location = new Point(194, 480);
+            consultarButton.Margin = new Padding(4, 3, 4, 3);
+            consultarButton.Name = "consultarButton";
+            consultarButton.Size = new Size(88, 27);
+            consultarButton.TabIndex = 17;
+            consultarButton.Text = "Consultar";
+            consultarButton.UseVisualStyleBackColor = true;
+            consultarButton.Click += ConsultarCompetidorButtonClick;
             // 
             // ViewCompetidorForm
             // 

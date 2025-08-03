@@ -3,6 +3,7 @@ using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using CompetFácil.Persistência;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 
 
 namespace CompetiFácilLaço.Model
@@ -13,20 +14,29 @@ namespace CompetiFácilLaço.Model
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public string Escala { get; set; }
-        public string Irmão { get; set; }
+        public Laçador? Irmão { get; set; }
         public int Id { get; set; }
         public List<string> Categoria { get; set; }
         public byte[] Pontos { get; set; }
         //construtor da classe
-        public Laçador(string nome, string sobreNome,string escala, string irmão, List<string> categoria)
+        public Laçador(string nome, string sobreNome,string escala, Laçador? irmão, List<string> categoria)
         {
             Nome = nome;
             SobreNome = sobreNome;
             Escala = escala;
-            Irmão = irmão;
             Categoria = categoria;
             Pontos = new byte[6];
+            if(irmão == null)
+            {
+                Irmão = null;
+            }
+            else
+            {
+                Irmão = irmão;
+
+            }
         }
+        public Laçador() { }
         public string  WriteTeste() {
             string file_name = "teste.txt";
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, file_name);
@@ -97,10 +107,35 @@ namespace CompetiFácilLaço.Model
             dataBase.Database.EnsureCreated();
             try
             {
-                dataBase.Add(novoLaçador);
-                Console.WriteLine(dataBase.DbPath);
-                dataBase.SaveChanges();
-                return "Competidor cadastrado com sucesso!";
+                if (novoLaçador != null)
+                {
+                    //referencia o irmão caso não seja null;
+                    if(novoLaçador.Irmão != null)
+                    {
+                        //se existe um irmão 
+                       var irmãoExistente = dataBase.Laçadores.Find(novoLaçador.Irmão.Id); //procure no banco pelo irmão com o mesmo id e referencie
+                        //se encontrou a referencia correta
+                        if(irmãoExistente  != null)
+                        {
+                            novoLaçador.Irmão = irmãoExistente;
+                        }
+                        else
+                        {
+                            novoLaçador.Irmão = null;
+                        }
+                    
+                    }
+                    //garante que o id seja gerado automaticamente
+                    novoLaçador.Id = 0;
+                    dataBase.Add(novoLaçador);
+                    Console.WriteLine(dataBase.DbPath);
+                    dataBase.SaveChanges();
+                    return "Competidor cadastrado com sucesso!";
+                }
+                else
+                {
+                    return "Error de inserção, algo deu errado";
+                }
             }catch (Exception ex) { return "Error de inserção:" + ex;}
           
             
@@ -124,6 +159,25 @@ namespace CompetiFácilLaço.Model
                 return null;
             }
            
+        }
+
+        internal static List<Laçador> GetLaçdores()
+        {
+            DataBase db = new DataBase();
+            try
+            {
+                List<Laçador> laçadores = db.Laçadores.ToList();
+                return laçadores;
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public override string ToString()
+        {
+            return $"{Id} - {Nome} {SobreNome}";
         }
     }
 }
