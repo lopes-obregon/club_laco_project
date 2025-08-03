@@ -69,6 +69,23 @@ namespace CompetiFácilLaço
                 string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, null, categorias);
                 //MessageBox.Show($"Competidor {nome_competidor} de escala {tipo_competidor} cadastrado com sucesso!");
                 MessageBox.Show(mensagem);
+                //clear 
+                nomeTextBox.Text = string.Empty;
+                sobreNomeTextBox.Text = string.Empty;
+                //clear radio
+                foreach (Control control in escalaGroupBox1.Controls)
+                {
+                    if (control is RadioButton radioButton)
+                    {
+                        radioButton.Checked = false;
+                    }
+                }
+                temIrmãoCheckBox.Checked = false;
+                //clear  categorias
+                categorias.Clear();
+                categoriasComboBox.Items.Clear();
+                //irmão list
+                irmãoListBox.Items.Clear();
 
             }
         }
