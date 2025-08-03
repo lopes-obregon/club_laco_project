@@ -4,6 +4,7 @@ using System.Text.Unicode;
 using CompetFácil.Persistência;
 using System.Reflection.Metadata.Ecma335;
 
+
 namespace CompetiFácilLaço.Model
 {
     internal class Laçador
@@ -14,7 +15,7 @@ namespace CompetiFácilLaço.Model
         public string Irmão { get; set; }
         public int Id { get; set; }
         public List<string> Categoria { get; set; }
-
+        public byte[] Pontos { get; set; }
         //construtor da classe
         public Laçador(string nome, string escala, string irmão, List<string> categoria)
         {
@@ -22,6 +23,7 @@ namespace CompetiFácilLaço.Model
             Escala = escala;
             Irmão = irmão;
             Categoria = categoria;
+            Pontos = new byte[6];
         }
         public string  WriteTeste() {
             string file_name = "teste.txt";
