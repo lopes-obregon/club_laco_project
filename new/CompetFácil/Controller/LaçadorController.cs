@@ -6,10 +6,10 @@ namespace CompetiFácilLaço.Controller
     {
         //static List<Model.Laçador> laçadores = new List<Model.Laçador>();
         static Laçador laçador;
-        internal static string CadastrarCompetidor(string nome_competidor, string tipo_competidor, string irmão, List<string> categorias)
+        internal static string CadastrarCompetidor(string nome_competidor, string sobreNome, string tipo_competidor, string irmão, List<string> categorias)
         {
             //Laçadores.Add(new Model.Laçador(nome_competidor, tipo_competidor, irmão, ""));
-            laçador = new Laçador(nome_competidor, tipo_competidor, irmão, categorias);
+            laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, irmão, categorias);
             //return laçador.WriteTeste();
             //return Laçador.SaveJson(laçador);
             return Laçador.SaveDb(laçador);

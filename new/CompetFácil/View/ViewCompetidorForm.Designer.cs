@@ -48,6 +48,8 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             consultarButton = new Button();
+            label4 = new Label();
+            sobreNomeTextBox = new TextBox();
             escalaGroupBox1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -57,7 +59,7 @@
             // 
             // nomeTextBox
             // 
-            nomeTextBox.Location = new Point(56, 3);
+            nomeTextBox.Location = new Point(156, 3);
             nomeTextBox.Margin = new Padding(4, 3, 4, 3);
             nomeTextBox.Name = "nomeTextBox";
             nomeTextBox.Size = new Size(107, 23);
@@ -284,14 +286,17 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 115F));
+            tableLayoutPanel2.Controls.Add(label4, 0, 1);
             tableLayoutPanel2.Controls.Add(nomeTextBox, 1, 0);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
+            tableLayoutPanel2.Controls.Add(sobreNomeTextBox, 1, 1);
             tableLayoutPanel2.Location = new Point(4, 3);
             tableLayoutPanel2.Margin = new Padding(4, 3, 4, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(167, 31);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(267, 55);
             tableLayoutPanel2.TabIndex = 17;
             // 
             // consultarButton
@@ -304,6 +309,25 @@
             consultarButton.Text = "Consultar";
             consultarButton.UseVisualStyleBackColor = true;
             consultarButton.Click += ConsultarCompetidorButtonClick;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(4, 35);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(73, 15);
+            label4.TabIndex = 2;
+            label4.Text = "Sobre Nome";
+            label4.Click += label4_Click;
+            // 
+            // sobreNomeTextBox
+            // 
+            sobreNomeTextBox.Location = new Point(156, 38);
+            sobreNomeTextBox.Margin = new Padding(4, 3, 4, 3);
+            sobreNomeTextBox.Name = "sobreNomeTextBox";
+            sobreNomeTextBox.Size = new Size(107, 23);
+            sobreNomeTextBox.TabIndex = 3;
             // 
             // ViewCompetidorForm
             // 
@@ -351,5 +375,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button consultarButton;
+        private Label label4;
+        private TextBox sobreNomeTextBox;
     }
 }

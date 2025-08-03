@@ -39,6 +39,7 @@ namespace CompetiFácilLaço
         private void cadastrarCompetidorButtonClick(object sender, EventArgs e)
         {
             string nome_competidor = nomeTextBox.Text;
+            string sobreNome = sobreNomeTextBox.Text;
             //Console.WriteLine(nome_competidor);
             //seleção do radio button
             //variavel para armazenar qual foi o radio button selecionado
@@ -66,13 +67,13 @@ namespace CompetiFácilLaço
             {
                 string irmão = irmãoListBox.SelectedItem.ToString();
                 //MessageBox.Show($"Competidor {nome_competidor} de escala {tipo_competidor} cadastrado com sucesso! Irmão: {irmão}");
-                string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, tipo_competidor, irmão, categorias);
+                string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, irmão, categorias);
                 MessageBox.Show(mensagem);
 
             }
             else
             {
-                string mensagem  = LaçadorController.CadastrarCompetidor(nome_competidor, tipo_competidor, "", categorias);
+                string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, "", categorias);
                 //MessageBox.Show($"Competidor {nome_competidor} de escala {tipo_competidor} cadastrado com sucesso!");
                 MessageBox.Show(mensagem);
 
@@ -130,6 +131,11 @@ namespace CompetiFácilLaço
         {
             string nomeCompetidor = nomeTextBox.Text;
             LaçadorController.ConsultarLaçador(nomeCompetidor);
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }

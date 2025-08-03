@@ -11,15 +11,17 @@ namespace CompetiFácilLaço.Model
     {
         //propriedades da classe
         public string Nome { get; set; }
+        public string SobreNome { get; set; }
         public string Escala { get; set; }
         public string Irmão { get; set; }
         public int Id { get; set; }
         public List<string> Categoria { get; set; }
         public byte[] Pontos { get; set; }
         //construtor da classe
-        public Laçador(string nome, string escala, string irmão, List<string> categoria)
+        public Laçador(string nome, string sobreNome,string escala, string irmão, List<string> categoria)
         {
             Nome = nome;
+            SobreNome = sobreNome;
             Escala = escala;
             Irmão = irmão;
             Categoria = categoria;
