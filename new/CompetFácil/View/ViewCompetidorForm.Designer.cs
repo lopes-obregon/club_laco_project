@@ -50,6 +50,7 @@
             label4 = new Label();
             sobreNomeTextBox = new TextBox();
             consultarButton = new Button();
+            LimparButton = new Button();
             escalaGroupBox1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -329,11 +330,22 @@
             consultarButton.UseVisualStyleBackColor = true;
             consultarButton.Click += ConsultarCompetidorButtonClick;
             // 
+            // LimparButton
+            // 
+            LimparButton.Location = new Point(289, 484);
+            LimparButton.Name = "LimparButton";
+            LimparButton.Size = new Size(75, 23);
+            LimparButton.TabIndex = 18;
+            LimparButton.Text = "Limpar";
+            LimparButton.UseVisualStyleBackColor = true;
+            LimparButton.Click += LimparButton_Click;
+            // 
             // ViewCompetidorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(368, 512);
+            ClientSize = new Size(397, 512);
+            Controls.Add(LimparButton);
             Controls.Add(consultarButton);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(cadastrarButton);
@@ -377,5 +389,6 @@
         private System.Windows.Forms.Button consultarButton;
         private Label label4;
         private TextBox sobreNomeTextBox;
+        private Button LimparButton;
     }
 }
