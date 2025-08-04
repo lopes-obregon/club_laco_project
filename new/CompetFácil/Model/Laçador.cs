@@ -4,6 +4,7 @@ using System.Text.Unicode;
 using CompetFácil.Persistência;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace CompetiFácilLaço.Model
@@ -140,7 +141,7 @@ namespace CompetiFácilLaço.Model
           
             
         }
-        public static  Laçador ConsultarLaçador(string nomeCompetidor)
+        public static  Laçador ConsultarLaçadorJson(string nomeCompetidor)
         {
             string fileName = "teste.json";
           
@@ -178,6 +179,20 @@ namespace CompetiFácilLaço.Model
         public override string ToString()
         {
             return $"{Id} - {Nome} {SobreNome}";
+        }
+
+        internal static Laçador? ConsultarLaçadorDb(string nomeCompetidor)
+        {
+            DataBase dataBase = new DataBase();
+            try
+            {
+                var laçadorBuscado = dataBase.Laçadores
+                    .Include(l=> l.Irmão)
+                    .FirstOrDefault(l => l.Nome == nomeCompetidor);
+                Laçador? laçadorEncontrado = laçadorBuscado as Laçador;
+                return laçadorEncontrado;
+            }
+            catch {  return null; }
         }
     }
 }

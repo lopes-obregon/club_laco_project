@@ -69,7 +69,7 @@ namespace CompetiFácilLaço
                 string mensagem = LaçadorController.CadastrarCompetidor(nome_competidor, sobreNome, tipo_competidor, null, categorias);
                 //MessageBox.Show($"Competidor {nome_competidor} de escala {tipo_competidor} cadastrado com sucesso!");
                 MessageBox.Show(mensagem);
-                
+
 
             }
         }
@@ -124,8 +124,61 @@ namespace CompetiFácilLaço
         private void ConsultarCompetidorButtonClick(object sender, EventArgs e)
         {
             string nomeCompetidor = nomeTextBox.Text;
-            LaçadorController.ConsultarLaçador(nomeCompetidor);
+            var laçadorEncontrado = LaçadorController.ConsultarLaçador(nomeCompetidor);
+            if(laçadorEncontrado == null) { MessageBox.Show("Competidor não encontrado"); }
+            else
+            {
+                nomeTextBox.Text = laçadorEncontrado.Nome;
+                sobreNomeTextBox.Text = laçadorEncontrado.SobreNome;
+                //parte para setar o radio
+                SetRadioButtonGroup(laçadorEncontrado.Escala);
+                if(laçadorEncontrado.Irmão != null)
+                {
+                    temIrmãoCheckBox.Checked = true;
+                    //aparece a caixa
+                    temIrmãoCheckBox_CheckedChanged(sender, e);
+                    foreach(var laçador in irmãoListBox.Items)
+                    {
+                        if(laçador.GetType() ==  laçadorEncontrado.Irmão.GetType())
+                        {
+                            irmãoListBox.SelectedItem = laçador;
+                            break;
+                        }
+                    }
 
+                }
+                //categorialistbox
+                foreach(var categoria in laçadorEncontrado.Categoria)
+                {
+                    if(categoria is string)
+                    {
+                        categoriasListBox.Items.Add(categoria.ToString());
+
+                    }
+                }
+
+            }
+
+        }
+        //setar o RadioButtonGroup para escala indicada da pesquisa
+        private void SetRadioButtonGroup(string escala)
+        {
+           foreach(Control control in escalaGroupBox1.Controls)
+            {
+                if(control is RadioButton)
+                {
+                    RadioButton? radioButton = control as RadioButton;
+                    if(radioButton != null)
+                    {
+                        if(String.Equals(radioButton.Text, escala))
+                        {
+                            radioButton.Checked = true;
+                            break;
+                        }
+
+                    }
+                }
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -133,7 +186,7 @@ namespace CompetiFácilLaço
 
         }
 
-       
+
         private void LimparButton_Click(object sender, EventArgs e)
         {
             //clear 
@@ -148,9 +201,23 @@ namespace CompetiFácilLaço
                 }
             }
             temIrmãoCheckBox.Checked = false;
-          //categorias list box
-          categoriasListBox.Items.Clear();
-            
+            //categorias list box
+            categoriasListBox.Items.Clear();
+
+        }
+        private void AlterarButton_Click(Object sender, EventArgs e)
+        {
+            //verificar se os dados estão vazios
+            if (IsDadosVazios())
+            {
+                MessageBox.Show("Dados Vazio por favor faça a consulta antes");
+            }
+        }
+
+        private bool IsDadosVazios()
+        {
+            if (string.IsNullOrEmpty(nomeTextBox.Text) || string.IsNullOrEmpty(sobreNomeTextBox.Text)) return true;
+            else return false;
         }
     }
 }
