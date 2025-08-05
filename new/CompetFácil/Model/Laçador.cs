@@ -194,5 +194,57 @@ namespace CompetiFácilLaço.Model
             }
             catch {  return null; }
         }
+
+
+        internal static bool AlterarLaçadorDb(Laçador? laçadorEncontrado, string? nomeTextBox, string? sobreNomeTexBox)
+        {
+            using DataBase dataBase = new DataBase();
+            if(laçadorEncontrado != null)
+            {
+                //anexar o objeto ao contexto
+                var laçadorAntigo = dataBase.Laçadores.FirstOrDefault(la => la.Id == laçadorEncontrado.Id);
+                if (laçadorAntigo != null)
+                {
+                    if (nomeTextBox != null)
+                    {
+                        //marca como modificado
+                        if (laçadorAntigo != null)
+                        {
+                            laçadorAntigo.Nome = nomeTextBox;
+                            // dataBase.Entry(laçadorEncontrado).State = EntityState.Modified;// marca como estado de modificado
+                        }
+                    }
+                    else if (sobreNomeTexBox != null) { laçadorAntigo.SobreNome = sobreNomeTexBox; }
+                    dataBase.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                // var laçadorAntigo = dataBase.Laçadores.FirstOrDefault(la => la.Id == laçadorEncontrado.Id);
+
+
+            }
+
+            
+            return false;
+        }
+        internal static bool Remove(Laçador? laçador)
+        {
+            using DataBase dataBase = new DataBase();
+            //vejo se tem irmão
+            if( laçador != null &&laçador.Irmão != null)
+            {
+               
+               
+                //se tiver irmão 
+                laçador.Irmão = null;
+                dataBase.Laçadores.Remove(laçador);
+                dataBase.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

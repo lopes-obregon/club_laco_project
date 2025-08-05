@@ -5,7 +5,16 @@ namespace CompetiFácilLaço.Controller
     internal class LaçadorController
     {
         //static List<Model.Laçador> laçadores = new List<Model.Laçador>();
-        static Laçador laçador;
+        static Laçador? laçador;
+
+        internal static bool AlterarLaçador(Laçador? laçadorEncontrado)
+        {
+            if (Laçador.AlterarLaçadorDb(laçadorEncontrado))
+            {
+                return true;
+            }else { return false; }
+        }
+
         internal static string CadastrarCompetidor(string nome_competidor, string sobreNome, string tipo_competidor, object? irmão, List<string> categorias)
         {
             //Laçadores.Add(new Model.Laçador(nome_competidor, tipo_competidor, irmão, ""));
@@ -60,6 +69,14 @@ namespace CompetiFácilLaço.Controller
                 return laçadores;
             }
         }
+
+        internal static bool RemoveLaçador(Laçador? laçador)
+        {
+            bool laçadorRemovido = Laçador.Remove(laçador);
+            if (laçadorRemovido) { return true; }
+            else { return false; }
+        }
+
 
         /* internal static string GravarCompetidor()
          {

@@ -53,6 +53,7 @@
             LimparButton = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             Alterar = new Button();
+            removerButton = new Button();
             escalaGroupBox1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -68,7 +69,6 @@
             nomeTextBox.Name = "nomeTextBox";
             nomeTextBox.Size = new Size(107, 23);
             nomeTextBox.TabIndex = 0;
-            nomeTextBox.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
@@ -241,7 +241,7 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 2);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel1.Controls.Add(escalaGroupBox1, 0, 1);
-            tableLayoutPanel1.Location = new Point(13, 12);
+            tableLayoutPanel1.Location = new Point(56, 12);
             tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -349,9 +349,10 @@
             flowLayoutPanel1.Controls.Add(Alterar);
             flowLayoutPanel1.Controls.Add(consultarButton);
             flowLayoutPanel1.Controls.Add(LimparButton);
-            flowLayoutPanel1.Location = new Point(39, 476);
+            flowLayoutPanel1.Controls.Add(removerButton);
+            flowLayoutPanel1.Location = new Point(3, 476);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(395, 39);
+            flowLayoutPanel1.Size = new Size(444, 39);
             flowLayoutPanel1.TabIndex = 19;
             // 
             // Alterar
@@ -364,16 +365,26 @@
             Alterar.UseVisualStyleBackColor = true;
             Alterar.Click += AlterarButton_Click;
             // 
+            // removerButton
+            // 
+            removerButton.Location = new Point(357, 3);
+            removerButton.Name = "removerButton";
+            removerButton.Size = new Size(75, 23);
+            removerButton.TabIndex = 20;
+            removerButton.Text = "Remover";
+            removerButton.UseVisualStyleBackColor = true;
+            removerButton.Click += RemoverButton_Click;
+            // 
             // ViewCompetidorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(657, 598);
+            ClientSize = new Size(447, 598);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "ViewCompetidorForm";
-            Text = "Competidor";
+            Text = "Competidor Cadastro";
             Load += CadastrarCompetidorForm_Load;
             escalaGroupBox1.ResumeLayout(false);
             escalaGroupBox1.PerformLayout();
@@ -415,5 +426,6 @@
         private Button LimparButton;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button Alterar;
+        private Button removerButton;
     }
 }
