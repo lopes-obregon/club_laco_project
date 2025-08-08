@@ -196,9 +196,12 @@ namespace CompetiFácilLaço.Model
         }
 
 
-        internal static bool AlterarLaçadorDb(Laçador? laçadorEncontrado, string? nomeTextBox, string? sobreNomeTexBox)
+        internal static sbyte AlterarLaçadorDb(Laçador? laçadorEncontrado, string? nomeTextBox, string? sobreNomeTexBox, string? posição, object? irmãoSelecionado, List<string>? categorias)
         {
             using DataBase dataBase = new DataBase();
+            
+            
+            
             if(laçadorEncontrado != null)
             {
                 //anexar o objeto ao contexto
@@ -215,12 +218,29 @@ namespace CompetiFácilLaço.Model
                         }
                     }
                     else if (sobreNomeTexBox != null) { laçadorAntigo.SobreNome = sobreNomeTexBox; }
-                    dataBase.SaveChanges();
-                    return true;
+                    else if (posição != null) { laçadorAntigo.Escala = posição; }
+                    else if (irmãoSelecionado != null)
+                    {
+                        Laçador? laçadorIrmãoSelecionado = irmãoSelecionado as Laçador;
+                        if (laçadorIrmãoSelecionado != null)
+                        {
+                            Laçador? irmãoExiste = dataBase.Laçadores.Find(laçadorIrmãoSelecionado.Id) as Laçador;
+                            //encontrou irmão existente
+                            if (irmãoExiste != null)
+                            {
+                                laçadorAntigo.Irmão = irmãoExiste;
+                            }
+
+                        }
+
+                    }
+                    else if (categorias != null) { laçadorAntigo.Categoria = categorias; }
+                        dataBase.SaveChanges();
+                    return 1;
                 }
                 else
                 {
-                    return false;
+                    return -1;
                 }
                 // var laçadorAntigo = dataBase.Laçadores.FirstOrDefault(la => la.Id == laçadorEncontrado.Id);
 
@@ -228,7 +248,7 @@ namespace CompetiFácilLaço.Model
             }
 
             
-            return false;
+            return -1;
         }
         internal static bool Remove(Laçador? laçador)
         {

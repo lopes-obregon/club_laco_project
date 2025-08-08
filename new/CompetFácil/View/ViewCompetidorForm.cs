@@ -4,10 +4,11 @@ namespace CompetiFácilLaço
 {
     public partial class ViewCompetidorForm : Form
     {
-
+        private List<object?> laçadoresList;
         public ViewCompetidorForm()
         {
             InitializeComponent();
+            laçadoresList = new List<object?>();
             string[] irmãos = { "João", "Maria", "José", "Ana" };
             var irmãosLaçadores = LaçadorController.GetLaçadores();
             string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
@@ -127,6 +128,7 @@ namespace CompetiFácilLaço
             if (laçadorEncontrado == null) { MessageBox.Show("Competidor não encontrado"); return false; }
             else
             {
+                laçadoresList.Add(laçadorEncontrado);
                 nomeTextBox.Text = laçadorEncontrado.Nome;
                 sobreNomeTextBox.Text = laçadorEncontrado.SobreNome;
                 //parte para setar o radio
@@ -219,13 +221,45 @@ namespace CompetiFácilLaço
             }
             else
             {
-                var laçadorEncontrado = LaçadorController.ConsultarLaçador(nomeTextBox.Text);
-                if(laçadorEncontrado != null)
+                //Verificar se os dados foram alterados
+                string posição = GetPosiçãoLaçador();
+                object? irmãoSelecionado;
+                List<string> categorias = GetCategorias();
+                if (temIrmãoCheckBox.Checked)
                 {
-                    if (LaçadorController.AlterarLaçador(laçadorEncontrado)) { MessageBox.Show("Laçador Atualizado com sucesso!"); }
-                    else { MessageBox.Show("Algo deu errado desculpe!"); }
+                    irmãoSelecionado = irmãoListBox.SelectedItem;
+                }
+                else { irmãoSelecionado = null; }
+                //nome ok sobrenome ok posição no time
+                if (LaçadorController.AlterarLaçador(laçadoresList, nomeTextBox.Text, sobreNomeTextBox.Text, posição, temIrmãoCheckBox.Checked, irmãoSelecionado, categorias)) { MessageBox.Show("Laçador Atualizado com sucesso!"); }
+                else { MessageBox.Show("Algo deu errado desculpe!"); }
+                
+            }
+        }
+
+        private List<string> GetCategorias()
+        {
+            var lista = new List<string>();
+            foreach (var item in categoriasListBox.Items)
+            {
+                lista.Add(item.ToString());
+            }
+            return lista;
+        }
+
+        private string GetPosiçãoLaçador()
+        {
+            foreach (Control control in escalaGroupBox1.Controls)
+            {
+                if (control is RadioButton radioButton)
+                {
+                    if (radioButton.Checked)
+                    {
+                        return radioButton.Text;
+                    }
                 }
             }
+            return "";
         }
 
         private bool IsDadosVazios()

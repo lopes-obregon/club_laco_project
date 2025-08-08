@@ -7,12 +7,72 @@ namespace CompetiFácilLaço.Controller
         //static List<Model.Laçador> laçadores = new List<Model.Laçador>();
         static Laçador? laçador;
 
-        internal static bool AlterarLaçador(Laçador? laçadorEncontrado)
+        /*internal static bool AlterarLaçador(Laçador? laçadorEncontrado, object? irmão)
         {
+            if(irmão == null)
             if (Laçador.AlterarLaçadorDb(laçadorEncontrado))
             {
                 return true;
             }else { return false; }
+        }*/
+
+        internal static bool AlterarLaçador(List<object?> laçadoresList, string nomeTextBox, string sobreNomeTexBox, string posição, bool temIrmão, object? irmãoSelecionado, List<string>? categorias)
+        {
+            bool result = false;
+            sbyte contadorDeSucesso = 0;
+            foreach (Laçador? la in laçadoresList)
+            {
+                if (la == null)
+                {
+                    result = false;
+                }
+                else
+                {
+                    if (!String.IsNullOrEmpty(nomeTextBox) && !String.Equals(la.Nome, nomeTextBox))
+                    {
+                        contadorDeSucesso += Laçador.AlterarLaçadorDb(la, nomeTextBox, null, "", null, null);
+                        
+                    }
+                    if (!String.IsNullOrEmpty(sobreNomeTexBox) && !String.Equals(la.SobreNome, sobreNomeTexBox))
+                    {
+
+                        contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, sobreNomeTexBox, "", null, null);
+
+                    }
+                    if (!String.IsNullOrEmpty(posição) && !String.Equals(la.Escala, posição))
+                    {
+
+
+                        contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, null, posição, null, null);
+
+                    }
+                    if (temIrmão) { 
+                        if(irmãoSelecionado is Laçador)
+                        {
+                            contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, null, null, irmãoSelecionado, null);
+                        }
+                    
+                    }
+                    if(categorias != null)
+                    {
+                        var listaAntiga = la.Categoria.Except(categorias);
+                        var listaNova = categorias.Except(la.Categoria);
+                        bool sãoDiferentes = listaAntiga.Any() || listaNova.Any();
+                        //se são diferentes então salva
+                        if(sãoDiferentes)
+                            contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, null, null, null,categorias);
+                    }
+                    else
+                    {
+                        result = false;
+                    }
+                }
+            }
+            if(contadorDeSucesso > 0)
+            {
+                result = true; //tivemos alterão bem sucedidas
+            }else { result = false; }
+                return result;
         }
 
         internal static string CadastrarCompetidor(string nome_competidor, string sobreNome, string tipo_competidor, object? irmão, List<string> categorias)
