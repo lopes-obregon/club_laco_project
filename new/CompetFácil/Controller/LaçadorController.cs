@@ -117,6 +117,33 @@ namespace CompetiFácilLaço.Controller
             }
         }
 
+        internal static Laçador? ConsultarLaçador(string nome, string sobreNome)
+        {
+            Laçador? laçador = null;
+            if(!String.IsNullOrEmpty(nome) && !String.IsNullOrEmpty(sobreNome))
+            {
+                laçador = Laçador.ConsultarLaçadorDb(nome, sobreNome);
+               
+            }
+            return laçador;
+        }
+
+        internal static int GetIdLaçador(object? laçador)
+        {
+            if(laçador != null)
+            {
+                Laçador? la = laçador as Laçador;
+                if(la != null)
+                    return la.Id;
+
+            }
+            else
+            {
+                return -1;
+            }
+            return 0;
+        }
+
         internal static List<Laçador> GetLaçadores()
         {
             List<Laçador> laçadores = Laçador.GetLaçdores();

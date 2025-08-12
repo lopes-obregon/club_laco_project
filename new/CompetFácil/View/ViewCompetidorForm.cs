@@ -140,7 +140,7 @@ namespace CompetiFácilLaço
                     temIrmãoCheckBox_CheckedChanged(sender, e);
                     foreach (var laçador in irmãoListBox.Items)
                     {
-                        if (laçador.GetType() == laçadorEncontrado.Irmão.GetType())
+                        if (LaçadorController.GetIdLaçador(laçador) == laçadorEncontrado.Irmão.Id)
                         {
                             irmãoListBox.SelectedItem = laçador;
                             break;
@@ -273,17 +273,18 @@ namespace CompetiFácilLaço
             if (String.IsNullOrEmpty(nomeTextBox.Text)) { MessageBox.Show("Preciso de pelomenos um nome!"); }
             else
             {
-                
-                
-                if(!ConsultarCompetidor(sender, e)) { MessageBox.Show("Desculpe algo deu errado!"); }
+
+
+
+                //primeiro caso se tem irmão 
+                var laçador = LaçadorController.ConsultarLaçador(nomeTextBox.Text, sobreNomeTextBox.Text);
+                //apagando
+                if (LaçadorController.RemoveLaçador(laçador))
+                    MessageBox.Show("Competidor removido com sucesso!");
                 else
-                {
-                    //primeiro caso se tem irmão 
-                    var laçador = LaçadorController.ConsultarLaçador(nomeTextBox.Text);
-                    //apagando
-                    LaçadorController.RemoveLaçador(laçador);
-                   
-                }
+                    MessageBox.Show("Algo deu errado não consegui remover!");
+
+
 
             }
         }

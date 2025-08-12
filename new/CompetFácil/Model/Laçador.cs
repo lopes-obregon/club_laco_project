@@ -256,15 +256,34 @@ namespace CompetiFácilLaço.Model
             //vejo se tem irmão
             if( laçador != null &&laçador.Irmão != null)
             {
-               
-               
+
+
                 //se tiver irmão 
-                laçador.Irmão = null;
+                Laçador? irmão = dataBase.Laçadores.Find(laçador.Irmão.Id);
+                //verificando se o irmão aponta para esse irmão 
+                if ((irmão != null) && (irmão.Id == laçador.Irmão.Id))
+                {
+                    laçador.Irmão = null;
+                }
                 dataBase.Laçadores.Remove(laçador);
                 dataBase.SaveChanges();
                 return true;
             }
             return false;
+        }
+
+        internal static Laçador? ConsultarLaçadorDb(string nome, string sobreNome)
+        {
+            //strings já são garantidas que não são vazias ou nulas
+           using DataBase data = new DataBase();
+            try
+            {
+                var laçadorBuscado = data.Laçadores
+                    .Include(laçador => laçador.Irmão)
+                    .FirstOrDefault(laçador => laçador.Nome == nome && laçador.SobreNome == sobreNome);
+                Laçador? laçadorEncontrado = laçadorBuscado as Laçador;
+                return laçadorEncontrado;
+            }catch  {return null;}
         }
     }
 }
