@@ -269,7 +269,22 @@ namespace CompetiFácilLaço.Model
                 dataBase.SaveChanges();
                 return true;
             }
-            return false;
+            else
+            {
+                if (laçador is not null)
+                {
+
+
+                    Laçador? laçadorEncontrado = dataBase.Laçadores.Find(laçador.Id);
+                    if (laçadorEncontrado is not null)
+                    {
+                        dataBase.Laçadores.Remove(laçadorEncontrado);
+                        dataBase.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+                return false;
         }
 
         internal static Laçador? ConsultarLaçadorDb(string nome, string sobreNome)
