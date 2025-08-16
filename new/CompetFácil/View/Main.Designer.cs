@@ -31,7 +31,6 @@
             menuStrip1 = new MenuStrip();
             equipeToolStripMenuItem = new ToolStripMenuItem();
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
-            localizarToolStripMenuItem = new ToolStripMenuItem();
             competidorToolStripMenuItem = new ToolStripMenuItem();
             cadToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
@@ -49,7 +48,7 @@
             // 
             // equipeToolStripMenuItem
             // 
-            equipeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, localizarToolStripMenuItem });
+            equipeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem });
             equipeToolStripMenuItem.Name = "equipeToolStripMenuItem";
             equipeToolStripMenuItem.Size = new Size(55, 20);
             equipeToolStripMenuItem.Text = "Equipe";
@@ -57,14 +56,9 @@
             // cadastrarToolStripMenuItem
             // 
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(124, 22);
+            cadastrarToolStripMenuItem.Size = new Size(180, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
-            // 
-            // localizarToolStripMenuItem
-            // 
-            localizarToolStripMenuItem.Name = "localizarToolStripMenuItem";
-            localizarToolStripMenuItem.Size = new Size(124, 22);
-            localizarToolStripMenuItem.Text = "Localizar";
+            cadastrarToolStripMenuItem.Click += cadastrarEquipeTollStripMenuItemClick;
             // 
             // competidorToolStripMenuItem
             // 
@@ -76,7 +70,7 @@
             // cadToolStripMenuItem
             // 
             cadToolStripMenuItem.Name = "cadToolStripMenuItem";
-            cadToolStripMenuItem.Size = new Size(180, 22);
+            cadToolStripMenuItem.Size = new Size(124, 22);
             cadToolStripMenuItem.Text = "Cadastrar";
             cadToolStripMenuItem.Click += cadastrarCompetidorToolStripMenuItem_Click;
             // 
@@ -104,7 +98,6 @@
         private System.Windows.Forms.ToolStripMenuItem equipeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem competidorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem localizarToolStripMenuItem;
         private ToolStripMenuItem cadToolStripMenuItem;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }

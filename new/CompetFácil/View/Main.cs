@@ -1,4 +1,6 @@
-﻿namespace CompetiFácilLaço
+﻿using CompetFácil.View;
+
+namespace CompetiFácilLaço
 {
     public partial class Main : Form
     {
@@ -22,6 +24,11 @@
         {
             ViewCompetidorForm cadastrarCompetidorForm = new ViewCompetidorForm();
             cadastrarCompetidorForm.Show();
+        }
+        private void cadastrarEquipeTollStripMenuItemClick(object sender, EventArgs e)
+        {
+            ViewEquipeForm equipeForm = new ViewEquipeForm();
+            equipeForm.Show();
         }
     }
 }
