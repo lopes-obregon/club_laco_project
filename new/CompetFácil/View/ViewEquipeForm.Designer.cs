@@ -130,6 +130,7 @@ namespace CompetFácil.View
             adicionarMembroButton.TabIndex = 1;
             adicionarMembroButton.Text = ">>";
             adicionarMembroButton.UseVisualStyleBackColor = true;
+            adicionarMembroButton.Click += AdicionarMembrosButton;
             // 
             // membroslistBox
             // 

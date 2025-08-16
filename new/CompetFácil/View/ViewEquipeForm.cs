@@ -25,5 +25,18 @@ namespace CompetFácil.View
             var listCompetidores = LaçadorController.GetLaçadores();
             competidorCadastradoslistBox.Items.AddRange(listCompetidores.ToArray());
         }
+        private void AdicionarMembrosButton(object sender, EventArgs e)
+        {
+            var membroSelecionado = competidorCadastradoslistBox?.SelectedItem;
+            if (membroSelecionado is not null)
+            {
+                string? membroSelecionadoString = membroSelecionado?.ToString();
+                if( membroSelecionadoString is not null)
+                    membroslistBox.Items.Add(membroSelecionadoString);
+                competidorCadastradoslistBox?.Items.Remove(membroSelecionado);
+                
+            }
+            
+        }
     }
 }
