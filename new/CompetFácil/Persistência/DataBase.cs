@@ -1,10 +1,12 @@
-﻿using CompetiFácilLaço.Model;
+﻿using CompetFácil.Model;
+using CompetiFácilLaço.Model;
 using Microsoft.EntityFrameworkCore;
 namespace CompetFácil.Persistência
 {
     internal class DataBase:DbContext
     {
         public DbSet<Laçador> Laçadores {  get; set; }
+        public DbSet<Equipe> Equipes { get; set; }
         public string DbPath { get; }
         public DataBase() {
             //SQLitePCL.raw.SetProvider();

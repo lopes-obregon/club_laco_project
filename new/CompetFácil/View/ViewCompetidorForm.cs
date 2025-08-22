@@ -13,7 +13,8 @@ namespace CompetiFácilLaço
             var irmãosLaçadores = LaçadorController.GetLaçadores();
             string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
             //irmãoListBox.Items.AddRange(irmãos);
-            irmãoListBox.Items.AddRange(irmãosLaçadores.ToArray());
+            if (irmãosLaçadores is not null) 
+                irmãoListBox.Items.AddRange(irmãosLaçadores.ToArray());
             categoriasComboBox.Items.AddRange(categorias);
         }
 

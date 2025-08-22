@@ -12,11 +12,11 @@ namespace CompetiFácilLaço.Model
     internal class Laçador
     {
         //propriedades da classe
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public string Escala { get; set; }
         public Laçador? Irmão { get; set; }
-        public int Id { get; set; }
         public List<string> Categoria { get; set; }
         public byte[] Pontos { get; set; }
         //construtor da classe
@@ -38,6 +38,31 @@ namespace CompetiFácilLaço.Model
             }
         }
         public Laçador() { }
+
+        public Laçador(int id)
+        {
+           
+            using DataBase data = new DataBase();
+            var laçadorBuscado = data.Laçadores.FirstOrDefault(l => l.Id == id);
+            Laçador? laçadorEncontrado = laçadorBuscado as Laçador;
+            if (laçadorEncontrado != null)
+            {
+                this.Id = laçadorEncontrado.Id;
+                this.Nome = laçadorEncontrado.Nome;
+                this.SobreNome = laçadorEncontrado.SobreNome;
+                this.Escala = laçadorEncontrado.Escala;
+                this.Categoria = laçadorEncontrado.Categoria;
+                this.Pontos = laçadorEncontrado.Pontos;
+                this.Irmão = laçadorEncontrado.Irmão;
+
+            }
+            else
+            {
+                throw new Exception($"Laçador com ID {id} não encontrado !");
+            }
+
+        }
+
         public string  WriteTeste() {
             string file_name = "teste.txt";
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, file_name);
@@ -128,7 +153,7 @@ namespace CompetiFácilLaço.Model
                     }
                     //garante que o id seja gerado automaticamente
                     novoLaçador.Id = 0;
-                    dataBase.Add(novoLaçador);
+                    dataBase.Laçadores.Add(novoLaçador);
                     Console.WriteLine(dataBase.DbPath);
                     dataBase.SaveChanges();
                     return "Competidor cadastrado com sucesso!";
@@ -299,6 +324,20 @@ namespace CompetiFácilLaço.Model
                 Laçador? laçadorEncontrado = laçadorBuscado as Laçador;
                 return laçadorEncontrado;
             }catch  {return null;}
+        }
+
+        internal static Laçador? GetLaçadorComId(int id)
+        {
+            using DataBase data = new DataBase();
+            try
+            {
+                var laçadorBuscado = data.Laçadores.FirstOrDefault(l => l.Id == id);
+                Laçador? laçadorEncontrado = laçadorBuscado as Laçador;
+                if (laçadorEncontrado is not null)
+                    return laçadorEncontrado;
+                else
+                    return null;
+            }catch{ return null;}
         }
     }
 }

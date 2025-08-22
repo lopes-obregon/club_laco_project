@@ -39,8 +39,11 @@ namespace CompetFácil.View
             adicionarMembroButton = new Button();
             membroslistBox = new ListBox();
             label3 = new Label();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            CadastrarEquipe = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -71,8 +74,9 @@ namespace CompetFácil.View
             competidorCadastradoslistBox.FormattingEnabled = true;
             competidorCadastradoslistBox.Location = new Point(3, 81);
             competidorCadastradoslistBox.Name = "competidorCadastradoslistBox";
-            competidorCadastradoslistBox.Size = new Size(110, 94);
+            competidorCadastradoslistBox.Size = new Size(110, 139);
             competidorCadastradoslistBox.TabIndex = 1;
+            competidorCadastradoslistBox.DoubleClick += AdicionarCompetidorParaMembrosButton;
             // 
             // nomeEquipeTextBox
             // 
@@ -121,6 +125,7 @@ namespace CompetFácil.View
             removeMembroButton.TabIndex = 2;
             removeMembroButton.Text = "<<";
             removeMembroButton.UseVisualStyleBackColor = true;
+            removeMembroButton.Click += AdicionarMembroParaCompetidoresButton;
             // 
             // adicionarMembroButton
             // 
@@ -130,15 +135,16 @@ namespace CompetFácil.View
             adicionarMembroButton.TabIndex = 1;
             adicionarMembroButton.Text = ">>";
             adicionarMembroButton.UseVisualStyleBackColor = true;
-            adicionarMembroButton.Click += AdicionarMembrosButton;
+            adicionarMembroButton.Click += AdicionarCompetidorParaMembrosButton;
             // 
             // membroslistBox
             // 
             membroslistBox.FormattingEnabled = true;
             membroslistBox.Location = new Point(170, 81);
             membroslistBox.Name = "membroslistBox";
-            membroslistBox.Size = new Size(106, 94);
+            membroslistBox.Size = new Size(106, 139);
             membroslistBox.TabIndex = 1;
+            membroslistBox.DoubleClick += AdicionarMembroParaCompetidoresButton;
             // 
             // label3
             // 
@@ -149,11 +155,34 @@ namespace CompetFácil.View
             label3.TabIndex = 1;
             label3.Text = "Membros";
             // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(CadastrarEquipe, 0, 0);
+            tableLayoutPanel3.Location = new Point(15, 241);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Size = new Size(281, 32);
+            tableLayoutPanel3.TabIndex = 1;
+            // 
+            // CadastrarEquipe
+            // 
+            CadastrarEquipe.Location = new Point(3, 3);
+            CadastrarEquipe.Name = "CadastrarEquipe";
+            CadastrarEquipe.Size = new Size(75, 23);
+            CadastrarEquipe.TabIndex = 0;
+            CadastrarEquipe.Text = "Cadastrar";
+            CadastrarEquipe.UseVisualStyleBackColor = true;
+            CadastrarEquipe.Click += CadastrarEquipeButton;
+            // 
             // ViewEquipeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(308, 236);
+            ClientSize = new Size(308, 275);
+            Controls.Add(tableLayoutPanel3);
             Controls.Add(tableLayoutPanel1);
             Name = "ViewEquipeForm";
             Text = "EquipeView";
@@ -161,6 +190,7 @@ namespace CompetFácil.View
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -181,5 +211,7 @@ namespace CompetFácil.View
         private TextBox nomeEquipeTextBox;
         private TableLayoutPanel tableLayoutPanel2;
         private Button removeMembroButton;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Button CadastrarEquipe;
     }
 }
