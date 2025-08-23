@@ -71,5 +71,17 @@ namespace CompetFácil.Model
             catch { sucesso = false; }
             return sucesso;
         }
+
+        internal static Equipe? Consultar(string text)
+        {
+            using DataBase dados = new DataBase();
+            try
+            {
+                var equipeBuscado = dados.Equipes.Include(equipe => equipe.Laçadores).FirstOrDefault(equipe => equipe.NomeEquipe == text);
+                Equipe? equipeEncontrada = equipeBuscado as Equipe;
+                return equipeEncontrada;
+            }
+            catch { return null; }
+        }
     }
 }

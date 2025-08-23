@@ -9,7 +9,7 @@ namespace CompetFácil.Controller
 {
     internal class EquipeController
     {
-        static Equipe? equipe;
+        public static Equipe? equipe { get; private set; } =  null;
         internal static string CadastrarEquipe(string equipeNome, List<string> membrosList)
         {
             if(!string.IsNullOrEmpty(equipeNome) && membrosList != null)
@@ -26,6 +26,26 @@ namespace CompetFácil.Controller
             }
             return "Algum item faltando";
 
+        }
+
+        internal static void ConsultarEquipe(string text)
+        {
+            if (!String.IsNullOrEmpty(text))
+            {
+                if (equipe is null)
+                {
+                    equipe = Equipe.Consultar(text);
+                    
+                }
+                else
+                {
+                    if (!String.Equals(equipe.NomeEquipe, text))
+                    {
+                        equipe = Equipe.Consultar(text);
+                    }
+                }
+            }
+           
         }
     }
 }

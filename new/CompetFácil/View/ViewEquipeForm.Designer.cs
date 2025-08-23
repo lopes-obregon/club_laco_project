@@ -41,6 +41,7 @@ namespace CompetFácil.View
             label3 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             CadastrarEquipe = new Button();
+            consultarbutton = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -157,14 +158,17 @@ namespace CompetFácil.View
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 194F));
             tableLayoutPanel3.Controls.Add(CadastrarEquipe, 0, 0);
+            tableLayoutPanel3.Controls.Add(consultarbutton, 1, 0);
             tableLayoutPanel3.Location = new Point(15, 241);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(281, 32);
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(281, 73);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // CadastrarEquipe
@@ -177,11 +181,21 @@ namespace CompetFácil.View
             CadastrarEquipe.UseVisualStyleBackColor = true;
             CadastrarEquipe.Click += CadastrarEquipeButton;
             // 
+            // consultarbutton
+            // 
+            consultarbutton.Location = new Point(90, 3);
+            consultarbutton.Name = "consultarbutton";
+            consultarbutton.Size = new Size(75, 23);
+            consultarbutton.TabIndex = 1;
+            consultarbutton.Text = "Consultar";
+            consultarbutton.UseVisualStyleBackColor = true;
+            consultarbutton.Click += ConsultarEquipeButton;
+            // 
             // ViewEquipeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(308, 275);
+            ClientSize = new Size(308, 337);
             Controls.Add(tableLayoutPanel3);
             Controls.Add(tableLayoutPanel1);
             Name = "ViewEquipeForm";
@@ -213,5 +227,6 @@ namespace CompetFácil.View
         private Button removeMembroButton;
         private TableLayoutPanel tableLayoutPanel3;
         private Button CadastrarEquipe;
+        private Button consultarbutton;
     }
 }
