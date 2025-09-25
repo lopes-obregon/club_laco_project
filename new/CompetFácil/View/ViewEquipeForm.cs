@@ -119,6 +119,7 @@ namespace CompetFácil.View
                 {
                     nomeEquipeTextBox.Text = EquipeController.equipe.NomeEquipe;
                     //inserir no box
+                    membroslistBox.Items.Clear();//limpa para depois inserir novamente;
                     membroslistBox.Items.AddRange(EquipeController.equipe.Laçadores.ToArray());
                 }
 
