@@ -22,7 +22,7 @@ namespace CompetiFácilLaço.Model
         public List<string> Categoria { get; set; }
         public byte[] Pontos { get; set; }
         //get set
-        public Equipe? Equipe { get { return equipe; } set { equipe = value; } }
+        public Equipe? Equipe { get => equipe;  set => equipe = value;  }
         //construtor da classe
         public Laçador(string nome, string sobreNome,string escala, Laçador? irmão, List<string> categoria)
         {

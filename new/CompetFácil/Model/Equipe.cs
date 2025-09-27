@@ -99,11 +99,20 @@ namespace CompetFácil.Model
                    
 
                 var removidos = Laçadores.Where(original => !laçadorNãoRemovido.Any(atual => atual.Id == original.Id)).ToList();
-
                 foreach (Laçador la in removidos)
                 {
-                    if(la.Equipe is not null)
-                        la.Equipe = null;
+
+                    Laçador? laBanco = dados.Laçadores
+                        .Include(l => l.Equipe)
+                        .FirstOrDefault(l => l.Id == la.Id);
+
+                    if (laBanco is not null)
+                    {
+                        laBanco.Equipe = null;//quebra o vinculo
+                                              //marca como estado alterado
+                        dados.Entry(laBanco).State = EntityState.Modified;
+                        //remove da lista
+                    }
                     Laçadores.Remove(la);
                     
 
