@@ -149,8 +149,12 @@ namespace CompetFácil.Model
            using DataBase dados = new DataBase();
             try
             {
-                NomeEquipe = nameTeam;
-                dados.Equipes.Update(this);
+                var equipe = dados.Equipes.Find(this.Id);
+                if (equipe is not null)
+                {
+                    equipe.NomeEquipe = nameTeam;
+                    NomeEquipe = nameTeam;
+                }
                 dados.SaveChanges();
                 return true;
             }catch (Exception ex) { return false; }

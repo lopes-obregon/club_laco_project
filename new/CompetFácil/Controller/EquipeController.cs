@@ -27,6 +27,8 @@ namespace CompetFácil.Controller
             {
                 //alterou o nome da equipe
                 bool nomeAtualizado = equipe.AtualizarNome(nameTeam);
+                if (nomeAtualizado) return "Nome atualizado com sucesso!";
+                else return "Falha ao atualizar o nome!";
             }
                 return null;
         }
