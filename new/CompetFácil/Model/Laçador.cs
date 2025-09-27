@@ -5,6 +5,7 @@ using CompetFácil.Persistência;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
+using CompetFácil.Model;
 
 
 namespace CompetiFácilLaço.Model
@@ -12,6 +13,7 @@ namespace CompetiFácilLaço.Model
     internal class Laçador
     {
         //propriedades da classe
+        private Equipe? equipe;
         public int Id { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
@@ -19,6 +21,8 @@ namespace CompetiFácilLaço.Model
         public Laçador? Irmão { get; set; }
         public List<string> Categoria { get; set; }
         public byte[] Pontos { get; set; }
+        //get set
+        public Equipe? Equipe { get { return equipe; } set { equipe = value; } }
         //construtor da classe
         public Laçador(string nome, string sobreNome,string escala, Laçador? irmão, List<string> categoria)
         {
@@ -54,6 +58,7 @@ namespace CompetiFácilLaço.Model
                 this.Categoria = laçadorEncontrado.Categoria;
                 this.Pontos = laçadorEncontrado.Pontos;
                 this.Irmão = laçadorEncontrado.Irmão;
+                this.equipe = laçadorEncontrado.Equipe;
 
             }
             else
@@ -331,7 +336,9 @@ namespace CompetiFácilLaço.Model
             using DataBase data = new DataBase();
             try
             {
-                var laçadorBuscado = data.Laçadores.FirstOrDefault(l => l.Id == id);
+                var laçadorBuscado = data.Laçadores
+                    .Include(e => e.Equipe)
+                    .FirstOrDefault(l => l.Id == id);
                 Laçador? laçadorEncontrado = laçadorBuscado as Laçador;
                 if (laçadorEncontrado is not null)
                     return laçadorEncontrado;

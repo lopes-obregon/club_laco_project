@@ -123,8 +123,23 @@ namespace CompetFácil.View
                     membroslistBox.Items.AddRange(EquipeController.equipe.Laçadores.ToArray());
                 }
 
-                }
-                
+            }
+
+        }
+
+        private void AlterarEquipe(object sender, EventArgs e)
+        {
+            string? mensagem = null;
+            if(!String.IsNullOrEmpty(nomeEquipeTextBox.Text))
+            {
+                List<string> membroList = new List<string>();
+                membroList = GetMembrosListBox();
+                 mensagem = EquipeController.AtualizarEquipe(nomeEquipeTextBox.Text, membroList);
+                if (mensagem is not null)
+                    MessageBox.Show(mensagem);
+                else
+                    MessageBox.Show("Algo Deu errado!");
+            }
         }
     }
 }

@@ -39,12 +39,13 @@ namespace CompetFácil.View
             adicionarMembroButton = new Button();
             membroslistBox = new ListBox();
             label3 = new Label();
-            tableLayoutPanel3 = new TableLayoutPanel();
             CadastrarEquipe = new Button();
             consultarbutton = new Button();
+            button1 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -156,21 +157,6 @@ namespace CompetFácil.View
             label3.TabIndex = 1;
             label3.Text = "Membros";
             // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 194F));
-            tableLayoutPanel3.Controls.Add(CadastrarEquipe, 0, 0);
-            tableLayoutPanel3.Controls.Add(consultarbutton, 1, 0);
-            tableLayoutPanel3.Location = new Point(15, 241);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(281, 73);
-            tableLayoutPanel3.TabIndex = 1;
-            // 
             // CadastrarEquipe
             // 
             CadastrarEquipe.Location = new Point(3, 3);
@@ -183,7 +169,7 @@ namespace CompetFácil.View
             // 
             // consultarbutton
             // 
-            consultarbutton.Location = new Point(90, 3);
+            consultarbutton.Location = new Point(165, 3);
             consultarbutton.Name = "consultarbutton";
             consultarbutton.Size = new Size(75, 23);
             consultarbutton.TabIndex = 1;
@@ -191,12 +177,32 @@ namespace CompetFácil.View
             consultarbutton.UseVisualStyleBackColor = true;
             consultarbutton.Click += ConsultarEquipeButton;
             // 
+            // button1
+            // 
+            button1.Location = new Point(84, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Alterar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += AlterarEquipe;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(CadastrarEquipe);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(consultarbutton);
+            flowLayoutPanel1.Location = new Point(12, 251);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(279, 100);
+            flowLayoutPanel1.TabIndex = 3;
+            // 
             // ViewEquipeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(308, 337);
-            Controls.Add(tableLayoutPanel3);
+            ClientSize = new Size(300, 359);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(tableLayoutPanel1);
             Name = "ViewEquipeForm";
             Text = "EquipeView";
@@ -204,7 +210,7 @@ namespace CompetFácil.View
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -225,8 +231,9 @@ namespace CompetFácil.View
         private TextBox nomeEquipeTextBox;
         private TableLayoutPanel tableLayoutPanel2;
         private Button removeMembroButton;
-        private TableLayoutPanel tableLayoutPanel3;
         private Button CadastrarEquipe;
         private Button consultarbutton;
+        private Button button1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

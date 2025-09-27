@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,6 +35,7 @@ namespace CompetFácil.Model
 
         internal void ListStringToLaçador(List<string> membrosList)
         {
+           
             foreach (var item in membrosList)
             {
                 //separar pelo hífen
@@ -59,9 +61,11 @@ namespace CompetFácil.Model
             {
                 novaEquipe.Id = 0;//garantir que sempre vai ter um novo id
                 //associar a equipe 
-                foreach (var item in novaEquipe.Laçadores)
+                foreach (var laçador in novaEquipe.Laçadores)
                 {
-                    dataBase.Entry(item).State = EntityState.Unchanged;
+                    laçador.Equipe = novaEquipe;
+                    //contexto precisa saber que houve modificações
+                    dataBase.Entry(laçador).State = EntityState.Modified;
                 }
                 dataBase.Equipes.Add(novaEquipe);//adiciona ao contexto
                 //salva as alterações
@@ -82,6 +86,65 @@ namespace CompetFácil.Model
                 return equipeEncontrada;
             }
             catch { return null; }
+        }
+
+        internal bool AtualizarMembros(List<string> membroList)
+        {
+            using DataBase dados = new DataBase();
+           
+            List<Laçador> laçadorNãoRemovido = ListStringToLaçadorList(membroList);
+            try
+            {
+                
+                   
+
+                var removidos = Laçadores.Where(original => !laçadorNãoRemovido.Any(atual => atual.Id == original.Id)).ToList();
+
+                foreach (Laçador la in removidos)
+                {
+                    if(la.Equipe is not null)
+                        la.Equipe = null;
+                    Laçadores.Remove(la);
+                    
+
+
+                }
+                //dados.Equipes.Update(this);
+                dados.SaveChanges();
+                return true;
+              
+
+            }catch { return false; }
+        }
+
+        private List<Laçador> ListStringToLaçadorList(List<string> membroList)
+        {
+            List<Laçador> laçadors = new List<Laçador>();
+            foreach (var membro in membroList)
+            {
+                //separar por hifem
+                string[] partes = membro.Split('-');
+                //treim para remover espaços
+                int id = int.Parse(partes[0].Trim());
+                var laçadorBanco = Laçador.GetLaçadorComId(id);
+                if(laçadorBanco is not null)
+                {
+                    laçadors.Add(laçadorBanco as Laçador);
+                }
+            }
+            return laçadors;
+        }
+
+        internal bool AtualizarNome(string nameTeam)
+        {
+           using DataBase dados = new DataBase();
+            try
+            {
+                NomeEquipe = nameTeam;
+                dados.Equipes.Update(this);
+                dados.SaveChanges();
+                return true;
+            }catch (Exception ex) { return false; }
         }
     }
 }

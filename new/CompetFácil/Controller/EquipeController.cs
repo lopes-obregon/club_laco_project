@@ -10,6 +10,27 @@ namespace CompetFácil.Controller
     internal class EquipeController
     {
         public static Equipe? equipe { get; private set; } =  null;
+
+        internal static string? AtualizarEquipe(string nameTeam, List<string> membroList)
+        {
+            //se equipe não é nulo e string são iguais
+            //caso em que alterou o membro list apenas.
+            if(equipe is not null && String.Equals(nameTeam, equipe.NomeEquipe) )
+            {
+                //alterou apenas os membros da equipe
+                bool membrosAtualizados = equipe.AtualizarMembros(membroList);
+                if (membrosAtualizados)
+                    return "Membros Atualizados com sucesso!";
+                else
+                    return "Falha em atualizar a equipe!";
+            }else if(equipe is not null && !String.Equals(nameTeam, equipe.NomeEquipe))
+            {
+                //alterou o nome da equipe
+                bool nomeAtualizado = equipe.AtualizarNome(nameTeam);
+            }
+                return null;
+        }
+
         internal static string CadastrarEquipe(string equipeNome, List<string> membrosList)
         {
             if(!string.IsNullOrEmpty(equipeNome) && membrosList != null)
