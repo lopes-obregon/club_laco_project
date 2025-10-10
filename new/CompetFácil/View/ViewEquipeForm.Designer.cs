@@ -43,6 +43,8 @@ namespace CompetFácil.View
             consultarbutton = new Button();
             button1 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            button2 = new Button();
+            button3 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -192,10 +194,32 @@ namespace CompetFácil.View
             flowLayoutPanel1.Controls.Add(CadastrarEquipe);
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(consultarbutton);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Location = new Point(12, 251);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(279, 100);
             flowLayoutPanel1.TabIndex = 3;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(3, 32);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 3;
+            button2.Text = "Remover";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += RemoverEquipe;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(84, 32);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 4;
+            button3.Text = "Limpar";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += LimparCampos;
             // 
             // ViewEquipeForm
             // 
@@ -235,5 +259,7 @@ namespace CompetFácil.View
         private Button consultarbutton;
         private Button button1;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Button button2;
+        private Button button3;
     }
 }

@@ -159,5 +159,31 @@ namespace CompetFácil.Model
                 return true;
             }catch (Exception ex) { return false; }
         }
+
+        internal bool Remove()
+        {
+            using DataBase data = new DataBase();
+            try
+            {
+                var equipe = data.Equipes
+                    .Include(e => e.Laçadores)
+                    .FirstOrDefault(eq => eq.Id == Id);
+                if( equipe is not null )
+                {
+                    foreach(Laçador la in equipe.Laçadores)
+                    {
+                        if( la.Equipe is not null && la.Equipe.Id == Id)
+                        {
+                            la.Equipe = null;
+                        }
+                    }
+
+
+                    data.Equipes.Remove(equipe);
+                    data.SaveChanges();
+                }
+                return true;
+            }catch (Exception ex) { return false; }
+        }
     }
 }

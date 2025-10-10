@@ -50,6 +50,12 @@ namespace CompetFácil.Controller
             return "Algum item faltando";
 
         }
+        //limpa a referencia do objeto ou seja libera o objeto
+        internal static void Clear()
+        {
+            if(equipe is not null)
+                equipe = null;
+        }
 
         internal static void ConsultarEquipe(string text)
         {
@@ -69,6 +75,27 @@ namespace CompetFácil.Controller
                 }
             }
            
+        }
+
+        internal static string? Remover(string equipeNome)
+        {
+            bool remove = false;
+            if (equipe is null)
+                return "Algo deu errado!";
+            else if(!String.IsNullOrEmpty(equipeNome))
+            {
+                if (equipe is not null)
+                {
+                    if(equipe.NomeEquipe == equipeNome)
+                    {
+                         remove = equipe.Remove();
+                        equipe = null;
+                    }
+                }
+                if(remove)
+                    return "Equipe Removida com sucesso!";
+            }
+            return null;
         }
     }
 }

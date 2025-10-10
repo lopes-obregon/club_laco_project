@@ -130,16 +130,32 @@ namespace CompetFácil.View
         private void AlterarEquipe(object sender, EventArgs e)
         {
             string? mensagem = null;
-            if(!String.IsNullOrEmpty(nomeEquipeTextBox.Text))
+            if (!String.IsNullOrEmpty(nomeEquipeTextBox.Text))
             {
                 List<string> membroList = new List<string>();
                 membroList = GetMembrosListBox();
-                 mensagem = EquipeController.AtualizarEquipe(nomeEquipeTextBox.Text, membroList);
+                mensagem = EquipeController.AtualizarEquipe(nomeEquipeTextBox.Text, membroList);
                 if (mensagem is not null)
                     MessageBox.Show(mensagem);
                 else
                     MessageBox.Show("Algo Deu errado!");
             }
+        }
+
+        private void RemoverEquipe(object sender, EventArgs e)
+        {
+            string? mensagem = EquipeController.Remover(nomeEquipeTextBox.Text);
+            if (mensagem is not null)
+                MessageBox.Show(mensagem);
+            else
+                MessageBox.Show("Algo deu errado!");
+        }
+
+        private void LimparCampos(object sender, EventArgs e)
+        {
+            nomeEquipeTextBox.Text = String.Empty;
+            membroslistBox.Items.Clear();
+            EquipeController.Clear();
         }
     }
 }
