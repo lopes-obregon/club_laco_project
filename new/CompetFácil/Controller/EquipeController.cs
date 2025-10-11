@@ -38,10 +38,10 @@ namespace CompetFácil.Controller
         {
             if(!string.IsNullOrEmpty(equipeNome) && membrosList != null)
             {
-                equipe = new Equipe(equipeNome);
-                equipe.ListStringToLaçador(membrosList);
+                equipe = Equipe.Exist(equipeNome);
                 if(equipe is not null)
                 {
+                    equipe.ListStringToLaçador(membrosList);
                     
                     if(Equipe.Cadastrar(equipe))
                         return $"Equipe: {equipe} cadastrado com sucesso!";

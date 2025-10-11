@@ -194,5 +194,21 @@ namespace CompetFácil.Model
                 return db.Equipes.ToList();
             }catch (Exception ex) { return null; }
         }
+
+        internal static Equipe? Exist(string equipeNome)
+        {
+            using (DataBase db = new DataBase())
+            {
+                try
+                {
+                    var equipeExistente = db.Equipes.FirstOrDefault(e => e.NomeEquipe == equipeNome);
+                    if (equipeExistente is not null)
+                        return null;
+                    else
+                        return new Equipe(equipeNome);
+                }
+                catch (Exception ex) { return null; }
+            }
+        }
     }
 }
