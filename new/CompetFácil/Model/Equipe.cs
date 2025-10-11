@@ -185,5 +185,14 @@ namespace CompetFácil.Model
                 return true;
             }catch (Exception ex) { return false; }
         }
+
+        internal static IEnumerable<Equipe>? GetEquipes()
+        {
+            using DataBase db = new DataBase();
+            try
+            {
+                return db.Equipes.ToList();
+            }catch (Exception ex) { return null; }
+        }
     }
 }

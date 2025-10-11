@@ -33,7 +33,10 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             competidorToolStripMenuItem = new ToolStripMenuItem();
             cadToolStripMenuItem = new ToolStripMenuItem();
+            dataGridView = new DataGridView();
+            labelNomeDaEquipe = new Label();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -56,7 +59,7 @@
             // cadastrarToolStripMenuItem
             // 
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem.Size = new Size(124, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarEquipeTollStripMenuItemClick;
             // 
@@ -74,11 +77,30 @@
             cadToolStripMenuItem.Text = "Cadastrar";
             cadToolStripMenuItem.Click += cadastrarCompetidorToolStripMenuItem_Click;
             // 
+            // dataGridView
+            // 
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(12, 71);
+            dataGridView.Name = "dataGridView";
+            dataGridView.Size = new Size(514, 284);
+            dataGridView.TabIndex = 1;
+            // 
+            // labelNomeDaEquipe
+            // 
+            labelNomeDaEquipe.AutoSize = true;
+            labelNomeDaEquipe.Location = new Point(121, 53);
+            labelNomeDaEquipe.Name = "labelNomeDaEquipe";
+            labelNomeDaEquipe.Size = new Size(49, 15);
+            labelNomeDaEquipe.TabIndex = 2;
+            labelNomeDaEquipe.Text = "Equipe: ";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 519);
+            Controls.Add(labelNomeDaEquipe);
+            Controls.Add(dataGridView);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Margin = new Padding(4, 3, 4, 3);
@@ -87,6 +109,7 @@
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -99,6 +122,8 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem competidorToolStripMenuItem;
         private ToolStripMenuItem cadToolStripMenuItem;
+        private DataGridView dataGridView;
+        private Label labelNomeDaEquipe;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }

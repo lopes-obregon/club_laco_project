@@ -10,7 +10,8 @@ namespace CompetFácil.Controller
     internal class EquipeController
     {
         public static Equipe? equipe { get; private set; } =  null;
-
+        private static List<Equipe>? equipes = null;
+        public static List<Equipe>? Equipes { get => equipes; set => equipes = value; }
         internal static string? AtualizarEquipe(string nameTeam, List<string> membroList)
         {
             //se equipe não é nulo e string são iguais
@@ -75,6 +76,14 @@ namespace CompetFácil.Controller
                 }
             }
            
+        }
+
+        internal static void LoadEquipes()
+        {
+            equipes = new List<Equipe>();
+            var equipeList = Equipe.GetEquipes();
+            if(equipeList is not null)
+                equipes.AddRange(equipeList);
         }
 
         internal static string? Remover(string equipeNome)
