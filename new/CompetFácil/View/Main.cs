@@ -86,9 +86,7 @@ namespace CompetiFácilLaço
 
         private void InitDataGrid()
         {
-            dataGridView.Columns.Add("Id", "ID");
-            dataGridView.Columns.Add("Nome", "Competidor");
-            dataGridView.Columns.Add("Pontos", "Pontos");
+          
             for (int i = 0; i < 6; i++)
             {
                 var statusColumn = new DataGridViewComboBoxColumn();
@@ -126,12 +124,14 @@ namespace CompetiFácilLaço
             }
         }
 
-      
+
 
         private void VerificarCelulaEditada(object sender, EventArgs e)
         {
             if (dataGridView.IsCurrentCellDirty)
                 dataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
+
+        
     }
 }

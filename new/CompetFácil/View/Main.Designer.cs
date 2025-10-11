@@ -34,7 +34,10 @@
             competidorToolStripMenuItem = new ToolStripMenuItem();
             cadToolStripMenuItem = new ToolStripMenuItem();
             dataGridView = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            nome = new DataGridViewTextBoxColumn();
             labelNomeDaEquipe = new Label();
+            Pontos = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -80,12 +83,25 @@
             // dataGridView
             // 
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { id, nome, Pontos });
             dataGridView.Location = new Point(12, 71);
             dataGridView.Name = "dataGridView";
             dataGridView.Size = new Size(514, 284);
             dataGridView.TabIndex = 1;
             dataGridView.CellValueChanged += MarcarPonto;
             dataGridView.CurrentCellDirtyStateChanged += VerificarCelulaEditada;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // nome
+            // 
+            nome.HeaderText = "Competidor";
+            nome.Name = "nome";
+            nome.ReadOnly = true;
             // 
             // labelNomeDaEquipe
             // 
@@ -95,6 +111,12 @@
             labelNomeDaEquipe.Size = new Size(49, 15);
             labelNomeDaEquipe.TabIndex = 2;
             labelNomeDaEquipe.Text = "Equipe: ";
+            // 
+            // Pontos
+            // 
+            Pontos.HeaderText = "Pontos";
+            Pontos.Name = "Pontos";
+            Pontos.ReadOnly = true;
             // 
             // Main
             // 
@@ -125,6 +147,9 @@
         private ToolStripMenuItem cadToolStripMenuItem;
         private DataGridView dataGridView;
         private Label labelNomeDaEquipe;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn nome;
+        private DataGridViewTextBoxColumn Pontos;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
