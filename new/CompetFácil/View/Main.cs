@@ -86,7 +86,7 @@ namespace CompetiFácilLaço
 
         private void InitDataGrid()
         {
-          
+
             for (int i = 0; i < 6; i++)
             {
                 var statusColumn = new DataGridViewComboBoxColumn();
@@ -132,6 +132,9 @@ namespace CompetiFácilLaço
                 dataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
-        
+        private void SalvarTableData(object sender, EventArgs e)
+        {
+
+        }
     }
 }

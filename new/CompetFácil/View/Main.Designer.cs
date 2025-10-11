@@ -36,10 +36,13 @@
             dataGridView = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             nome = new DataGridViewTextBoxColumn();
-            labelNomeDaEquipe = new Label();
             Pontos = new DataGridViewTextBoxColumn();
+            labelNomeDaEquipe = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            buttonSalvar = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -103,6 +106,12 @@
             nome.Name = "nome";
             nome.ReadOnly = true;
             // 
+            // Pontos
+            // 
+            Pontos.HeaderText = "Pontos";
+            Pontos.Name = "Pontos";
+            Pontos.ReadOnly = true;
+            // 
             // labelNomeDaEquipe
             // 
             labelNomeDaEquipe.AutoSize = true;
@@ -112,17 +121,30 @@
             labelNomeDaEquipe.TabIndex = 2;
             labelNomeDaEquipe.Text = "Equipe: ";
             // 
-            // Pontos
+            // flowLayoutPanel1
             // 
-            Pontos.HeaderText = "Pontos";
-            Pontos.Name = "Pontos";
-            Pontos.ReadOnly = true;
+            flowLayoutPanel1.Controls.Add(buttonSalvar);
+            flowLayoutPanel1.Location = new Point(121, 407);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(200, 100);
+            flowLayoutPanel1.TabIndex = 3;
+            // 
+            // buttonSalvar
+            // 
+            buttonSalvar.Location = new Point(3, 3);
+            buttonSalvar.Name = "buttonSalvar";
+            buttonSalvar.Size = new Size(75, 23);
+            buttonSalvar.TabIndex = 0;
+            buttonSalvar.Text = "Salvar";
+            buttonSalvar.UseVisualStyleBackColor = true;
+            buttonSalvar.Click += SalvarTableData;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1004, 519);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(labelNomeDaEquipe);
             Controls.Add(dataGridView);
             Controls.Add(menuStrip1);
@@ -133,6 +155,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -150,6 +173,8 @@
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nome;
         private DataGridViewTextBoxColumn Pontos;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button buttonSalvar;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
