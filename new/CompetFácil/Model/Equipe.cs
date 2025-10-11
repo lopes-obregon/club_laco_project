@@ -118,6 +118,16 @@ namespace CompetFácil.Model
 
 
                 }
+                //ENTÃO TEMOS QUE ALTERAR OS COMPETIDORES 
+                foreach(Laçador la in laçadorNãoRemovido)
+                {
+                    var laçadorBuscado = dados.Laçadores.FirstOrDefault(ldb => ldb.Id == la.Id);
+                    if(laçadorBuscado is not null && la.Equipe is not null)
+                    {
+                        la.Equipe = this;
+                        laçadorBuscado.Equipe = this;
+                    }
+                }
                 //dados.Equipes.Update(this);
                 dados.SaveChanges();
                 return true;
