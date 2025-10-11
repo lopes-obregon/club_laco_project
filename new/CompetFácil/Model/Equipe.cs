@@ -201,7 +201,7 @@ namespace CompetFácil.Model
             using DataBase db = new DataBase();
             try
             {
-                return db.Equipes.ToList();
+                return db.Equipes.Include(e => e.Laçadores).ToList();
             }catch (Exception ex) { return null; }
         }
 

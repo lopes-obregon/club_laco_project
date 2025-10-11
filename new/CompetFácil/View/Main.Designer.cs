@@ -45,7 +45,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(933, 24);
+            menuStrip1.Size = new Size(1004, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -84,6 +84,8 @@
             dataGridView.Name = "dataGridView";
             dataGridView.Size = new Size(514, 284);
             dataGridView.TabIndex = 1;
+            dataGridView.CellValueChanged += MarcarPonto;
+            dataGridView.CurrentCellDirtyStateChanged += VerificarCelulaEditada;
             // 
             // labelNomeDaEquipe
             // 
@@ -98,7 +100,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(933, 519);
+            ClientSize = new Size(1004, 519);
             Controls.Add(labelNomeDaEquipe);
             Controls.Add(dataGridView);
             Controls.Add(menuStrip1);
@@ -106,7 +108,6 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "Main";
             Text = "CompetiFácilLaço";
-            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
