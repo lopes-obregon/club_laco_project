@@ -40,6 +40,7 @@
             labelNomeDaEquipe = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonSalvar = new Button();
+            labelIdEquipe = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -89,7 +90,7 @@
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { id, nome, Pontos });
             dataGridView.Location = new Point(12, 71);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(514, 284);
+            dataGridView.Size = new Size(244, 284);
             dataGridView.TabIndex = 1;
             dataGridView.CellValueChanged += MarcarPonto;
             dataGridView.CurrentCellDirtyStateChanged += VerificarCelulaEditada;
@@ -99,6 +100,7 @@
             id.HeaderText = "ID";
             id.Name = "id";
             id.ReadOnly = true;
+            id.Visible = false;
             // 
             // nome
             // 
@@ -139,11 +141,22 @@
             buttonSalvar.UseVisualStyleBackColor = true;
             buttonSalvar.Click += SalvarTableData;
             // 
+            // labelIdEquipe
+            // 
+            labelIdEquipe.AutoSize = true;
+            labelIdEquipe.Location = new Point(10, 53);
+            labelIdEquipe.Name = "labelIdEquipe";
+            labelIdEquipe.Size = new Size(38, 15);
+            labelIdEquipe.TabIndex = 4;
+            labelIdEquipe.Text = "label1";
+            labelIdEquipe.Visible = false;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1004, 519);
+            Controls.Add(labelIdEquipe);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(labelNomeDaEquipe);
             Controls.Add(dataGridView);
@@ -170,11 +183,12 @@
         private ToolStripMenuItem cadToolStripMenuItem;
         private DataGridView dataGridView;
         private Label labelNomeDaEquipe;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button buttonSalvar;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nome;
         private DataGridViewTextBoxColumn Pontos;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button buttonSalvar;
+        private Label labelIdEquipe;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }

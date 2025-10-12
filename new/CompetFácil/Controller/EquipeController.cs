@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace CompetFácil.Controller
 {
@@ -105,6 +107,65 @@ namespace CompetFácil.Controller
                     return "Equipe Removida com sucesso!";
             }
             return null;
+        }
+
+        internal static void SetTableData(int id, int idEquipe, List<string> pontos)
+        {
+            List<byte> pontosMarcados = new List<byte>();
+            if(equipes is not null)
+            {
+                var equipeBuscada = equipes.Find(e => e.Id == idEquipe);
+                if (equipeBuscada is not null)
+                {
+                    var laBuscado = equipeBuscada.Laçadores.Find(la => la.Id == id);
+                    if (laBuscado is not null)
+                    {
+                        foreach (var pnt in pontos)
+                        {
+                            if (pnt == "Positivo")
+                                pontosMarcados.Add(1);
+                            else if (pnt == "Negativo")
+                                pontosMarcados.Add(2);
+                            else if (pnt == "")
+                                pontosMarcados.Add(0);
+                        }
+                        laBuscado.Pontos = pontosMarcados.ToArray();
+                    }
+                }
+            }
+        }
+
+        internal static string SaveDataLa(int idEquipe)
+        {
+            bool save = false;
+           if(equipes is not null)
+            {
+                var equipeBuscada = equipes.Find(e => e.Id ==idEquipe);
+                if (equipeBuscada is not null)
+                {
+                    save = Equipe.SaveDataPntLa(equipeBuscada);
+                }
+
+            }
+            if (save)
+                return "Dados Salvo Com Sucesso!";
+            else
+                return "Erro ao Salvar os dados";
+        }
+
+        internal static Equipe? EquipesGetCurrent()
+        {
+            if(equipes is not null)
+            {
+                List<Equipe>.Enumerator enu = equipes.GetEnumerator();
+                return enu.Current;
+
+
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

@@ -40,10 +40,11 @@ namespace CompetiFácilLaço
             //fazer a consulta do objeto 
             if (EquipeController.Equipes is not null)
             {
-                var equipe = EquipeController.Equipes.FirstOrDefault();
+                var equipe = EquipeController.EquipesGetCurrent();
                 if (equipe != null)
                 {
                     labelNomeDaEquipe.Text += equipe.NomeEquipe;
+                    labelIdEquipe.Text = equipe.Id.ToString() ?? "0";
                     foreach (var la in equipe.Laçadores)
                     {
                         dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
@@ -61,7 +62,8 @@ namespace CompetiFácilLaço
 
         private void DataGridRefresh()
         {
-            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             int alturaTotal = dataGridView.Rows.GetRowsHeight(DataGridViewElementStates.Visible)
                 + dataGridView.ColumnHeadersHeight;
             // int alturaTotal = dataGridView.ColumnHeadersHeight;
@@ -76,7 +78,7 @@ namespace CompetiFácilLaço
 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.Height = alturaTotal;
-            dataGridView.Width = larguraTotal;
+            dataGridView.Width = larguraTotal - 100;
             dataGridView.ScrollBars = ScrollBars.None;
             //dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             //dataGridView.ScrollBars = ScrollBars.Vertical;
@@ -90,7 +92,7 @@ namespace CompetiFácilLaço
             for (int i = 0; i < 6; i++)
             {
                 var statusColumn = new DataGridViewComboBoxColumn();
-                statusColumn.Name = "Ponto " + (i + 1);
+                statusColumn.Name = $"Ponto {i + 1}";
                 statusColumn.Items.AddRange("Positivo", "Negativo", "");
                 dataGridView.Columns.Add(statusColumn);
 
@@ -134,6 +136,26 @@ namespace CompetiFácilLaço
 
         private void SalvarTableData(object sender, EventArgs e)
         {
+            List<string> pontos = new List<string>();
+            int idEquipe = Convert.ToInt32(labelIdEquipe.Text);
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Cells["id"].Value != null)
+                {
+                    for(int i = 0;i < 6; i++)
+                    {
+                        string nomeColuna = $"Ponto {i + 1}";
+                        pontos.Add(row.Cells[nomeColuna].Value?.ToString() ?? "");
+
+                    }
+                    int id = Convert.ToInt32(row.Cells["id"].Value);
+                    
+                    EquipeController.SetTableData(id, idEquipe, pontos);
+                    pontos.Clear();
+                }
+            }
+            string mensagen = EquipeController.SaveDataLa(idEquipe);
+            MessageBox.Show(mensagen);
 
         }
     }

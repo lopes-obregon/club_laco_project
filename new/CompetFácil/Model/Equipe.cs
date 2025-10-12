@@ -220,5 +220,15 @@ namespace CompetFácil.Model
                 catch (Exception ex) { return null; }
             }
         }
+
+        internal static bool SaveDataPntLa(Equipe equipeBuscada)
+        {
+            bool save = false;
+            foreach (var la in equipeBuscada.Laçadores)
+            {
+                save = Laçador.SavePnt(la);
+            }
+            return save;
+        }
     }
 }

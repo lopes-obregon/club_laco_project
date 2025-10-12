@@ -6,6 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 using CompetFácil.Model;
+using System.Diagnostics.CodeAnalysis;
 
 
 namespace CompetiFácilLaço.Model
@@ -20,6 +21,7 @@ namespace CompetiFácilLaço.Model
         public string Escala { get; set; }
         public Laçador? Irmão { get; set; }
         public List<string> Categoria { get; set; }
+        //1- positivo 2- negativo 0- vazio
         public byte[] Pontos { get; set; }
         //get set
         public Equipe? Equipe { get => equipe;  set => equipe = value;  }
@@ -345,6 +347,25 @@ namespace CompetiFácilLaço.Model
                 else
                     return null;
             }catch{ return null;}
+        }
+
+        internal static bool SavePnt(Laçador laçador)
+        {
+            using (DataBase data = new DataBase())
+            {
+                try
+                {
+                    var laBuscado = data.Laçadores.FirstOrDefault(la => la.Id == laçador.Id);
+                    Laçador? laEncontrado = laBuscado as Laçador;
+                    if (laEncontrado is not null)
+                    {
+                        laEncontrado.Pontos = laçador.Pontos;
+                    }
+                    data.SaveChanges();
+                    return true;
+
+                }catch{ return false; }
+            }
         }
     }
 }
