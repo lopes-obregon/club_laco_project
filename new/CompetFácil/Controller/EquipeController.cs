@@ -13,6 +13,7 @@ namespace CompetFácil.Controller
     {
         public static Equipe? equipe { get; private set; } =  null;
         private static List<Equipe>? equipes = null;
+        private static int indexEquipes = 0;
         public static List<Equipe>? Equipes { get => equipes; set => equipes = value; }
         internal static string? AtualizarEquipe(string nameTeam, List<string> membroList)
         {
@@ -155,17 +156,24 @@ namespace CompetFácil.Controller
 
         internal static Equipe? EquipesGetCurrent()
         {
+            Equipe? equipe = null;
             if(equipes is not null)
             {
-                List<Equipe>.Enumerator enu = equipes.GetEnumerator();
-                return enu.Current;
 
+                equipe = equipes[indexEquipes];
+                return equipe;
 
             }
             else
             {
                 return null;
             }
+        }
+
+        internal static void PróximaEquipe()
+        {
+            indexEquipes++;
+           
         }
     }
 }

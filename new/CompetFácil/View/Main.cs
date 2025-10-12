@@ -142,20 +142,42 @@ namespace CompetiFácilLaço
             {
                 if (row.Cells["id"].Value != null)
                 {
-                    for(int i = 0;i < 6; i++)
+                    for (int i = 0; i < 6; i++)
                     {
                         string nomeColuna = $"Ponto {i + 1}";
                         pontos.Add(row.Cells[nomeColuna].Value?.ToString() ?? "");
 
                     }
                     int id = Convert.ToInt32(row.Cells["id"].Value);
-                    
+
                     EquipeController.SetTableData(id, idEquipe, pontos);
                     pontos.Clear();
                 }
             }
             string mensagen = EquipeController.SaveDataLa(idEquipe);
             MessageBox.Show(mensagen);
+
+        }
+
+        private void PróximoEquipe(object sender, EventArgs e)
+        {
+            int idEquipe = Convert.ToInt32(labelIdEquipe.Text);
+            EquipeController.PróximaEquipe();
+            var equipe = EquipeController.EquipesGetCurrent();
+            dataGridView.Rows.Clear();
+            if (equipe is not null)
+            {
+                labelIdEquipe.Text = equipe.Id.ToString() ?? "";
+                labelNomeDaEquipe.Text = $"Equipe: {equipe.NomeEquipe}";
+                foreach(var la in equipe.Laçadores)
+                {
+                    dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
+                }
+            }
+        }
+
+        private void labelNomeDaEquipe_Click(object sender, EventArgs e)
+        {
 
         }
     }

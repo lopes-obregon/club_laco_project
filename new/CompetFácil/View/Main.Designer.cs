@@ -40,6 +40,7 @@
             labelNomeDaEquipe = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonSalvar = new Button();
+            buttonProx = new Button();
             labelIdEquipe = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -122,10 +123,12 @@
             labelNomeDaEquipe.Size = new Size(49, 15);
             labelNomeDaEquipe.TabIndex = 2;
             labelNomeDaEquipe.Text = "Equipe: ";
+            labelNomeDaEquipe.Click += labelNomeDaEquipe_Click;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(buttonSalvar);
+            flowLayoutPanel1.Controls.Add(buttonProx);
             flowLayoutPanel1.Location = new Point(121, 407);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(200, 100);
@@ -140,6 +143,16 @@
             buttonSalvar.Text = "Salvar";
             buttonSalvar.UseVisualStyleBackColor = true;
             buttonSalvar.Click += SalvarTableData;
+            // 
+            // buttonProx
+            // 
+            buttonProx.Location = new Point(84, 3);
+            buttonProx.Name = "buttonProx";
+            buttonProx.Size = new Size(75, 23);
+            buttonProx.TabIndex = 1;
+            buttonProx.Text = "Próximo";
+            buttonProx.UseVisualStyleBackColor = true;
+            buttonProx.Click += PróximoEquipe;
             // 
             // labelIdEquipe
             // 
@@ -189,6 +202,7 @@
         private DataGridViewTextBoxColumn nome;
         private DataGridViewTextBoxColumn Pontos;
         private Label labelIdEquipe;
+        private Button buttonProx;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
