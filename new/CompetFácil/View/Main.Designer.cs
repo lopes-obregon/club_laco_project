@@ -42,6 +42,7 @@
             buttonSalvar = new Button();
             buttonProx = new Button();
             labelIdEquipe = new Label();
+            buttonAnterior = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -128,11 +129,13 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(buttonSalvar);
+            flowLayoutPanel1.Controls.Add(buttonAnterior);
             flowLayoutPanel1.Controls.Add(buttonProx);
             flowLayoutPanel1.Location = new Point(121, 407);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(200, 100);
+            flowLayoutPanel1.Size = new Size(247, 100);
             flowLayoutPanel1.TabIndex = 3;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // buttonSalvar
             // 
@@ -146,7 +149,7 @@
             // 
             // buttonProx
             // 
-            buttonProx.Location = new Point(84, 3);
+            buttonProx.Location = new Point(165, 3);
             buttonProx.Name = "buttonProx";
             buttonProx.Size = new Size(75, 23);
             buttonProx.TabIndex = 1;
@@ -163,6 +166,16 @@
             labelIdEquipe.TabIndex = 4;
             labelIdEquipe.Text = "label1";
             labelIdEquipe.Visible = false;
+            // 
+            // buttonAnterior
+            // 
+            buttonAnterior.Location = new Point(84, 3);
+            buttonAnterior.Name = "buttonAnterior";
+            buttonAnterior.Size = new Size(75, 23);
+            buttonAnterior.TabIndex = 2;
+            buttonAnterior.Text = "Voltar";
+            buttonAnterior.UseVisualStyleBackColor = true;
+            buttonAnterior.Click += VoltarEquipe;
             // 
             // Main
             // 
@@ -203,6 +216,7 @@
         private DataGridViewTextBoxColumn Pontos;
         private Label labelIdEquipe;
         private Button buttonProx;
+        private Button buttonAnterior;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }

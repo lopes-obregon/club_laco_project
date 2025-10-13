@@ -172,8 +172,19 @@ namespace CompetFácil.Controller
 
         internal static void PróximaEquipe()
         {
-            indexEquipes++;
+            if (equipes is not null && indexEquipes < equipes.Count - 1)
+                indexEquipes++;
+            else if (equipes is not null && indexEquipes > equipes.Count - 1)
+                indexEquipes = equipes.Count - 1;
            
+        }
+
+        internal static void VoltarEquipes()
+        {
+            if(equipes is not null && indexEquipes > 0)
+                indexEquipes--;
+            else if (equipes is not null && indexEquipes == 0)
+                indexEquipes = 0;
         }
     }
 }

@@ -40,18 +40,7 @@ namespace CompetiFácilLaço
             //fazer a consulta do objeto 
             if (EquipeController.Equipes is not null)
             {
-                var equipe = EquipeController.EquipesGetCurrent();
-                if (equipe != null)
-                {
-                    labelNomeDaEquipe.Text += equipe.NomeEquipe;
-                    labelIdEquipe.Text = equipe.Id.ToString() ?? "0";
-                    foreach (var la in equipe.Laçadores)
-                    {
-                        dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
-                    }
-                }
-                else
-                    labelNomeDaEquipe.Text += "-";
+                PrintEquipe();
             }
             else
             {
@@ -163,20 +152,38 @@ namespace CompetiFácilLaço
         {
             int idEquipe = Convert.ToInt32(labelIdEquipe.Text);
             EquipeController.PróximaEquipe();
+            PrintEquipe();
+           
+        }
+
+        private void labelNomeDaEquipe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VoltarEquipe(object sender, EventArgs e)
+        {
+            EquipeController.VoltarEquipes();
+            PrintEquipe();
+        }
+        private void PrintEquipe()
+        {
             var equipe = EquipeController.EquipesGetCurrent();
             dataGridView.Rows.Clear();
             if (equipe is not null)
             {
                 labelIdEquipe.Text = equipe.Id.ToString() ?? "";
                 labelNomeDaEquipe.Text = $"Equipe: {equipe.NomeEquipe}";
-                foreach(var la in equipe.Laçadores)
+                foreach (var la in equipe.Laçadores)
                 {
                     dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
                 }
             }
+            else
+                labelNomeDaEquipe.Text += "-";
         }
 
-        private void labelNomeDaEquipe_Click(object sender, EventArgs e)
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
