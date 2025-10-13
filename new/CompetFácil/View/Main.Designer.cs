@@ -40,9 +40,9 @@
             labelNomeDaEquipe = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonSalvar = new Button();
+            buttonAnterior = new Button();
             buttonProx = new Button();
             labelIdEquipe = new Label();
-            buttonAnterior = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -147,6 +147,16 @@
             buttonSalvar.UseVisualStyleBackColor = true;
             buttonSalvar.Click += SalvarTableData;
             // 
+            // buttonAnterior
+            // 
+            buttonAnterior.Location = new Point(84, 3);
+            buttonAnterior.Name = "buttonAnterior";
+            buttonAnterior.Size = new Size(75, 23);
+            buttonAnterior.TabIndex = 2;
+            buttonAnterior.Text = "Voltar";
+            buttonAnterior.UseVisualStyleBackColor = true;
+            buttonAnterior.Click += VoltarEquipe;
+            // 
             // buttonProx
             // 
             buttonProx.Location = new Point(165, 3);
@@ -166,16 +176,6 @@
             labelIdEquipe.TabIndex = 4;
             labelIdEquipe.Text = "label1";
             labelIdEquipe.Visible = false;
-            // 
-            // buttonAnterior
-            // 
-            buttonAnterior.Location = new Point(84, 3);
-            buttonAnterior.Name = "buttonAnterior";
-            buttonAnterior.Size = new Size(75, 23);
-            buttonAnterior.TabIndex = 2;
-            buttonAnterior.Text = "Voltar";
-            buttonAnterior.UseVisualStyleBackColor = true;
-            buttonAnterior.Click += VoltarEquipe;
             // 
             // Main
             // 

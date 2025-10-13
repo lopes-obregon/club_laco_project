@@ -169,18 +169,55 @@ namespace CompetiFácilLaço
         private void PrintEquipe()
         {
             var equipe = EquipeController.EquipesGetCurrent();
+            List<string> pntToString = new List<string>();
+            uint totalPntLaçador = 0;
             dataGridView.Rows.Clear();
+
             if (equipe is not null)
             {
                 labelIdEquipe.Text = equipe.Id.ToString() ?? "";
                 labelNomeDaEquipe.Text = $"Equipe: {equipe.NomeEquipe}";
                 foreach (var la in equipe.Laçadores)
                 {
-                    dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
+                    if(la.Pontos is not null)
+                    {
+                        foreach(var pnt in la.Pontos)
+                        {
+                            if (pnt == 1)
+                            {
+                                pntToString.Add("Positivo");
+                                totalPntLaçador++;
+                            }
+                            else if (pnt == 2)
+                                pntToString.Add("Negativo");
+                            else
+                                pntToString.Add("");
+                        }
+                    }else
+                        dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
+                    dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, totalPntLaçador, pntToString[0], pntToString[1], pntToString[2], pntToString[3], pntToString[4], pntToString[5]);
+                    pntToString.Clear();
                 }
             }
             else
                 labelNomeDaEquipe.Text += "-";
+            if(dataGridView.Rows.Count > 0)
+            {// bloqueia linhas já editadas
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    for (int i = 3; i < row.Cells.Count; i++)
+                    {
+                        var cell = row.Cells[i] as DataGridViewComboBoxCell;
+                        if (cell is not null && cell.Value != null && cell.Value.ToString() != "")
+                        {
+                            cell.ReadOnly = true;
+                            cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+                            cell.Style.BackColor = Color.LightGray;
+                        }
+                    }
+                }
+                
+            }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
