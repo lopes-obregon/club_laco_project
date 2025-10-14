@@ -197,6 +197,7 @@ namespace CompetiFácilLaço
                         dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
                     dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, totalPntLaçador, pntToString[0], pntToString[1], pntToString[2], pntToString[3], pntToString[4], pntToString[5]);
                     pntToString.Clear();
+                    totalPntLaçador = 0 ;
                 }
             }
             else
