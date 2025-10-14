@@ -153,7 +153,7 @@ namespace CompetiFácilLaço
             int idEquipe = Convert.ToInt32(labelIdEquipe.Text);
             EquipeController.PróximaEquipe();
             PrintEquipe();
-           
+
         }
 
         private void labelNomeDaEquipe_Click(object sender, EventArgs e)
@@ -179,9 +179,9 @@ namespace CompetiFácilLaço
                 labelNomeDaEquipe.Text = $"Equipe: {equipe.NomeEquipe}";
                 foreach (var la in equipe.Laçadores)
                 {
-                    if(la.Pontos is not null)
+                    if (la.Pontos is not null)
                     {
-                        foreach(var pnt in la.Pontos)
+                        foreach (var pnt in la.Pontos)
                         {
                             if (pnt == 1)
                             {
@@ -193,16 +193,17 @@ namespace CompetiFácilLaço
                             else
                                 pntToString.Add("");
                         }
-                    }else
+                    }
+                    else
                         dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
                     dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, totalPntLaçador, pntToString[0], pntToString[1], pntToString[2], pntToString[3], pntToString[4], pntToString[5]);
                     pntToString.Clear();
-                    totalPntLaçador = 0 ;
+                    totalPntLaçador = 0;
                 }
             }
             else
                 labelNomeDaEquipe.Text += "-";
-            if(dataGridView.Rows.Count > 0)
+            if (dataGridView.Rows.Count > 0)
             {// bloqueia linhas já editadas
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
@@ -217,13 +218,24 @@ namespace CompetiFácilLaço
                         }
                     }
                 }
-                
+
             }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CadastrarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewCategoriaForm formCategoria = new ViewCategoriaForm();
+            formCategoria.Show();
         }
     }
 }

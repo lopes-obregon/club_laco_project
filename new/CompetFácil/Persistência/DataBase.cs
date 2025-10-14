@@ -7,6 +7,7 @@ namespace CompetFácil.Persistência
     {
         public DbSet<Laçador> Laçadores {  get; set; }
         public DbSet<Equipe> Equipes { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
         public string DbPath { get; }
         public DataBase() {
             //SQLitePCL.raw.SetProvider();

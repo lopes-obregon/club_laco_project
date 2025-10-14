@@ -43,6 +43,8 @@
             buttonAnterior = new Button();
             buttonProx = new Button();
             labelIdEquipe = new Label();
+            categoriasToolStripMenuItem = new ToolStripMenuItem();
+            cadastrarToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -50,7 +52,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { equipeToolStripMenuItem, competidorToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { equipeToolStripMenuItem, competidorToolStripMenuItem, categoriasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -68,7 +70,7 @@
             // cadastrarToolStripMenuItem
             // 
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(124, 22);
+            cadastrarToolStripMenuItem.Size = new Size(180, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarEquipeTollStripMenuItemClick;
             // 
@@ -82,7 +84,7 @@
             // cadToolStripMenuItem
             // 
             cadToolStripMenuItem.Name = "cadToolStripMenuItem";
-            cadToolStripMenuItem.Size = new Size(124, 22);
+            cadToolStripMenuItem.Size = new Size(180, 22);
             cadToolStripMenuItem.Text = "Cadastrar";
             cadToolStripMenuItem.Click += cadastrarCompetidorToolStripMenuItem_Click;
             // 
@@ -177,6 +179,21 @@
             labelIdEquipe.Text = "label1";
             labelIdEquipe.Visible = false;
             // 
+            // categoriasToolStripMenuItem
+            // 
+            categoriasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem1 });
+            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            categoriasToolStripMenuItem.Size = new Size(75, 20);
+            categoriasToolStripMenuItem.Text = "Categorias";
+            categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
+            // 
+            // cadastrarToolStripMenuItem1
+            // 
+            cadastrarToolStripMenuItem1.Name = "cadastrarToolStripMenuItem1";
+            cadastrarToolStripMenuItem1.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem1.Text = "Cadastrar";
+            cadastrarToolStripMenuItem1.Click += CadastrarCategoriaToolStripMenuItem_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -217,6 +234,8 @@
         private Label labelIdEquipe;
         private Button buttonProx;
         private Button buttonAnterior;
+        private ToolStripMenuItem categoriasToolStripMenuItem;
+        private ToolStripMenuItem cadastrarToolStripMenuItem1;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }

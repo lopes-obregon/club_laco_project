@@ -20,18 +20,18 @@ namespace CompetiFácilLaço.Model
         public string SobreNome { get; set; }
         public string Escala { get; set; }
         public Laçador? Irmão { get; set; }
-        public List<string> Categoria { get; set; }
+        public List<Categoria>? Categorias { get; set; }
         //1- positivo 2- negativo 0- vazio
         public byte[] Pontos { get; set; }
         //get set
         public Equipe? Equipe { get => equipe;  set => equipe = value;  }
         //construtor da classe
-        public Laçador(string nome, string sobreNome,string escala, Laçador? irmão, List<string> categoria)
+        public Laçador(string nome, string sobreNome,string escala, Laçador? irmão, List<Categoria>? categoria)
         {
             Nome = nome;
             SobreNome = sobreNome;
             Escala = escala;
-            Categoria = categoria;
+            Categorias = categoria;
             Pontos = new byte[6];
             if(irmão == null)
             {
@@ -57,7 +57,7 @@ namespace CompetiFácilLaço.Model
                 this.Nome = laçadorEncontrado.Nome;
                 this.SobreNome = laçadorEncontrado.SobreNome;
                 this.Escala = laçadorEncontrado.Escala;
-                this.Categoria = laçadorEncontrado.Categoria;
+                this.Categorias = laçadorEncontrado.Categorias;
                 this.Pontos = laçadorEncontrado.Pontos;
                 this.Irmão = laçadorEncontrado.Irmão;
                 this.equipe = laçadorEncontrado.Equipe;
@@ -80,7 +80,7 @@ namespace CompetiFácilLaço.Model
                 sw.WriteLine("Escala: " + Escala);
                 sw.WriteLine("Irmão: " + Irmão);
                 sw.WriteLine("Categoria:");
-                foreach (var item in Categoria)
+                foreach (var item in Categorias)
                 {
                     sw.WriteLine(item);
                 }
@@ -134,7 +134,7 @@ namespace CompetiFácilLaço.Model
 
             }catch (Exception ex) {return "Não foi possivel salvar o Competidor erro:" + ex;}
         }
-        public static string SaveDb(Laçador novoLaçador)
+        public static string SaveDb(Laçador novoLaçador, List<Categoria>? categoriasList)
         {
             DataBase dataBase = new DataBase();
             dataBase.Database.EnsureCreated();
@@ -158,10 +158,39 @@ namespace CompetiFácilLaço.Model
                         }
                     
                     }
+                   /*if(novoLaçador.Categoria is not null)
+                    {
+                        foreach(var cat in novoLaçador.Categoria)
+                        {
+                            var categoriaExistente = dataBase.Categorias.Find(cat.Id);
+                            if(categoriaExistente != null)
+                            {
+                                categoriaExistente?.Laçadores.Add(novoLaçador);
+                            }
+
+                        }
+                    }*/
                     //garante que o id seja gerado automaticamente
+                   if(categoriasList is not null)
+                    {
+                        foreach(var cat in categoriasList)
+                        {
+                            
+                            if(cat != null)
+                            {
+                                // categoriaDb.Laçadores?.Add(novoLaçador);
+                                cat.Laçadores.Add(novoLaçador);
+                                if (novoLaçador.Categorias == null)
+                                    novoLaçador.Categorias = new List<Categoria>();
+
+                                novoLaçador.Categorias.Add(cat);
+                                dataBase.Entry(cat).State = EntityState.Modified;
+                            }
+                        }
+                    }
                     novoLaçador.Id = 0;
                     dataBase.Laçadores.Add(novoLaçador);
-                    Console.WriteLine(dataBase.DbPath);
+                    
                     dataBase.SaveChanges();
                     return "Competidor cadastrado com sucesso!";
                 }
@@ -228,7 +257,7 @@ namespace CompetiFácilLaço.Model
         }
 
 
-        internal static sbyte AlterarLaçadorDb(Laçador? laçadorEncontrado, string? nomeTextBox, string? sobreNomeTexBox, string? posição, object? irmãoSelecionado, List<string>? categorias)
+        internal static sbyte AlterarLaçadorDb(Laçador? laçadorEncontrado, string? nomeTextBox, string? sobreNomeTexBox, string? posição, object? irmãoSelecionado, List<Categoria>? categorias)
         {
             using DataBase dataBase = new DataBase();
             
@@ -266,7 +295,7 @@ namespace CompetiFácilLaço.Model
                         }
 
                     }
-                    else if (categorias != null) { laçadorAntigo.Categoria = categorias; }
+                    else if (categorias != null) { laçadorAntigo.Categorias = categorias; }
                         dataBase.SaveChanges();
                     return 1;
                 }

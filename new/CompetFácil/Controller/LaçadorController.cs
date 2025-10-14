@@ -1,4 +1,5 @@
-﻿using CompetiFácilLaço.Model;
+﻿using CompetFácil.Model;
+using CompetiFácilLaço.Model;
 
 namespace CompetiFácilLaço.Controller
 {
@@ -16,10 +17,11 @@ namespace CompetiFácilLaço.Controller
             }else { return false; }
         }*/
 
-        internal static bool AlterarLaçador(List<object?> laçadoresList, string nomeTextBox, string sobreNomeTexBox, string posição, bool temIrmão, object? irmãoSelecionado, List<string>? categorias)
+        internal static bool AlterarLaçador(List<object?> laçadoresList, string nomeTextBox, string sobreNomeTexBox, string posição, bool temIrmão, object? irmãoSelecionado, ListBox.ObjectCollection categoriasObject)
         {
             bool result = false;
             sbyte contadorDeSucesso = 0;
+            var categorias = categoriasObject.Cast<Categoria>().ToList();
             foreach (Laçador? la in laçadoresList)
             {
                 if (la == null)
@@ -55,12 +57,15 @@ namespace CompetiFácilLaço.Controller
                     }
                     if(categorias != null)
                     {
-                        var listaAntiga = la.Categoria.Except(categorias);
-                        var listaNova = categorias.Except(la.Categoria);
-                        bool sãoDiferentes = listaAntiga.Any() || listaNova.Any();
-                        //se são diferentes então salva
-                        if(sãoDiferentes)
-                            contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, null, null, null,categorias);
+                        if(la.Categorias is not null)
+                        {
+                            var listaAntiga = la.Categorias.Except(categorias).ToList();
+                            var listaNova = categorias.Except(la.Categorias).ToList();
+                            bool sãoDiferentes = listaAntiga.Any() || listaNova.Any();
+                                //se são diferentes então salva
+                                if (sãoDiferentes)
+                                    contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, null, null, null, categorias);
+                        }
                     }
                     else
                     {
@@ -75,30 +80,33 @@ namespace CompetiFácilLaço.Controller
                 return result;
         }
 
-        internal static string CadastrarCompetidor(string nome_competidor, string sobreNome, string tipo_competidor, object? irmão, List<string> categorias)
+        internal static string CadastrarCompetidor(string nome_competidor, string sobreNome, string tipo_competidor, object? irmão, ListBox.ObjectCollection ?categorias)
         {
             //Laçadores.Add(new Model.Laçador(nome_competidor, tipo_competidor, irmão, ""));
+            
+            var categoriasList = categorias?.Cast<Categoria>().ToList();
             if (irmão == null)
             {
-                laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, null, categorias);
+               
+                    laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, null, null);
 
             }
             else { 
                 if(irmão is Laçador irmãoLaçador)
                 {
-                    laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, irmãoLaçador, categorias);
+                    laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, irmãoLaçador, null);
 
                 }
                 else
                 {
-                    laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, null, categorias);
+                    laçador = new Laçador(nome_competidor, sobreNome, tipo_competidor, null, null);
 
                 }
                 
             }
                 //return laçador.WriteTeste();
                 //return Laçador.SaveJson(laçador);
-                return Laçador.SaveDb(laçador);
+                return Laçador.SaveDb(laçador, categoriasList);
 
 
         }
@@ -144,7 +152,7 @@ namespace CompetiFácilLaço.Controller
             return 0;
         }
 
-        internal static List<Laçador> GetLaçadores()
+        internal static List<Laçador>? GetLaçadores()
         {
             List<Laçador> laçadores = Laçador.GetLaçdores();
             if(laçadores == null)

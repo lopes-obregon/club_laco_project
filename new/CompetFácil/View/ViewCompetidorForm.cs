@@ -1,4 +1,5 @@
-﻿using CompetiFácilLaço.Controller;
+﻿using CompetFácil.Controller;
+using CompetiFácilLaço.Controller;
 
 namespace CompetiFácilLaço
 {
@@ -11,11 +12,16 @@ namespace CompetiFácilLaço
             laçadoresList = new List<object?>();
             string[] irmãos = { "João", "Maria", "José", "Ana" };
             var irmãosLaçadores = LaçadorController.GetLaçadores();
-            string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
+            //string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
             //irmãoListBox.Items.AddRange(irmãos);
+            CategoriaController.LoadCategorias();
             if (irmãosLaçadores is not null) 
                 irmãoListBox.Items.AddRange(irmãosLaçadores.ToArray());
-            categoriasComboBox.Items.AddRange(categorias);
+            if (CategoriaController.Categorias is not null)
+            {
+                categoriasComboBox.DisplayMember = "Nome";
+                categoriasComboBox.Items.AddRange(CategoriaController.Categorias.ToArray());
+            }
         }
 
         private void CadastrarCompetidorForm_Load(object sender, EventArgs e)
@@ -46,12 +52,16 @@ namespace CompetiFácilLaço
                     }
                 }
             }
+
             //le de categoriasListBox
+            var categorias = categoriasListBox.Items;
+            
+            /*
             List<string> categorias = new List<string>();
             foreach (var item in categoriasListBox.Items)
             {
                 categorias.Add(item.ToString());
-            }
+            }*/
             //verifica se o irmão foi selecionado
             bool isIrmão = temIrmãoCheckBox.Checked;
             if (isIrmão)
@@ -106,14 +116,18 @@ namespace CompetiFácilLaço
 
         private void categoriasComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string categoria_selecionado = categoriasComboBox.SelectedItem.ToString();
-            categoriasListBox.Items.Add(categoria_selecionado);
+            var  categoriaSelecionado = categoriasComboBox.SelectedItem;
+            categoriasListBox.DisplayMember = "Nome";
+            if(categoriaSelecionado is not null)
+                categoriasListBox.Items.Add(categoriaSelecionado);
         }
         private void categoriaListBox_Remove(object sender, EventArgs e)
         {
-            string categoria_selecionado = categoriasListBox.SelectedItem.ToString();
-            categoriasListBox.Items.Remove(categoriasListBox.SelectedItem);
-            MessageBox.Show($"Categoria {categoria_selecionado} removida com sucesso!");
+            var categoriaSelecionado = categoriasListBox.SelectedItem;
+            
+            categoriasListBox.Items.Remove(categoriasListBox.SelectedItem ??"");
+            if(categoriaSelecionado is not null)
+                MessageBox.Show($"Categoria {categoriaSelecionado.ToString()} removida com sucesso!");
         }
 
         private void escalaGroupBox1_Enter(object sender, EventArgs e)
@@ -150,7 +164,7 @@ namespace CompetiFácilLaço
 
                 }
                 //categorialistbox
-                foreach (var categoria in laçadorEncontrado.Categoria)
+                foreach (var categoria in laçadorEncontrado.Categorias)
                 {
                     if (categoria is string)
                     {
@@ -225,7 +239,8 @@ namespace CompetiFácilLaço
                 //Verificar se os dados foram alterados
                 string posição = GetPosiçãoLaçador();
                 object? irmãoSelecionado;
-                List<string> categorias = GetCategorias();
+                //List<string> categorias = GetCategorias();
+                var categorias = categoriasListBox.Items;
                 if (temIrmãoCheckBox.Checked)
                 {
                     irmãoSelecionado = irmãoListBox.SelectedItem;

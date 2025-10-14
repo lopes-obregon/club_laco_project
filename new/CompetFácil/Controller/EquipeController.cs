@@ -157,7 +157,7 @@ namespace CompetFácil.Controller
         internal static Equipe? EquipesGetCurrent()
         {
             Equipe? equipe = null;
-            if(equipes is not null)
+            if(equipes is not null && equipes.Count > 0)
             {
 
                 equipe = equipes[indexEquipes];
