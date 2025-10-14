@@ -166,9 +166,9 @@ namespace CompetiFácilLaço
                 //categorialistbox
                 foreach (var categoria in laçadorEncontrado.Categorias)
                 {
-                    if (categoria is string)
+                    if (categoria is not null)
                     {
-                        categoriasListBox.Items.Add(categoria.ToString());
+                        categoriasListBox.Items.Add(categoria);
 
                     }
                 }

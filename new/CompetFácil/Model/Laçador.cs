@@ -244,11 +244,12 @@ namespace CompetiFácilLaço.Model
 
         internal static Laçador? ConsultarLaçadorDb(string nomeCompetidor)
         {
-            DataBase dataBase = new DataBase();
+           using  DataBase dataBase = new DataBase();
             try
             {
                 var laçadorBuscado = dataBase.Laçadores
                     .Include(l=> l.Irmão)
+                    .Include(l => l.Categorias)
                     .FirstOrDefault(l => l.Nome == nomeCompetidor);
                 Laçador? laçadorEncontrado = laçadorBuscado as Laçador;
                 return laçadorEncontrado;
