@@ -361,6 +361,7 @@ namespace CompetiFácilLaço.Model
                     }
                     dataBase.Laçadores.Remove(laçador);
                     dataBase.SaveChanges();
+                    return true;
                    /* Laçador? laçadorEncontrado = dataBase.Laçadores
                         .Include(la => la.Categorias)
                         .SingleOrDefault(la => la.Id == laçador.Id);

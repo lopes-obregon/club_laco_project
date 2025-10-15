@@ -112,15 +112,17 @@ namespace CompetiFácilLaço.Controller
         }
         internal static Laçador? ConsultarLaçador(string nomeCompetidor)
         {
-            Laçador? laçador;
-            laçador = Laçador.ConsultarLaçadorDb( nomeCompetidor);
-            if(laçador == null)
+            Laçador? laçadorBuscado;
+            laçadorBuscado = Laçador.ConsultarLaçadorDb( nomeCompetidor);
+            if(laçadorBuscado == null)
             {
+                laçador = laçadorBuscado;
                 return null;
 
             }
             else
             {
+                laçador = laçadorBuscado;
                 return laçador;
             }
         }
