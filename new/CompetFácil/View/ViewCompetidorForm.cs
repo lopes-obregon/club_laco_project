@@ -225,6 +225,7 @@ namespace CompetiFácilLaço
             temIrmãoCheckBox.Checked = false;
             //categorias list box
             categoriasListBox.Items.Clear();
+            LaçadorController.FreeLaçador();
 
         }
         private void AlterarButton_Click(Object sender, EventArgs e)
@@ -293,9 +294,9 @@ namespace CompetiFácilLaço
 
 
                 //primeiro caso se tem irmão 
-                var laçador = LaçadorController.ConsultarLaçador(nomeTextBox.Text, sobreNomeTextBox.Text);
+               // var laçador = LaçadorController.ConsultarLaçador(nomeTextBox.Text, sobreNomeTextBox.Text);
                 //apagando
-                if (LaçadorController.RemoveLaçador(laçador))
+                if (LaçadorController.RemoveLaçador())
                     MessageBox.Show("Competidor removido com sucesso!");
                 else
                     MessageBox.Show("Algo deu errado não consegui remover!");

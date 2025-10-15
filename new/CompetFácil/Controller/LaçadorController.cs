@@ -127,13 +127,20 @@ namespace CompetiFácilLaço.Controller
 
         internal static Laçador? ConsultarLaçador(string nome, string sobreNome)
         {
-            Laçador? laçador = null;
+            Laçador? laçadorBuscado = null;
             if(!String.IsNullOrEmpty(nome) && !String.IsNullOrEmpty(sobreNome))
             {
-                laçador = Laçador.ConsultarLaçadorDb(nome, sobreNome);
+                laçadorBuscado = Laçador.ConsultarLaçadorDb(nome, sobreNome);
                
             }
-            return laçador;
+            laçador = laçadorBuscado;
+            return laçadorBuscado;
+        }
+
+        internal static void FreeLaçador()
+        {
+            if (laçador is null)
+                laçador = null;
         }
 
         internal static int GetIdLaçador(object? laçador)
@@ -165,7 +172,7 @@ namespace CompetiFácilLaço.Controller
             }
         }
 
-        internal static bool RemoveLaçador(Laçador? laçador)
+        internal static bool RemoveLaçador()
         {
             bool laçadorRemovido = Laçador.Remove(laçador);
             if (laçadorRemovido) { return true; }

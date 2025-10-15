@@ -267,7 +267,9 @@ namespace CompetiFácilLaço.Model
             if(laçadorEncontrado != null)
             {
                 //anexar o objeto ao contexto
-                var laçadorAntigo = dataBase.Laçadores.FirstOrDefault(la => la.Id == laçadorEncontrado.Id);
+                var laçadorAntigo = dataBase.Laçadores
+                    .Include(l => l.Categorias)
+                    .FirstOrDefault(la => la.Id == laçadorEncontrado.Id);
                 if (laçadorAntigo != null)
                 {
                     if (nomeTextBox != null)
@@ -296,7 +298,23 @@ namespace CompetiFácilLaço.Model
                         }
 
                     }
-                    else if (categorias != null) { laçadorAntigo.Categorias = categorias; }
+                    else if (categorias != null) {
+                        var categoriasDb = categorias
+                            .Select(c => dataBase.Categorias.Find(c.Id))
+                            .Where(c => c != null)
+                            .ToList();
+                        var categoriasRemovidas = laçadorAntigo.Categorias
+                            .ExceptBy(categoriasDb.Select(c => c.Id), c => c.Id)
+                            .ToList();
+                        foreach (var cat in categoriasRemovidas)
+                        {
+                            cat.Laçadores.Remove(laçadorAntigo);
+                            dataBase.Entry(cat).State = EntityState.Modified;
+                            laçadorAntigo.Categorias.Remove(cat);
+                        }
+                        laçadorAntigo.Categorias = categoriasDb; 
+                        dataBase.Laçadores.Update(laçadorAntigo);
+                    }
                         dataBase.SaveChanges();
                     return 1;
                 }
@@ -336,14 +354,26 @@ namespace CompetiFácilLaço.Model
                 if (laçador is not null)
                 {
 
-
-                    Laçador? laçadorEncontrado = dataBase.Laçadores.Find(laçador.Id);
-                    if (laçadorEncontrado is not null)
+                    if (laçador.Categorias != null)
                     {
+                        laçador.Categorias = null;
+                        dataBase.Entry(laçador).State = EntityState.Modified;
+                    }
+                    dataBase.Laçadores.Remove(laçador);
+                    dataBase.SaveChanges();
+                   /* Laçador? laçadorEncontrado = dataBase.Laçadores
+                        .Include(la => la.Categorias)
+                        .SingleOrDefault(la => la.Id == laçador.Id);
+
+                    if (laçadorEncontrado is not null && laçadorEncontrado.Categorias is not null)
+                    {
+                        //quebra a relação 
+                        laçadorEncontrado.Categorias = null;
+                        dataBase.Entry(laçadorEncontrado).State = EntityState.Modified;
                         dataBase.Laçadores.Remove(laçadorEncontrado);
                         dataBase.SaveChanges();
                         return true;
-                    }
+                    }*/
                 }
             }
                 return false;
