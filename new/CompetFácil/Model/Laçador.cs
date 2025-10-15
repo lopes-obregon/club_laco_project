@@ -137,7 +137,7 @@ namespace CompetiFácilLaço.Model
         public static string SaveDb(Laçador novoLaçador, List<Categoria>? categoriasList)
         {
             DataBase dataBase = new DataBase();
-            dataBase.Database.EnsureCreated();
+            dataBase.Database.EnsureCreated();//criar tabela caso não exista.
             try
             {
                 if (novoLaçador != null)
@@ -151,6 +151,7 @@ namespace CompetiFácilLaço.Model
                         if(irmãoExistente  != null)
                         {
                             novoLaçador.Irmão = irmãoExistente;
+                            irmãoExistente.Irmão = novoLaçador;
                         }
                         else
                         {
@@ -336,18 +337,32 @@ namespace CompetiFácilLaço.Model
             //vejo se tem irmão
             if( laçador != null &&laçador.Irmão != null)
             {
+                var laçadorDb = dataBase.Laçadores.Include(la => la.Irmão).FirstOrDefault(la => la.Id == laçador.Id);
 
-
-                //se tiver irmão 
-                Laçador? irmão = dataBase.Laçadores.Find(laçador.Irmão.Id);
-                //verificando se o irmão aponta para esse irmão 
-                if ((irmão != null) && (irmão.Id == laçador.Irmão.Id))
+                if(laçadorDb is not null)
                 {
-                    laçador.Irmão = null;
+                    //se tiver irmão 
+                    Laçador? irmão = dataBase.Laçadores
+                        .Include(ir => ir.Irmão)
+                        .FirstOrDefault(ir => ir.Id == laçador.Irmão.Id);
+                    //verificando se o irmão aponta para esse irmão 
+                    if ((irmão != null) && (irmão.Id == laçadorDb.Irmão.Id))
+                    {
+                        laçadorDb.Irmão = null;
+                      
+                        irmão.Irmão = null;
+                    }
+                    //remove as categorias
+                   if(laçadorDb.Categorias is not null)
+                    {
+                        laçadorDb.Categorias = null;
+                        
+                    }
+                    dataBase.Laçadores.Remove(laçadorDb);
+                    dataBase.SaveChanges();
+                    return true;
+
                 }
-                dataBase.Laçadores.Remove(laçador);
-                dataBase.SaveChanges();
-                return true;
             }
             else
             {

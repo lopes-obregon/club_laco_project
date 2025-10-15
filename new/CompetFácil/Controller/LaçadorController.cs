@@ -35,27 +35,27 @@ namespace CompetiFácilLaço.Controller
                         contadorDeSucesso += Laçador.AlterarLaçadorDb(la, nomeTextBox, null, "", null, null);
                         
                     }
-                    if (!String.IsNullOrEmpty(sobreNomeTexBox) && !String.Equals(la.SobreNome, sobreNomeTexBox))
+                    else if (!String.IsNullOrEmpty(sobreNomeTexBox) && !String.Equals(la.SobreNome, sobreNomeTexBox))
                     {
 
                         contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, sobreNomeTexBox, "", null, null);
 
                     }
-                    if (!String.IsNullOrEmpty(posição) && !String.Equals(la.Escala, posição))
+                    else if (!String.IsNullOrEmpty(posição) && !String.Equals(la.Escala, posição))
                     {
 
 
                         contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, null, posição, null, null);
 
                     }
-                    if (temIrmão) { 
+                    else if (temIrmão) { 
                         if(irmãoSelecionado is Laçador)
                         {
                             contadorDeSucesso += Laçador.AlterarLaçadorDb(la, null, null, null, irmãoSelecionado, null);
                         }
                     
                     }
-                    if(categorias != null)
+                    else if(categorias != null)
                     {
                         if(la.Categorias is not null)
                         {

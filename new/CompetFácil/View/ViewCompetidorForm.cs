@@ -1,5 +1,6 @@
 ﻿using CompetFácil.Controller;
 using CompetiFácilLaço.Controller;
+using System.Xml.Serialization;
 
 namespace CompetiFácilLaço
 {
@@ -218,6 +219,11 @@ namespace CompetiFácilLaço
 
         private void LimparButton_Click(object sender, EventArgs e)
         {
+            Clear();
+
+        }
+        private void Clear()
+        {
             //clear 
             nomeTextBox.Text = string.Empty;
             sobreNomeTextBox.Text = string.Empty;
@@ -233,7 +239,6 @@ namespace CompetiFácilLaço
             //categorias list box
             categoriasListBox.Items.Clear();
             LaçadorController.FreeLaçador();
-
         }
         private void AlterarButton_Click(Object sender, EventArgs e)
         {
@@ -304,7 +309,10 @@ namespace CompetiFácilLaço
                // var laçador = LaçadorController.ConsultarLaçador(nomeTextBox.Text, sobreNomeTextBox.Text);
                 //apagando
                 if (LaçadorController.RemoveLaçador())
+                {
                     MessageBox.Show("Competidor removido com sucesso!");
+                    Clear();
+                }
                 else
                     MessageBox.Show("Algo deu errado não consegui remover!");
 
