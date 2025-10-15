@@ -15,6 +15,7 @@ namespace CompetiFácilLaço
             //string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
             //irmãoListBox.Items.AddRange(irmãos);
             CategoriaController.LoadCategorias();
+            
             if (irmãosLaçadores is not null) 
                 irmãoListBox.Items.AddRange(irmãosLaçadores.ToArray());
             if (CategoriaController.Categorias is not null)
@@ -112,6 +113,12 @@ namespace CompetiFácilLaço
         private void temIrmãoCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             irmãoListBox.Visible = temIrmãoCheckBox.Checked;
+            irmãoListBox.Items.Clear();
+           
+            var irmãosLaçadores = LaçadorController.GetLaçadores();
+            var novosLaçadores = LaçadorController.UniãoLista(irmãosLaçadores);
+            if(irmãosLaçadores is not null)
+                irmãoListBox.Items.AddRange(novosLaçadores.ToArray());
         }
 
         private void categoriasComboBox_SelectedIndexChanged(object sender, EventArgs e)

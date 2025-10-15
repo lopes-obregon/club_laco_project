@@ -7,7 +7,7 @@ namespace CompetiFácilLaço.Controller
     {
         //static List<Model.Laçador> laçadores = new List<Model.Laçador>();
         static Laçador? laçador;
-
+        static List<Laçador>? laçadores;
         /*internal static bool AlterarLaçador(Laçador? laçadorEncontrado, object? irmão)
         {
             if(irmão == null)
@@ -110,6 +110,20 @@ namespace CompetiFácilLaço.Controller
 
 
         }
+
+        internal static List<Laçador> UniãoLista(List<Laçador>? irmãosLaçadores)
+        {
+            List<Laçador> união = new();
+            if(laçadores is not null && irmãosLaçadores is not null)
+               {
+                 união = laçadores
+                .Concat(irmãosLaçadores)
+                .DistinctBy(i => i.Id)
+                .ToList();
+            }
+            return união;
+        }
+
         internal static Laçador? ConsultarLaçador(string nomeCompetidor)
         {
             Laçador? laçadorBuscado;
@@ -163,14 +177,16 @@ namespace CompetiFácilLaço.Controller
 
         internal static List<Laçador>? GetLaçadores()
         {
-            List<Laçador> laçadores = Laçador.GetLaçdores();
-            if(laçadores == null)
+            List<Laçador> laçadoresBuscado = Laçador.GetLaçdores();
+            if(laçadoresBuscado == null)
             {
+                laçadores = null;
                 return null;
             }
             else
             {
-                return laçadores;
+                laçadores = laçadoresBuscado;
+                return laçadoresBuscado;
             }
         }
 
