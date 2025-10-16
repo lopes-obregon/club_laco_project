@@ -19,7 +19,13 @@ namespace CompetFácil.Controller
             categoria = new Categoria(categoriaNome);
             sucesso = Categoria.Cadastrar(categoria);
             if (sucesso)
+            {
+                if(categorias is not null)
+                {
+                    categorias.Add(categoria);
+                }
                 return "Cadastro realizado com sucesso!";
+            }
             else return "Erro ao cadastrar!";
         }
 
@@ -31,13 +37,30 @@ namespace CompetFácil.Controller
             existeLaçador = categoriaSelecionado.Laçadores.Exists(l => l.Id == idLa);
             return existeLaçador;
         }
-
+        //carrega as categorias em memoria em uma lista com todas as categorias
         internal static void LoadCategorias()
         {
             categorias = new List<Categoria>();
             var categoriaList = Categoria.GetCategorias();
             if(categoriaList is not null)
                 categorias.AddRange(categoriaList);
+        }
+
+        internal static string RemoverCategoria(object? categoriaSelecionada)
+        {
+            var categoria = categoriaSelecionada as Categoria;
+            bool removido = false;
+            if (categoria == null) return "Algo deu errado Para remover a categoria!";
+            removido = Categoria.Remove(categoria);
+            if (removido){ 
+                if(categorias is not null)
+                {
+                    categorias.Remove(categoria); 
+
+                }
+                return "Categoria Removido Com Sucesso!"; 
+            }
+            else return "Algo Deu Errado Para remover a categoria!";
         }
     }
 }

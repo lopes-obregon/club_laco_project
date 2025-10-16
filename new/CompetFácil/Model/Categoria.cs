@@ -57,6 +57,22 @@ namespace CompetFácil.Model
             catch { return null; }
         }
 
+        internal static bool Remove(Categoria categoria)
+        {
+            using DataBase db = new DataBase();
+            try
+            {
+                if(categoria is not null)
+                {
+                    categoria.laçadores = null;
+                    db.Categorias.Remove(categoria);
+                    db.SaveChanges();
+                    return true;
+                }
+            }catch { return false; }
+            return false;
+        }
+
         public override string ToString()
         {
             return Nome;
