@@ -1,5 +1,6 @@
 ﻿using CompetiFácilLaço.Model;
 using CompetFácil.Persistência;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompetFácil.Model
 {
@@ -46,12 +47,12 @@ namespace CompetFácil.Model
             catch {  return false; }
         }
 
-        internal static List<Categoria>? GetCategorias()
+        internal static IEnumerable<Categoria>? GetCategorias()
         {
             using DataBase dataBase = new DataBase();
             try
             {
-                return dataBase.Categorias.ToList();
+                return dataBase.Categorias.Include(c => c.Laçadores).ToList();
             }
             catch { return null; }
         }

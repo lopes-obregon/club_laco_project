@@ -33,6 +33,8 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             competidorToolStripMenuItem = new ToolStripMenuItem();
             cadToolStripMenuItem = new ToolStripMenuItem();
+            categoriasToolStripMenuItem = new ToolStripMenuItem();
+            cadastrarToolStripMenuItem1 = new ToolStripMenuItem();
             dataGridView = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             nome = new DataGridViewTextBoxColumn();
@@ -43,11 +45,15 @@
             buttonAnterior = new Button();
             buttonProx = new Button();
             labelIdEquipe = new Label();
-            categoriasToolStripMenuItem = new ToolStripMenuItem();
-            cadastrarToolStripMenuItem1 = new ToolStripMenuItem();
+            comboBoxCategorias = new ComboBox();
+            label1 = new Label();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            panel1 = new Panel();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -70,7 +76,7 @@
             // cadastrarToolStripMenuItem
             // 
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem.Size = new Size(124, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarEquipeTollStripMenuItemClick;
             // 
@@ -84,15 +90,30 @@
             // cadToolStripMenuItem
             // 
             cadToolStripMenuItem.Name = "cadToolStripMenuItem";
-            cadToolStripMenuItem.Size = new Size(180, 22);
+            cadToolStripMenuItem.Size = new Size(124, 22);
             cadToolStripMenuItem.Text = "Cadastrar";
             cadToolStripMenuItem.Click += cadastrarCompetidorToolStripMenuItem_Click;
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            categoriasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem1 });
+            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            categoriasToolStripMenuItem.Size = new Size(75, 20);
+            categoriasToolStripMenuItem.Text = "Categorias";
+            categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
+            // 
+            // cadastrarToolStripMenuItem1
+            // 
+            cadastrarToolStripMenuItem1.Name = "cadastrarToolStripMenuItem1";
+            cadastrarToolStripMenuItem1.Size = new Size(124, 22);
+            cadastrarToolStripMenuItem1.Text = "Cadastrar";
+            cadastrarToolStripMenuItem1.Click += CadastrarCategoriaToolStripMenuItem_Click;
             // 
             // dataGridView
             // 
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { id, nome, Pontos });
-            dataGridView.Location = new Point(12, 71);
+            dataGridView.Location = new Point(15, 77);
             dataGridView.Name = "dataGridView";
             dataGridView.Size = new Size(244, 284);
             dataGridView.TabIndex = 1;
@@ -121,7 +142,7 @@
             // labelNomeDaEquipe
             // 
             labelNomeDaEquipe.AutoSize = true;
-            labelNomeDaEquipe.Location = new Point(121, 53);
+            labelNomeDaEquipe.Location = new Point(47, 0);
             labelNomeDaEquipe.Name = "labelNomeDaEquipe";
             labelNomeDaEquipe.Size = new Size(49, 15);
             labelNomeDaEquipe.TabIndex = 2;
@@ -172,36 +193,58 @@
             // labelIdEquipe
             // 
             labelIdEquipe.AutoSize = true;
-            labelIdEquipe.Location = new Point(10, 53);
+            labelIdEquipe.Location = new Point(3, 0);
             labelIdEquipe.Name = "labelIdEquipe";
             labelIdEquipe.Size = new Size(38, 15);
             labelIdEquipe.TabIndex = 4;
             labelIdEquipe.Text = "label1";
             labelIdEquipe.Visible = false;
             // 
-            // categoriasToolStripMenuItem
+            // comboBoxCategorias
             // 
-            categoriasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem1 });
-            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(75, 20);
-            categoriasToolStripMenuItem.Text = "Categorias";
-            categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
+            comboBoxCategorias.FormattingEnabled = true;
+            comboBoxCategorias.Location = new Point(76, 0);
+            comboBoxCategorias.Name = "comboBoxCategorias";
+            comboBoxCategorias.Size = new Size(121, 23);
+            comboBoxCategorias.TabIndex = 5;
+            comboBoxCategorias.SelectedIndexChanged += comboBoxCategoriasFiltro;
             // 
-            // cadastrarToolStripMenuItem1
+            // label1
             // 
-            cadastrarToolStripMenuItem1.Name = "cadastrarToolStripMenuItem1";
-            cadastrarToolStripMenuItem1.Size = new Size(180, 22);
-            cadastrarToolStripMenuItem1.Text = "Cadastrar";
-            cadastrarToolStripMenuItem1.Click += CadastrarCategoriaToolStripMenuItem_Click;
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 3);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 15);
+            label1.TabIndex = 6;
+            label1.Text = "Categoria";
+            label1.Click += label1_Click;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(labelIdEquipe);
+            flowLayoutPanel2.Controls.Add(labelNomeDaEquipe);
+            flowLayoutPanel2.Location = new Point(15, 48);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(103, 23);
+            flowLayoutPanel2.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(comboBoxCategorias);
+            panel1.Location = new Point(124, 48);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 27);
+            panel1.TabIndex = 8;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1004, 519);
-            Controls.Add(labelIdEquipe);
+            Controls.Add(panel1);
+            Controls.Add(flowLayoutPanel2);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(labelNomeDaEquipe);
             Controls.Add(dataGridView);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -212,6 +255,10 @@
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
 
@@ -236,6 +283,10 @@
         private Button buttonAnterior;
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem cadastrarToolStripMenuItem1;
+        private ComboBox comboBoxCategorias;
+        private Label label1;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Panel panel1;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }

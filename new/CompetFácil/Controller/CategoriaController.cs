@@ -23,6 +23,15 @@ namespace CompetFácil.Controller
             else return "Erro ao cadastrar!";
         }
 
+        internal static bool LaçadorExisteNessaCategoria(object comboBoxCategoriaSelecionado, int idLa)
+        {
+            var categoriaSelecionado = comboBoxCategoriaSelecionado as Categoria;
+            bool existeLaçador = false;
+            if(categoriaSelecionado is null) {  return false; }
+            existeLaçador = categoriaSelecionado.Laçadores.Exists(l => l.Id == idLa);
+            return existeLaçador;
+        }
+
         internal static void LoadCategorias()
         {
             categorias = new List<Categoria>();

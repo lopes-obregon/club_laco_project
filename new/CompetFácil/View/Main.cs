@@ -35,6 +35,10 @@ namespace CompetiFácilLaço
         private void Init()
         {
             InitDataGrid();
+            CategoriaController.LoadCategorias();
+            var categorias = CategoriaController.Categorias;
+            if (categorias is not null)
+                comboBoxCategorias.Items.AddRange(categorias.ToArray());
             //carregar as equipes
             EquipeController.LoadEquipes();
             //fazer a consulta do objeto 
@@ -47,6 +51,7 @@ namespace CompetiFácilLaço
                 labelNomeDaEquipe.Text += "-";
             }
             DataGridRefresh();
+            
         }
 
         private void DataGridRefresh()
@@ -153,7 +158,7 @@ namespace CompetiFácilLaço
             int idEquipe = Convert.ToInt32(labelIdEquipe.Text);
             EquipeController.PróximaEquipe();
             PrintEquipe();
-
+            DataGridRefresh();
         }
 
         private void labelNomeDaEquipe_Click(object sender, EventArgs e)
@@ -165,6 +170,7 @@ namespace CompetiFácilLaço
         {
             EquipeController.VoltarEquipes();
             PrintEquipe();
+            DataGridRefresh();
         }
         private void PrintEquipe()
         {
@@ -172,34 +178,48 @@ namespace CompetiFácilLaço
             List<string> pntToString = new List<string>();
             uint totalPntLaçador = 0;
             dataGridView.Rows.Clear();
+            var comboBoxCategoriaSelecionado = comboBoxCategorias.SelectedItem;
 
             if (equipe is not null)
             {
+
                 labelIdEquipe.Text = equipe.Id.ToString() ?? "";
                 labelNomeDaEquipe.Text = $"Equipe: {equipe.NomeEquipe}";
                 foreach (var la in equipe.Laçadores)
                 {
-                    if (la.Pontos is not null)
+                    if (comboBoxCategoriaSelecionado is not null && CategoriaController.LaçadorExisteNessaCategoria(comboBoxCategoriaSelecionado, la.Id))
                     {
-                        foreach (var pnt in la.Pontos)
+                        if (la is not null)
                         {
-                            if (pnt == 1)
+
+
+                            if (la.Pontos is not null)
                             {
-                                pntToString.Add("Positivo");
-                                totalPntLaçador++;
+                                foreach (var pnt in la.Pontos)
+                                {
+                                    if (pnt == 1)
+                                    {
+                                        pntToString.Add("Positivo");
+                                        totalPntLaçador++;
+                                    }
+                                    else if (pnt == 2)
+                                        pntToString.Add("Negativo");
+                                    else
+                                        pntToString.Add("");
+                                }
+
                             }
-                            else if (pnt == 2)
-                                pntToString.Add("Negativo");
-                            else
-                                pntToString.Add("");
                         }
+                        else
+                            dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
+                        dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, totalPntLaçador, pntToString[0], pntToString[1], pntToString[2], pntToString[3], pntToString[4], pntToString[5]);
+                        pntToString.Clear();
+                        totalPntLaçador = 0;
+
                     }
-                    else
-                        dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, 0, "", "", "", "", "", "");
-                    dataGridView.Rows.Add(la.Id, la.Nome + " " + la.SobreNome, totalPntLaçador, pntToString[0], pntToString[1], pntToString[2], pntToString[3], pntToString[4], pntToString[5]);
-                    pntToString.Clear();
-                    totalPntLaçador = 0;
+
                 }
+
             }
             else
                 labelNomeDaEquipe.Text += "-";
@@ -236,6 +256,22 @@ namespace CompetiFácilLaço
         {
             ViewCategoriaForm formCategoria = new ViewCategoriaForm();
             formCategoria.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCategoriasFiltro(object sender, EventArgs e)
+        {
+            PrintEquipe();
+            DataGridRefresh();
         }
     }
 }
