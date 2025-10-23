@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
-            equipeToolStripMenuItem = new ToolStripMenuItem();
-            cadastrarToolStripMenuItem = new ToolStripMenuItem();
-            competidorToolStripMenuItem = new ToolStripMenuItem();
-            cadToolStripMenuItem = new ToolStripMenuItem();
-            categoriasToolStripMenuItem = new ToolStripMenuItem();
-            cadastrarToolStripMenuItem1 = new ToolStripMenuItem();
+            arquivoToolStripMenuItem = new ToolStripMenuItem();
+            sairToolStripMenuItem = new ToolStripMenuItem();
+            cadastrosToolStripMenuItem = new ToolStripMenuItem();
+            categoriaToolStripMenuItem = new ToolStripMenuItem();
+            competidorToolStripMenuItem1 = new ToolStripMenuItem();
+            equipeToolStripMenuItem1 = new ToolStripMenuItem();
             dataGridView = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             nome = new DataGridViewTextBoxColumn();
@@ -58,7 +58,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { equipeToolStripMenuItem, competidorToolStripMenuItem, categoriasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, cadastrosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -66,48 +66,46 @@
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // equipeToolStripMenuItem
+            // arquivoToolStripMenuItem
             // 
-            equipeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem });
-            equipeToolStripMenuItem.Name = "equipeToolStripMenuItem";
-            equipeToolStripMenuItem.Size = new Size(55, 20);
-            equipeToolStripMenuItem.Text = "Equipe";
+            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sairToolStripMenuItem });
+            arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            arquivoToolStripMenuItem.Size = new Size(61, 20);
+            arquivoToolStripMenuItem.Text = "Arquivo";
             // 
-            // cadastrarToolStripMenuItem
+            // sairToolStripMenuItem
             // 
-            cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(124, 22);
-            cadastrarToolStripMenuItem.Text = "Cadastrar";
-            cadastrarToolStripMenuItem.Click += cadastrarEquipeTollStripMenuItemClick;
+            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            sairToolStripMenuItem.Size = new Size(93, 22);
+            sairToolStripMenuItem.Text = "Sair";
             // 
-            // competidorToolStripMenuItem
+            // cadastrosToolStripMenuItem
             // 
-            competidorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadToolStripMenuItem });
-            competidorToolStripMenuItem.Name = "competidorToolStripMenuItem";
-            competidorToolStripMenuItem.Size = new Size(83, 20);
-            competidorToolStripMenuItem.Text = "Competidor";
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriaToolStripMenuItem, competidorToolStripMenuItem1, equipeToolStripMenuItem1 });
+            cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            cadastrosToolStripMenuItem.Size = new Size(71, 20);
+            cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
-            // cadToolStripMenuItem
+            // categoriaToolStripMenuItem
             // 
-            cadToolStripMenuItem.Name = "cadToolStripMenuItem";
-            cadToolStripMenuItem.Size = new Size(124, 22);
-            cadToolStripMenuItem.Text = "Cadastrar";
-            cadToolStripMenuItem.Click += cadastrarCompetidorToolStripMenuItem_Click;
+            categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
+            categoriaToolStripMenuItem.Size = new Size(180, 22);
+            categoriaToolStripMenuItem.Text = "Categoria";
+            categoriaToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
-            // categoriasToolStripMenuItem
+            // competidorToolStripMenuItem1
             // 
-            categoriasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem1 });
-            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(75, 20);
-            categoriasToolStripMenuItem.Text = "Categorias";
-            categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
+            competidorToolStripMenuItem1.Name = "competidorToolStripMenuItem1";
+            competidorToolStripMenuItem1.Size = new Size(180, 22);
+            competidorToolStripMenuItem1.Text = "Competidor";
+            competidorToolStripMenuItem1.Click += cadastrarCompetidorToolStripMenuItem_Click;
             // 
-            // cadastrarToolStripMenuItem1
+            // equipeToolStripMenuItem1
             // 
-            cadastrarToolStripMenuItem1.Name = "cadastrarToolStripMenuItem1";
-            cadastrarToolStripMenuItem1.Size = new Size(124, 22);
-            cadastrarToolStripMenuItem1.Text = "Cadastrar";
-            cadastrarToolStripMenuItem1.Click += CadastrarCategoriaToolStripMenuItem_Click;
+            equipeToolStripMenuItem1.Name = "equipeToolStripMenuItem1";
+            equipeToolStripMenuItem1.Size = new Size(180, 22);
+            equipeToolStripMenuItem1.Text = "Equipe";
+            equipeToolStripMenuItem1.Click += cadastrarEquipeTollStripMenuItemClick;
             // 
             // dataGridView
             // 
@@ -267,10 +265,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem equipeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem competidorToolStripMenuItem;
-        private ToolStripMenuItem cadToolStripMenuItem;
         private DataGridView dataGridView;
         private Label labelNomeDaEquipe;
         private FlowLayoutPanel flowLayoutPanel1;
@@ -281,12 +275,16 @@
         private Label labelIdEquipe;
         private Button buttonProx;
         private Button buttonAnterior;
-        private ToolStripMenuItem categoriasToolStripMenuItem;
-        private ToolStripMenuItem cadastrarToolStripMenuItem1;
         private ComboBox comboBoxCategorias;
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel2;
         private Panel panel1;
+        private ToolStripMenuItem cadastrosToolStripMenuItem;
+        private ToolStripMenuItem categoriaToolStripMenuItem;
+        private ToolStripMenuItem competidorToolStripMenuItem1;
+        private ToolStripMenuItem equipeToolStripMenuItem1;
+        private ToolStripMenuItem arquivoToolStripMenuItem;
+        private ToolStripMenuItem sairToolStripMenuItem;
         //private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }

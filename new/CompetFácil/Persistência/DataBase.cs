@@ -1,6 +1,7 @@
 ﻿using CompetFácil.Model;
 using CompetiFácilLaço.Model;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 namespace CompetFácil.Persistência
 {
     internal class DataBase:DbContext

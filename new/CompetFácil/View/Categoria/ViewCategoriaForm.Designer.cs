@@ -32,8 +32,6 @@
             textBoxNomeCategoria = new TextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonCadastrar = new Button();
-            listBoxCategoriasCadastradas = new ListBox();
-            label2 = new Label();
             buttonRemover = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -60,7 +58,7 @@
             flowLayoutPanel1.Controls.Add(buttonRemover);
             flowLayoutPanel1.Location = new Point(47, 98);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(200, 100);
+            flowLayoutPanel1.Size = new Size(164, 35);
             flowLayoutPanel1.TabIndex = 2;
             // 
             // buttonCadastrar
@@ -73,41 +71,21 @@
             buttonCadastrar.UseVisualStyleBackColor = true;
             buttonCadastrar.Click += Cadastrar;
             // 
-            // listBoxCategoriasCadastradas
-            // 
-            listBoxCategoriasCadastradas.FormattingEnabled = true;
-            listBoxCategoriasCadastradas.Location = new Point(329, 53);
-            listBoxCategoriasCadastradas.Name = "listBoxCategoriasCadastradas";
-            listBoxCategoriasCadastradas.Size = new Size(120, 94);
-            listBoxCategoriasCadastradas.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(317, 20);
-            label2.Name = "label2";
-            label2.Size = new Size(131, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Categorias Cadastrados";
-            label2.Click += label2_Click;
-            // 
             // buttonRemover
             // 
             buttonRemover.Location = new Point(84, 3);
             buttonRemover.Name = "buttonRemover";
             buttonRemover.Size = new Size(75, 23);
             buttonRemover.TabIndex = 1;
-            buttonRemover.Text = "Remover";
+            buttonRemover.Text = "Cancelar";
             buttonRemover.UseVisualStyleBackColor = true;
-            buttonRemover.Click += RemoverCategoria;
+            buttonRemover.Click += SairCategoria;
             // 
             // ViewCategoriaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label2);
-            Controls.Add(listBoxCategoriasCadastradas);
+            ClientSize = new Size(260, 133);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(textBoxNomeCategoria);
             Controls.Add(label1);
@@ -124,8 +102,6 @@
         private TextBox textBoxNomeCategoria;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button buttonCadastrar;
-        private ListBox listBoxCategoriasCadastradas;
-        private Label label2;
         private Button buttonRemover;
     }
 }

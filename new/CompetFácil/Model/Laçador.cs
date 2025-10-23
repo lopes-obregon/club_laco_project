@@ -2,11 +2,9 @@
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using CompetFácil.Persistência;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 using CompetFácil.Model;
-using System.Diagnostics.CodeAnalysis;
+using System.IO;
 
 
 namespace CompetiFácilLaço.Model

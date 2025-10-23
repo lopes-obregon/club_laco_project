@@ -16,8 +16,8 @@ namespace CompetiFácilLaço
             //string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
             //irmãoListBox.Items.AddRange(irmãos);
             CategoriaController.LoadCategorias();
-            
-            if (irmãosLaçadores is not null) 
+
+            if (irmãosLaçadores is not null)
                 irmãoListBox.Items.AddRange(irmãosLaçadores.ToArray());
             if (CategoriaController.Categorias is not null)
             {
@@ -57,7 +57,7 @@ namespace CompetiFácilLaço
 
             //le de categoriasListBox
             var categorias = categoriasListBox.Items;
-            
+
             /*
             List<string> categorias = new List<string>();
             foreach (var item in categoriasListBox.Items)
@@ -115,26 +115,26 @@ namespace CompetiFácilLaço
         {
             irmãoListBox.Visible = temIrmãoCheckBox.Checked;
             irmãoListBox.Items.Clear();
-           
+
             var irmãosLaçadores = LaçadorController.GetLaçadores();
             var novosLaçadores = LaçadorController.UniãoLista(irmãosLaçadores);
-            if(irmãosLaçadores is not null)
+            if (irmãosLaçadores is not null)
                 irmãoListBox.Items.AddRange(novosLaçadores.ToArray());
         }
 
         private void categoriasComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var  categoriaSelecionado = categoriasComboBox.SelectedItem;
+            var categoriaSelecionado = categoriasComboBox.SelectedItem;
             categoriasListBox.DisplayMember = "Nome";
-            if(categoriaSelecionado is not null)
+            if (categoriaSelecionado is not null)
                 categoriasListBox.Items.Add(categoriaSelecionado);
         }
         private void categoriaListBox_Remove(object sender, EventArgs e)
         {
             var categoriaSelecionado = categoriasListBox.SelectedItem;
-            
-            categoriasListBox.Items.Remove(categoriasListBox.SelectedItem ??"");
-            if(categoriaSelecionado is not null)
+
+            categoriasListBox.Items.Remove(categoriasListBox.SelectedItem ?? "");
+            if (categoriaSelecionado is not null)
                 MessageBox.Show($"Categoria {categoriaSelecionado.ToString()} removida com sucesso!");
         }
 
@@ -181,10 +181,10 @@ namespace CompetiFácilLaço
                     }
                 }
                 return true;
-               
+
 
             }
-            
+
         }
         private void ConsultarCompetidorButtonClick(object sender, EventArgs e)
         {
@@ -262,7 +262,7 @@ namespace CompetiFácilLaço
                 //nome ok sobrenome ok posição no time
                 if (LaçadorController.AlterarLaçador(laçadoresList, nomeTextBox.Text, sobreNomeTextBox.Text, posição, temIrmãoCheckBox.Checked, irmãoSelecionado, categorias)) { MessageBox.Show("Laçador Atualizado com sucesso!"); }
                 else { MessageBox.Show("Algo deu errado desculpe!"); }
-                
+
             }
         }
 
@@ -306,7 +306,7 @@ namespace CompetiFácilLaço
 
 
                 //primeiro caso se tem irmão 
-               // var laçador = LaçadorController.ConsultarLaçador(nomeTextBox.Text, sobreNomeTextBox.Text);
+                // var laçador = LaçadorController.ConsultarLaçador(nomeTextBox.Text, sobreNomeTextBox.Text);
                 //apagando
                 if (LaçadorController.RemoveLaçador())
                 {
@@ -319,6 +319,11 @@ namespace CompetiFácilLaço
 
 
             }
+        }
+
+        private void fechaRoascaRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using CompetFácil.Controller;
 using CompetFácil.View;
+using CompetFácil.View.Categoria;
 using System.Windows.Forms;
 
 namespace CompetiFácilLaço
@@ -249,6 +250,8 @@ namespace CompetiFácilLaço
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var window = new WindowCategorias();
+            window.ShowDialog();
 
         }
 

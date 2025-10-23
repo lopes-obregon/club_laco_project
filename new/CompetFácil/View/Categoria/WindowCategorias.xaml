@@ -1,0 +1,22 @@
+﻿<Window x:Class="CompetFácil.View.Categoria.WindowCategorias"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompetFácil.View.Categoria"
+        mc:Ignorable="d"
+        Title="Categorias" Height="450" Width="800" >
+    <Grid>
+        <ListBox x:Name="listBoxCategorias" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="237,91,387,10" Background="Gray">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Background" Value="White"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <StackPanel Margin="478,145,198,185" Orientation="Vertical">
+            <Button Content="Novo" Margin="0,0,0,10" Click="FormCadastro"/>
+            <Button Content="Excluir" Margin="0,0,0,10" Click="ExcluirCategoria"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -32,8 +32,6 @@
             label1 = new Label();
             captãoRadioButton = new RadioButton();
             trio1RadioButton = new RadioButton();
-            trio2RadioButton = new RadioButton();
-            trio3RadioButton = new RadioButton();
             fechaRoascaRadioButton = new RadioButton();
             escalaGroupBox1 = new GroupBox();
             cadastrarButton = new Button();
@@ -84,7 +82,7 @@
             // captãoRadioButton
             // 
             captãoRadioButton.AutoSize = true;
-            captãoRadioButton.Location = new Point(54, 47);
+            captãoRadioButton.Location = new Point(24, 22);
             captãoRadioButton.Margin = new Padding(4, 3, 4, 3);
             captãoRadioButton.Name = "captãoRadioButton";
             captãoRadioButton.Size = new Size(63, 19);
@@ -97,43 +95,19 @@
             // trio1RadioButton
             // 
             trio1RadioButton.AutoSize = true;
-            trio1RadioButton.Location = new Point(130, 47);
+            trio1RadioButton.Location = new Point(99, 22);
             trio1RadioButton.Margin = new Padding(4, 3, 4, 3);
             trio1RadioButton.Name = "trio1RadioButton";
-            trio1RadioButton.Size = new Size(56, 19);
+            trio1RadioButton.Size = new Size(45, 19);
             trio1RadioButton.TabIndex = 3;
             trio1RadioButton.TabStop = true;
-            trio1RadioButton.Text = "Trio-1";
+            trio1RadioButton.Text = "Trio";
             trio1RadioButton.UseVisualStyleBackColor = true;
-            // 
-            // trio2RadioButton
-            // 
-            trio2RadioButton.AutoSize = true;
-            trio2RadioButton.Location = new Point(197, 47);
-            trio2RadioButton.Margin = new Padding(4, 3, 4, 3);
-            trio2RadioButton.Name = "trio2RadioButton";
-            trio2RadioButton.Size = new Size(56, 19);
-            trio2RadioButton.TabIndex = 4;
-            trio2RadioButton.TabStop = true;
-            trio2RadioButton.Text = "Trio-2";
-            trio2RadioButton.UseVisualStyleBackColor = true;
-            // 
-            // trio3RadioButton
-            // 
-            trio3RadioButton.AutoSize = true;
-            trio3RadioButton.Location = new Point(54, 74);
-            trio3RadioButton.Margin = new Padding(4, 3, 4, 3);
-            trio3RadioButton.Name = "trio3RadioButton";
-            trio3RadioButton.Size = new Size(56, 19);
-            trio3RadioButton.TabIndex = 5;
-            trio3RadioButton.TabStop = true;
-            trio3RadioButton.Text = "Trio-3";
-            trio3RadioButton.UseVisualStyleBackColor = true;
             // 
             // fechaRoascaRadioButton
             // 
             fechaRoascaRadioButton.AutoSize = true;
-            fechaRoascaRadioButton.Location = new Point(121, 74);
+            fechaRoascaRadioButton.Location = new Point(156, 22);
             fechaRoascaRadioButton.Margin = new Padding(4, 3, 4, 3);
             fechaRoascaRadioButton.Name = "fechaRoascaRadioButton";
             fechaRoascaRadioButton.Size = new Size(90, 19);
@@ -141,19 +115,18 @@
             fechaRoascaRadioButton.TabStop = true;
             fechaRoascaRadioButton.Text = "Fecha Rosca";
             fechaRoascaRadioButton.UseVisualStyleBackColor = true;
+            fechaRoascaRadioButton.CheckedChanged += fechaRoascaRadioButton_CheckedChanged;
             // 
             // escalaGroupBox1
             // 
             escalaGroupBox1.Controls.Add(trio1RadioButton);
             escalaGroupBox1.Controls.Add(fechaRoascaRadioButton);
-            escalaGroupBox1.Controls.Add(trio3RadioButton);
             escalaGroupBox1.Controls.Add(captãoRadioButton);
-            escalaGroupBox1.Controls.Add(trio2RadioButton);
-            escalaGroupBox1.Location = new Point(4, 64);
+            escalaGroupBox1.Location = new Point(4, 58);
             escalaGroupBox1.Margin = new Padding(4, 3, 4, 3);
             escalaGroupBox1.Name = "escalaGroupBox1";
             escalaGroupBox1.Padding = new Padding(4, 3, 4, 3);
-            escalaGroupBox1.Size = new Size(267, 98);
+            escalaGroupBox1.Size = new Size(267, 97);
             escalaGroupBox1.TabIndex = 8;
             escalaGroupBox1.TabStop = false;
             escalaGroupBox1.Text = "Posição";
@@ -176,16 +149,16 @@
             temIrmãoCheckBox.Location = new Point(4, 3);
             temIrmãoCheckBox.Margin = new Padding(4, 3, 4, 3);
             temIrmãoCheckBox.Name = "temIrmãoCheckBox";
-            temIrmãoCheckBox.Size = new Size(83, 19);
+            temIrmãoCheckBox.Size = new Size(57, 19);
             temIrmãoCheckBox.TabIndex = 10;
-            temIrmãoCheckBox.Text = "Tem Irmão";
+            temIrmãoCheckBox.Text = "Irmão";
             temIrmãoCheckBox.UseVisualStyleBackColor = true;
             temIrmãoCheckBox.CheckedChanged += temIrmãoCheckBox_CheckedChanged;
             // 
             // irmãoListBox
             // 
             irmãoListBox.FormattingEnabled = true;
-            irmãoListBox.Location = new Point(148, 3);
+            irmãoListBox.Location = new Point(172, 3);
             irmãoListBox.Margin = new Padding(4, 3, 4, 3);
             irmãoListBox.Name = "irmãoListBox";
             irmãoListBox.Size = new Size(137, 109);
@@ -247,7 +220,7 @@
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 34.61538F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 65.38461F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 128F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 146F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 153F));
             tableLayoutPanel1.Size = new Size(344, 458);
             tableLayoutPanel1.TabIndex = 16;
@@ -277,12 +250,12 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(temIrmãoCheckBox, 0, 0);
             tableLayoutPanel3.Controls.Add(irmãoListBox, 1, 0);
-            tableLayoutPanel3.Location = new Point(4, 179);
+            tableLayoutPanel3.Location = new Point(4, 161);
             tableLayoutPanel3.Margin = new Padding(4, 3, 4, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(289, 120);
+            tableLayoutPanel3.Size = new Size(336, 120);
             tableLayoutPanel3.TabIndex = 17;
             // 
             // tableLayoutPanel2
@@ -300,13 +273,13 @@
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(267, 55);
+            tableLayoutPanel2.Size = new Size(267, 49);
             tableLayoutPanel2.TabIndex = 17;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(4, 35);
+            label4.Location = new Point(4, 29);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(73, 15);
@@ -316,7 +289,7 @@
             // 
             // sobreNomeTextBox
             // 
-            sobreNomeTextBox.Location = new Point(156, 38);
+            sobreNomeTextBox.Location = new Point(156, 32);
             sobreNomeTextBox.Margin = new Padding(4, 3, 4, 3);
             sobreNomeTextBox.Name = "sobreNomeTextBox";
             sobreNomeTextBox.Size = new Size(107, 23);
@@ -405,8 +378,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton captãoRadioButton;
         private System.Windows.Forms.RadioButton trio1RadioButton;
-        private System.Windows.Forms.RadioButton trio2RadioButton;
-        private System.Windows.Forms.RadioButton trio3RadioButton;
         private System.Windows.Forms.RadioButton fechaRoascaRadioButton;
         private System.Windows.Forms.GroupBox escalaGroupBox1;
         private System.Windows.Forms.Button cadastrarButton;
