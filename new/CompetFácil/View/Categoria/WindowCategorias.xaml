@@ -18,5 +18,6 @@
             <Button Content="Novo" Margin="0,0,0,10" Click="FormCadastro"/>
             <Button Content="Excluir" Margin="0,0,0,10" Click="ExcluirCategoria"/>
         </StackPanel>
+        <Label Content="Categorias Cadastradas" HorizontalAlignment="Left" Margin="251,48,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

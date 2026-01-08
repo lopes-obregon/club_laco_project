@@ -1,6 +1,7 @@
 ﻿using CompetFácil.Controller;
 using CompetFácil.View;
 using CompetFácil.View.Categoria;
+using CompetFácil.View.Equipe;
 using System.Windows.Forms;
 
 namespace CompetiFácilLaço
@@ -30,8 +31,8 @@ namespace CompetiFácilLaço
         }
         private void cadastrarEquipeTollStripMenuItemClick(object sender, EventArgs e)
         {
-            ViewEquipeForm equipeForm = new ViewEquipeForm();
-            equipeForm.Show();
+            WindowEquipeCadastrados window = new WindowEquipeCadastrados();
+            window.ShowDialog();
         }
         private void Init()
         {

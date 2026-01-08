@@ -119,13 +119,17 @@ namespace CompetFácil.Model
 
                 }
                 //ENTÃO TEMOS QUE ALTERAR OS COMPETIDORES 
-                foreach(Laçador la in laçadorNãoRemovido)
+                var equipeDb = dados.Equipes.FirstOrDefault(eq => eq.Id == this.Id);
+                if (equipeDb is not null)
                 {
-                    var laçadorBuscado = dados.Laçadores.FirstOrDefault(ldb => ldb.Id == la.Id);
-                    if(laçadorBuscado is not null && la.Equipe is not null)
+                    foreach (Laçador la in laçadorNãoRemovido)
                     {
-                        la.Equipe = this;
-                        laçadorBuscado.Equipe = this;
+                        var laçadorBuscado = dados.Laçadores.FirstOrDefault(ldb => ldb.Id == la.Id);
+                        if (laçadorBuscado is not null && la.Equipe is not null)
+                        {
+                            la.Equipe = equipeDb;
+                            laçadorBuscado.Equipe = equipeDb;
+                        }
                     }
                 }
                 //dados.Equipes.Update(this);
@@ -229,6 +233,24 @@ namespace CompetFácil.Model
                 save = Laçador.SavePnt(la);
             }
             return save;
+        }
+
+        internal static Equipe? GetEquipe(Equipe? equipeSelecionado)
+        {
+            using DataBase db = new DataBase();
+            Equipe? equipe = null;
+            try
+            {
+                if (equipeSelecionado is not null)
+                {
+                    var equipeDb = db.Equipes.Include(eq => eq.Laçadores).FirstOrDefault(eq => eq.Id == equipeSelecionado.Id);
+                    if (equipeDb is not null)
+                        equipe = equipeDb;
+
+                }
+                return equipe;
+            }
+            catch { return equipe; }
         }
     }
 }

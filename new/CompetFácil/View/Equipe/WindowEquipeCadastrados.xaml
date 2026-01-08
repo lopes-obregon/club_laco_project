@@ -1,0 +1,26 @@
+﻿<Window x:Class="CompetFácil.View.Equipe.WindowEquipeCadastrados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompetFácil.View.Equipe"
+        mc:Ignorable="d"
+        Title="Equipe Cadastrados" Height="378" Width="311">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="ListViewEquipeCadastrados">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nome" DisplayMemberBinding="{Binding NomeEquipe}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Column="1">
+            <Button Content="Nova" Click="CadastrarEquipe"/>
+            <Button Content="Atualizar" Click="AtualizarEquipe"/>
+        </StackPanel>
+    </Grid>
+</Window>

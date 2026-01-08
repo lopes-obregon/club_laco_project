@@ -186,5 +186,14 @@ namespace CompetFácil.Controller
             else if (equipes is not null && indexEquipes == 0)
                 indexEquipes = 0;
         }
+
+        internal static void LoadEquipe(object? equipeSelecionadoUi)
+        {
+            if(equipeSelecionadoUi is not null)
+            {
+                Equipe equipeSelecionado = equipeSelecionadoUi as Equipe;
+                equipe = Equipe.GetEquipe(equipeSelecionado); 
+            }
+        }
     }
 }

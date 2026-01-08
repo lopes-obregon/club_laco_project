@@ -19,6 +19,19 @@ namespace CompetFácil.View
             
 
         }
+        public ViewCategoriaForm(object ? equipeSelecionadaUi)
+        {
+            InitializeComponent();
+            Init(equipeSelecionadaUi);
+            
+
+        }
+
+        private void Init(object? equipeSelecionadaUi)
+        {
+            throw new NotImplementedException();
+        }
+
         // string[] categorias = { "Individual", "Pai e Filho", "Pai e Filho Mirim", "Casal Laçador", "Dupla de Irmão", "Pai e Filho Bandeira", "Avó e Neto", "Bandeira", "Mirim", "Amazonas Mirim" };
         private void Cadastrar(object sender, EventArgs e)
         {
