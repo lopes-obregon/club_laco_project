@@ -252,5 +252,21 @@ namespace CompetFácil.Model
             }
             catch { return equipe; }
         }
+
+        internal static bool remove(Equipe equipeUi)
+        {
+            bool sucess = false;
+            using (var db = new DataBase())
+            {
+                var equipeDb = db.Equipes.Include(eq => eq.Laçadores).FirstOrDefault(eq => eq.Id == equipeUi.Id);
+                if (equipeDb is not null)
+                {
+                    db.Equipes.Remove(equipeDb);
+                    db.SaveChanges();
+                    sucess = true;
+                }
+            }
+            return sucess;
+        }
     }
 }

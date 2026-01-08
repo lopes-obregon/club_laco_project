@@ -19,8 +19,9 @@
             </ListView.View>
         </ListView>
         <StackPanel Grid.Column="1">
-            <Button Content="Nova" Click="CadastrarEquipe"/>
-            <Button Content="Atualizar" Click="AtualizarEquipe"/>
+            <Button Content="Nova" Click="CadastrarEquipe" Margin="0,10,0,10"/>
+            <Button Content="Atualizar" Click="AtualizarEquipe" Margin="0,0,0,10"/>
+            <Button Content="Remover" Click="RemoverEquipe"/>
         </StackPanel>
     </Grid>
 </Window>

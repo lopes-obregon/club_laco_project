@@ -43,5 +43,27 @@ namespace CompetFácil.View.Equipe
                 System.Windows.MessageBox.Show("Selecione Uma Equipe Válida!");
             }
         }
+
+        private void RemoverEquipe(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBoxResult result =  System.Windows.MessageBox.Show("Deseja realmente remover ?", "Confirmação", MessageBoxButton.YesNo);
+            bool sucess = false;
+            if (result == MessageBoxResult.Yes) {
+                var equipeToRemoveUi = ListViewEquipeCadastrados.SelectedItem;
+                if (equipeToRemoveUi != null)
+                {
+                    sucess = EquipeController.Remover(equipeToRemoveUi);
+                }
+                if (sucess)
+                {
+                    System.Windows.MessageBox.Show("Equipe Removido com sucesso!");
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Algo deu errado para remover a equipe!");
+                }
+            
+            }
+        }
     }
 }

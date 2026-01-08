@@ -195,5 +195,24 @@ namespace CompetFácil.Controller
                 equipe = Equipe.GetEquipe(equipeSelecionado); 
             }
         }
+
+        internal static bool Remover(object equipeToRemoveUi)
+        {
+            Equipe equipeUi = (Equipe)equipeToRemoveUi;
+            bool sucess = false;
+            if(equipe is not null)
+            {
+                if(equipeUi.Id == equipe.Id)
+                {
+                     sucess = Equipe.remove(equipe);
+                }
+
+            }
+            else
+            {
+                sucess = Equipe.remove(equipeUi);
+            }
+            return sucess;
+        }
     }
 }
